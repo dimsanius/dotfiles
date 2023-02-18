@@ -6,5 +6,5 @@ if [ ! "$(code --version)" ]; then
 fi
 
 mkdir -p ~/.misc
-git clone -q https://github.com/dimsanius/dotfiles ~/.misc/dotfiles
-~/.misc/dotfiles/main.sh
+git clone -q https://github.com/dimsanius/dotfiles ~/.misc/dotfiles/vscode-extensions
+~/.misc/dotfiles/vscode-extensions/main.sh
