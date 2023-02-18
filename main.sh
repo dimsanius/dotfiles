@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+code --install-extension aaron-bond.better-comments
+code --install-extension alefragnani.project-manager
+code --install-extension coolbear.systemd-unit-file
+code --install-extension cschlosser.doxdocgen
+code --install-extension donjayamanne.githistory
+code --install-extension eamodio.gitlens
+code --install-extension Gruntfuggly.todo-tree
+code --install-extension hnw.vscode-auto-open-markdown-preview
+code --install-extension johnpapa.vscode-peacock
+code --install-extension josetr.cmake-language-support-vscode
+code --install-extension llldar.vsc-memer
+code --install-extension mechatroner.rainbow-csv
+code --install-extension ms-dotnettools.vscode-dotnet-runtime
+code --install-extension ms-python.isort
+code --install-extension ms-python.pylint
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-toolsai.jupyter
+code --install-extension ms-toolsai.jupyter-keymap
+code --install-extension ms-toolsai.jupyter-renderers
+code --install-extension ms-toolsai.vscode-jupyter-cell-tags
+code --install-extension ms-toolsai.vscode-jupyter-slideshow
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-ssh-edit
+code --install-extension ms-vscode.cpptools
+code --install-extension ms-vscode.hexeditor
+code --install-extension ms-vscode.remote-explorer
+code --install-extension oderwat.indent-rainbow
+code --install-extension redhat.vscode-yaml
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension wayou.vscode-todo-highlight
