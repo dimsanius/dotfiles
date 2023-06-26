@@ -22,7 +22,6 @@ fi
 PROJ_DIR=$(cd $(dirname "${0}") && pwd)
 
 FILES=(
-    "gitconfig"
     "terminator"
     "vimrc"
     "zshrc"
@@ -30,7 +29,6 @@ FILES=(
 )
 
 PATHS=(
-    "${HOME}/.gitconfig"
     "${HOME}/.config/terminator/config"
     "${HOME}/.vimrc"
     "${HOME}/.zshrc"
