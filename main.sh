@@ -108,7 +108,7 @@ if [ "$INSTALL" ]; then
         autoSetupRemote = true
     [fetch]
         prune = true
-    EOM
+EOM
 fi
 
 if [ "$INSTALL_PROGRAMS" ] && [ "$INSTALL" ]; then
