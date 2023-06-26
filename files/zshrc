@@ -13,6 +13,8 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  colored-man-pages
+  sudo
   )
 
 source $ZSH/oh-my-zsh.sh
