@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-if [ ! "$(code --version)" ]; then
-    echo "VSCode not installed, exiting..."
+if [ ! "$(which git)" ]; then
+    echo "git not installed, exiting..."
     exit 1
 fi
 
 mkdir -p ~/.misc
-git clone -q https://github.com/dimsanius/dotfiles ~/.misc/dotfiles/vscode-extensions
-~/.misc/dotfiles/vscode-extensions/main.sh
+git clone -q https://github.com/dimsanius/dotfiles.git ~/.misc/dotfiles
+~/.misc/dotfiles/main.sh -ipv
