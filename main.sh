@@ -94,8 +94,8 @@ if [ "$INSTALL" ]; then
         ln -s "${PROJ_DIR}/files/${FILES[$INDEX]}" "${PATHS[$INDEX]}"
     done
 
-    read "Enter git email: " input_email
-    read "Enter git name: " input_name
+    read "Enter git email: " $input_email
+    read "Enter git name: " $input_name
 
     cat > ~/.gitconfig <<- EOM
     [user]
