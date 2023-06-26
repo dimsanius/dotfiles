@@ -95,18 +95,18 @@ if [ "$INSTALL" ]; then
     read -p "Enter git email: " input_email
     read -p "Enter git name: " input_name
 
-    cat > ~/.gitconfig <<- EOM
-    [user]
-	email = $input_email
-	name = $input_name
-    [alias]
-        lo = log --all --branches --tags --remotes --decorate --graph --oneline --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-        subupdate = submodule foreach git pull origin master
-    [push]
-        autoSetupRemote = true
-    [fetch]
-        prune = true
-EOM
+    cat > ~/.gitconfig <<- EOF
+[user]
+email = $input_email
+name = $input_name
+[alias]
+    lo = log --all --branches --tags --remotes --decorate --graph --oneline --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    subupdate = submodule foreach git pull origin master
+[push]
+    autoSetupRemote = true
+[fetch]
+    prune = true
+EOF
 fi
 
 if [ "$INSTALL_PROGRAMS" ] && [ "$INSTALL" ]; then
