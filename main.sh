@@ -71,6 +71,12 @@ if [ "$INSTALL_PROGRAMS" ]; then
     say "installing zsh-autosuggestions"
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions > /dev/null 2>&1
 
+    say "installing zsh-auto-notify"
+    git clone https://github.com/MichaelAquilina/zsh-auto-notify.git ~/.oh-my-zsh/custom/plugins/auto-notify > /dev/null 2>&1
+
+    say "installing zsh-you-should-use"
+    git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.oh-my-zsh/custom/plugins/you-should-use > /dev/null 2>&1
+
     say "installing powerlevel10k"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k > /dev/null 2>&1
 

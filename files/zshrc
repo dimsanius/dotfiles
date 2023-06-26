@@ -15,6 +15,9 @@ plugins=(
   zsh-autosuggestions
   colored-man-pages
   sudo
+  web-search
+  auto-notify
+  you-should-use
   )
 
 source $ZSH/oh-my-zsh.sh
