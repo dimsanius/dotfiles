@@ -93,5 +93,18 @@ say "installing vim plugins"
 # -e -s allow to start vim fully silently
 vim -u ~/.vimrc -e -s +PlugInstall +qall
 
+
+read -p "Enter git name (e.g. John Johnson): " input_name
+read -p "Enter git email (e.g. john@gmail.com): " input_email
+
+cat > ~/.gituser <<- EOF
+# This file must include global user section only.
+# Rest of the config can be found at ~/.gitconfig
+[user]
+    name = $input_name
+    email = $input_email
+EOF
+fi
+
 say "restart terminal for changes to take effect"
 say "on next terminal launch, wait for gitstatusd to finish installation"
