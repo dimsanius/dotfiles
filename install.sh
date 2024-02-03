@@ -14,4 +14,10 @@ fi
 ssh-keyscan -H github.com >>~/.ssh/known_hosts 2>/dev/null
 
 git clone -q git@github.com:dimsanius/dotfiles.git ~/.dotfiles
+
+if [ $$? -ne 0 ]; then
+    echo "Git clone failed. Please check your SSH keys."
+    exit 1
+fi
+
 ~/.dotfiles/main.sh -v
