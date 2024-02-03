@@ -48,8 +48,10 @@ sudo apt install curl zsh vim terminator \
 
 say "installing oh-my-zsh"
 # Preventing ZSH from autostarting and hijacking current terminal session after install
+# More available at: https://github.com/ohmyzsh/ohmyzsh/blob/36f444ed7325720ec05f182781ec7d6c9a4d675c/tools/install.sh#L26
 RUNZSH="no" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Remove the annoying .zshrc file as it will be symlinked anyway
 rm ~/.zshrc
 
 say "installing zsh-syntax-highlighting"
@@ -74,7 +76,10 @@ say "installing vim-plug"
 curl -sfLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-cd ~/.dotfiles
+
+# CD into a directory in case script was run via install.sh
+SCRIPT_PATH="$(dirname "$(realpath "$0")")"
+cd $SCRIPT_PATH
 
 say "symlinking files"
 stow -t ~ files -R
