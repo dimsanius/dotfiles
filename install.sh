@@ -6,4 +6,4 @@ if [ ! "$(which git)" ]; then
 fi
 
 git clone -q https://github.com/dimsanius/dotfiles.git ~/.dotfiles
-~/.dotfiles/main.sh -ipv
+~/.dotfiles/main.sh
