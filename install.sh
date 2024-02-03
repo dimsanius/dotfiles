@@ -7,7 +7,7 @@ fi
 
 if [ ! "$(which git)" ]; then
     echo "==> Git not found. Installing git..."
-    sudo apt install git
+    sudo apt install git -y
 fi
 
 git clone -q git@github.com:dimsanius/dotfiles.git ~/.dotfiles
