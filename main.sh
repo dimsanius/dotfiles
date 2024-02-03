@@ -109,8 +109,8 @@ if [ "$INSTALL" ]; then
 
     cat > ~/.gitconfig <<- EOF
 [user]
-email = $input_email
-name = $input_name
+    email = $input_email
+    name = $input_name
 [alias]
     lo = log --all --branches --tags --remotes --decorate --graph --oneline --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     subupdate = submodule foreach git pull origin master
