@@ -102,7 +102,7 @@ while true
 do
 read -p "Enter git name (e.g. John Johnson): " input_name
 
-if [[ $input_name =~ "^[a-zA-Z-]+( [a-zA-Z-]+)*$" ]]; then
+if [[ $input_name =~ ^[a-zA-Z-]+( [a-zA-Z-]+)*$ ]]; then
     # Correct name format
     break
 else
@@ -114,7 +114,7 @@ while true
 do
 
 read -p "Enter git email (e.g. john@gmail.com): " input_email
-if [[ $input_email =~ "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ]]; then
+if [[ $input_email =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
     # Correct email format
     break
 else
