@@ -54,3 +54,5 @@ stow -t ~ files -R
 - Regex for git user and email
 - SSH key check - create prompt to continue via HTTPS
 - Silence GitHub key acquisition (hmm, maybe?)
+- Try to split setup for headlesss distros
+- Introduce --update command to update symlinks
