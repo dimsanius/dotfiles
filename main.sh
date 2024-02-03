@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Make script terminate on error
-# set -e
-
 # Function to show help message
 show_help() {
     cat <<EOF
@@ -44,8 +41,6 @@ while (("$#")); do
     esac
 done
 
-
-
 say "installing apt packages"
 sudo apt install curl zsh vim terminator \
     gnome-shell-extensions gnome-tweaks \
@@ -77,12 +72,11 @@ git clone --depth=1 https://github.com/zsh-users/zsh-completions.git ~/.oh-my-zs
 say "installing powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k >/dev/null 2>&1
 
-say "installing dotfiles"
+say "symlinking files"
 stow -t ~ files -R
 
 say "clearing font cache"
 fc-cache -f -v >/dev/null 2>&1
-
 
 # Since vim addons require both - dotfiles and the vim package itself - depend on both
 say "installing vim plugins"
@@ -92,4 +86,3 @@ vim -u ~/.vimrc -e -s +PlugInstall +qall
 
 say "restart terminal for changes to take effect"
 say "on next terminal launch, wait for gitstatusd to finish installation"
-
