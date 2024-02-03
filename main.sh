@@ -42,14 +42,14 @@ while (("$#")); do
 done
 
 say "installing apt packages"
-sudo apt install curl zsh vim terminator \
+sudo apt install -y curl zsh vim terminator \
     gnome-shell-extensions gnome-tweaks \
     neofetch htop stow
 
 say "installing oh-my-zsh"
 # Preventing ZSH from autostarting and hijacking current terminal session after install
 # More available at: https://github.com/ohmyzsh/ohmyzsh/blob/36f444ed7325720ec05f182781ec7d6c9a4d675c/tools/install.sh#L26
-RUNZSH="no" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH="no" CHSH="no" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Remove the annoying .zshrc file as it will be symlinked anyway
 rm ~/.zshrc
