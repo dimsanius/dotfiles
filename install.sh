@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Dummy sudo command to (maybe) allow executing sudo later
+sudo test 1
+
 if [ ! "$(which git)" ]; then
     echo "==> Git not found. Installing git..."
     sudo apt install git -y
