@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 if [ ! "$(which git)" ]; then
-    echo "git not installed, exiting..."
+    echo "git is not installed. Please install git using your distro's package manager. Exitting."
     exit 1
 fi
 
