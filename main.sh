@@ -88,7 +88,8 @@ say "clearing font cache"
 fc-cache -f -v >/dev/null 2>&1
 
 say "changing default shell to zsh"
-sudo chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
+
 
 # Since vim addons require both - dotfiles and the vim package itself - depend on both
 say "installing vim plugins"
