@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [ ! "$(which git)" ]; then
+    echo "==> Git not found. Installing git..."
     sudo apt install git
 fi
 
