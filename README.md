@@ -2,7 +2,7 @@
 
 Installs environment (e.g. dotfiles, packages, fonts etc.) for the system.
 
-## Dependecies
+## Requirements
 
 One of the following:
 
