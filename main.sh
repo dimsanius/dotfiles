@@ -48,7 +48,9 @@ sudo apt install curl zsh vim terminator \
 
 say "installing oh-my-zsh"
 # Preventing ZSH from autostarting and hijacking current terminal session after install
-RUNZSH="no" KEEP_ZSHRC="yes" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH="no" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+rm ~/.zshrc
 
 say "installing zsh-syntax-highlighting"
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting >/dev/null 2>&1
