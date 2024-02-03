@@ -44,7 +44,7 @@ done
 say "installing apt packages"
 sudo apt install -y curl zsh vim terminator \
     gnome-shell-extensions gnome-tweaks \
-    neofetch htop stow
+    neofetch htop stow jq
 
 say "installing oh-my-zsh"
 # Preventing ZSH from autostarting and hijacking current terminal session after install
@@ -98,8 +98,30 @@ say "installing vim plugins"
 vim -u ~/.vimrc -e -s +PlugInstall +qall
 
 
+while true
+do
 read -p "Enter git name (e.g. John Johnson): " input_name
+
+if [[ $input_name =~ "^[a-zA-Z-]+( [a-zA-Z-]+)*$" ]]; then
+    # Correct name format
+    break
+else
+    echo "Incorrect name format. Please try again."
+fi
+done
+
+while true
+do
+
 read -p "Enter git email (e.g. john@gmail.com): " input_email
+if [[ $input_email =~ "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ]]; then
+    # Correct email format
+    break
+else
+    echo "Incorrect name format. Please try again."
+fi
+
+done
 
 cat > ~/.gituser <<- EOF
 # This file must include global user section only.
