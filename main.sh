@@ -104,7 +104,6 @@ cat > ~/.gituser <<- EOF
     name = $input_name
     email = $input_email
 EOF
-fi
 
 say "restart terminal for changes to take effect"
 say "on next terminal launch, wait for gitstatusd to finish installation"
