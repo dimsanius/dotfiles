@@ -16,4 +16,4 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-sudo ~/.dotfiles/main.sh -v
+~/.dotfiles/main.sh -v
