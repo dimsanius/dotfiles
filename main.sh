@@ -51,6 +51,9 @@ say "installing oh-my-zsh"
 # More available at: https://github.com/ohmyzsh/ohmyzsh/blob/36f444ed7325720ec05f182781ec7d6c9a4d675c/tools/install.sh#L26
 RUNZSH="no" CHSH="no" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Removing pesky default zshrc
+rm ~/.zshrc
+
 say "installing zsh-syntax-highlighting"
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting >/dev/null 2>&1
 
