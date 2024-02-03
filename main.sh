@@ -73,6 +73,7 @@ curl -sfLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+echo $SCRIPT_DIR
 say "symlinking files"
 stow -t ~ $SCRIPT_DIR/files -R
 
