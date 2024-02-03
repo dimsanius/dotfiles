@@ -102,7 +102,7 @@ while true
 do
 read -p "Enter git name (e.g. John Johnson): " input_name
 
-if [[ $input_name =~ ^[a-zA-Z-]+( [a-zA-Z-]+)*$ ]]; then
+if [[ $input_name =~ ^[a-zA-Z-]+( [a-zA-Z-]+)+$ ]]; then
     # Correct name format
     break
 else
