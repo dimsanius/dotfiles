@@ -82,7 +82,7 @@ SCRIPT_PATH="$(dirname "$(realpath "$0")")"
 cd $SCRIPT_PATH
 
 say "symlinking files"
-stow -t ~ files -R
+stow files
 
 say "clearing font cache"
 fc-cache -f -v >/dev/null 2>&1
