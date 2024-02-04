@@ -44,7 +44,7 @@ done
 say "installing apt packages"
 sudo apt install -y curl zsh vim terminator \
     gnome-shell-extensions gnome-tweaks \
-    neofetch htop stow jq
+    neofetch htop stow jq tree
 
 say "installing oh-my-zsh"
 # Preventing ZSH from autostarting and hijacking current terminal session after install
