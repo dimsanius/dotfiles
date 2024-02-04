@@ -49,10 +49,6 @@ stow -t ~ files -R
 
 ## TODO
 
-- Try to make install fully unattended
-- Execute the script with sudo to avoid typing password many times
-- Regex for git user and email
-- SSH key check - create prompt to continue via HTTPS
-- Silence GitHub key acquisition (hmm, maybe?)
 - Try to split setup for headlesss distros
 - Introduce --update command to update symlinks
+- Update p10k.zsh (run `p10k configure` to generate a new file)
