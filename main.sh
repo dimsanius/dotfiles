@@ -90,8 +90,6 @@ fc-cache -f -v >/dev/null 2>&1
 say "changing default shell to zsh"
 sudo chsh -s $(which zsh) $USER
 
-
-# Since vim addons require both - dotfiles and the vim package itself - depend on both
 say "installing vim plugins"
 # `vimrc` has to be specified as it is run from shell
 # -e -s allow to start vim fully silently
@@ -100,27 +98,25 @@ vim -u ~/.vimrc -e -s +PlugInstall +qall
 
 while true
 do
-read -p "Enter git name (e.g. John Johnson): " input_name
+    read -p "Enter git name (e.g. John Johnson): " input_name
 
-if [[ $input_name =~ ^[a-zA-Z-]+( [a-zA-Z-]+)+$ ]]; then
-    # Correct name format
-    break
-else
-    echo "Incorrect name format. Please try again."
-fi
+    if [[ $input_name =~ ^[a-zA-Z-]+( [a-zA-Z-]+)+$ ]]; then
+        # Correct name format
+        break
+    else
+        echo "Incorrect name format. Please try again."
+    fi
 done
 
 while true
 do
-
-read -p "Enter git email (e.g. john@gmail.com): " input_email
-if [[ $input_email =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
-    # Correct email format
-    break
-else
-    echo "Incorrect name format. Please try again."
-fi
-
+    read -p "Enter git email (e.g. john@gmail.com): " input_email
+    if [[ $input_email =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
+        # Correct email format
+        break
+    else
+        echo "Incorrect name format. Please try again."
+    fi
 done
 
 cat > ~/.gituser <<- EOF
