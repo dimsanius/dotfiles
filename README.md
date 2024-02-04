@@ -46,7 +46,7 @@ This will add symlinks to the new files (if any) created within `~/.dotfiles/fil
 stow files
 ```
 
-## Removing/updating symlinks
+## Remove symlinks
 
 _Assuming that this repo was installed via `install.sh`._
 
@@ -57,7 +57,8 @@ _Assuming that this repo was installed via `install.sh`._
 stow -D files
 ```
 
-- At this stage, there will be no more symlinks. However, if required, let `stow` re-create the symlinks to updated file tree:
+- If required - delete or add files from/to `~/.dotfiles/files`
+- To recommission symlinks:
 
 ```shell
 stow files
