@@ -15,7 +15,7 @@ ssh-keyscan -H github.com >>~/.ssh/known_hosts 2>/dev/null
 git clone git@github.com:dimsanius/dotfiles.git ~/.dotfiles
 
 if [ $? -ne 0 ]; then
-    echo "Git clone failed. Please check your SSH keys."
+    echo "ERROR: Failed to clone a repo. Please check your SSH keys. Aborting."
     exit 1
 fi
 
