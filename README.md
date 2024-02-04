@@ -36,14 +36,8 @@ sh -c "$(fetch -o - https://raw.githubusercontent.com/dimsanius/dotfiles/master/
 
 Assuming that this repo was installed via `install.sh`:
 
-- Install `stow` if does not exist:
-
-```shell
-sudo apt install stow
-```
-
-- Ensure to put updated files and/or dotfiles within `~/.dotfiles/files`
-- Navigate to the repo: `cd ~/dotfiles`
+- Ensure to put updated/new files and/or dotfiles within `~/.dotfiles/files`
+- (!!!) Navigate to the repo: `cd ~/dotfiles`
 - Update symlinks:
 
 ```shell
@@ -55,6 +49,6 @@ stow -t ~ files -R
 
 ## TODO
 
-- Try to split setup for headlesss distros
+- Try to split setup for headless distros
 - Introduce --update command to update symlinks
 - Update p10k.zsh (run `p10k configure` to generate a new file)
