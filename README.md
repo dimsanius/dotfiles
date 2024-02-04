@@ -58,7 +58,7 @@ stow -D files
 ```
 
 - If required - delete or add files from/to `~/.dotfiles/files`
-- To recommission symlinks:
+- If required - recommission symlinks:
 
 ```shell
 stow files
