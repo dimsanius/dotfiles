@@ -120,8 +120,8 @@ do
 done
 
 cat > ~/.gituser <<- EOF
-# This file must include global user section only.
-# Rest of the config can be found at ~/.gitconfig
+# This file must include only global user section.
+# Rest of the config should be found at ~/.gitconfig
 [user]
     name = $input_name
     email = $input_email
