@@ -10,9 +10,13 @@ One of the following:
 - `wget`
 - `fetch`
 
+## Strategy
+
+Try to avoid adding new dotfiles to `HOME` directly anymore. Instead, try adding dotfiles to `~/.dotfiles/files` and let `stow` handle the rest (e.g. symlinking). This will allow to version control the dotfiles making them so much more portable.
+
 ## Install
 
-Automatic installation on a fresh system is available via:
+Automatic installation is available via:
 
 - `curl`:
 
@@ -34,7 +38,7 @@ sh -c "$(fetch -o - https://raw.githubusercontent.com/dimsanius/dotfiles/master/
 
 ## Adding symlinks
 
-_Assuming that this repo was installed via `install.sh`._
+_Assuming that this repo was installed via one of the commands above._
 
 This will add symlinks to the new files (if any) created within `~/.dotfiles/files`:
 
@@ -48,7 +52,7 @@ stow files
 
 ## Remove symlinks
 
-_Assuming that this repo was installed via `install.sh`._
+_Assuming that this repo was installed via one of the commands above._
 
 - (!!!) Navigate to the repo: `cd ~/.dotfiles`
 - Let `stow` remove current symlinks:
