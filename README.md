@@ -36,6 +36,12 @@ sh -c "$(fetch -o - https://raw.githubusercontent.com/dimsanius/dotfiles/master/
 
 Assuming that this repo was installed via `install.sh`:
 
+- Install `stow` if does not exist:
+
+```shell
+sudo apt install stow
+```
+
 - Ensure to put updated files and/or dotfiles within `~/.dotfiles/files`
 - Navigate to the repo: `cd ~/dotfiles`
 - Update symlinks:
