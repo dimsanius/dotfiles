@@ -1,0 +1,47 @@
+- name: Installing packages
+  hosts: localhost
+  become: true
+  connection: local
+  gather_facts: true
+  tasks:
+  - name: Installing curl
+    ansible.builtin.package:
+      name: curl
+      state: present
+  - name: Installing zsh
+    ansible.builtin.package:
+      name: zsh
+      state: present
+  - name: Installing vim
+    ansible.builtin.package:
+      name: vim
+      state: present
+  - name: Installing neofetch
+    ansible.builtin.package:
+      name: neofetch
+      state: present
+  - name: Installing htop
+    ansible.builtin.package:
+      name: htop
+      state: present
+  - name: Installing jq
+    ansible.builtin.package:
+      name: jq
+      state: present
+  - name: Installing tree
+    ansible.builtin.package:
+      name: tree
+      state: present
+  # Below are packages for non-headless installs
+  - name: Installing terminator
+    ansible.builtin.package:
+      name: terminator
+      state: present
+  - name: Installing gnome-shell-extensions
+    ansible.builtin.package:
+      name: gnome-shell-extensions
+      state: present
+  - name: Installing gnome-tweaks
+    ansible.builtin.package:
+      name: gnome-tweaks
+      state: present
