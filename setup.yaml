@@ -6,6 +6,7 @@
 # - Activate venv: source ~/.machine-setup/.venv/bin/activate
 # - Install ansible: pip install ansible
 # - Run current scipt: ansible-playbook ./setup.yaml --ask-become-pass
+# - For dev: install ansible-lint: pip install ansible-lint
 - name: Machine setup
   hosts: localhost
   connection: local
