@@ -1,4 +1,4 @@
-# To run: ansible-playbook ./packages.yaml --ask-become-pass
+# To run: ansible-playbook ./setup.yaml --ask-become-pass
 - name: Machine setup
   hosts: localhost
   connection: local
@@ -105,3 +105,7 @@
     
     - name: Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
+
+    # TODO: consider installing chezmoi via ansible. Chezmoi guides: https://www.chezmoi.io/
+    # TODO: consider installing VS Code, Brave etc
+    # TODO: remember to install vim plugins
