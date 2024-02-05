@@ -12,7 +12,7 @@
   gather_facts: true
 
   tasks:
-    - name: Getting current user
+    - name: Gathering current user facts
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_user_id }}"
 
