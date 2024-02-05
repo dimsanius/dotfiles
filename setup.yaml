@@ -1,4 +1,11 @@
-# To run: ansible-playbook ./setup.yaml --ask-become-pass
+# Dependencies:
+# - python3-venv
+# Getting started:
+# - Install python3-venv
+# - Create venv: python3 -m venv ~/.machine-setup/.venv --upgrade-deps (>= Python 3.9)
+# - Activate venv: source ~/.machine-setup/.venv/bin/activate
+# - Install ansible: pip install ansible
+# - Run current scipt: ansible-playbook ./setup.yaml --ask-become-pass
 - name: Machine setup
   hosts: localhost
   connection: local
