@@ -7,8 +7,8 @@ install_on_fedora() {
 
 install_on_ubuntu() {
     # Installing python3-venv package on ubuntu
-    sudo apt-get update
-    sudo apt-get install -y python3-venv
+    sudo apt -qq update
+    sudo apt -qq install -y python3-venv
 }
 
 install_on_mac() {
@@ -44,7 +44,7 @@ esac
 echo "Creating python venv and installing ansible"
 python3 -m venv ~/.bootstrap/.venv --upgrade-deps
 source ~/.bootstrap/.venv/bin/activate
-pip install ansible
+pip install -q ansible
 
 echo "Running Ansible..."
 ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
