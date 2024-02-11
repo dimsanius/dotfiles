@@ -95,9 +95,11 @@
 
     - name: Installing vim-plug
       ansible.builtin.shell: curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    
+    - name: Installing vim plugins
+      ansible.builtin.shell: vim -u ~/.vimrc -e -s +PlugInstall +qall
 
     - name: Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
 
     # TODO: consider installing VS Code, Brave etc
-    # TODO: remember to install vim plugins
