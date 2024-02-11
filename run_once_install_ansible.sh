@@ -46,6 +46,9 @@ python3 -m venv ~/.bootstrap/.venv --upgrade-deps
 source ~/.bootstrap/.venv/bin/activate
 pip install -q ansible
 
+echo "~/.bootstrap contents are:"
+ls ~/.bootstrap
+
 echo "Running Ansible..."
 ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
 echo "Ansible completed"
