@@ -4,9 +4,6 @@ Installs environment (e.g. dotfiles, packages, fonts etc.) for the system.
 
 ## Requirements
 
-One of the following:
-
-- `curl`
 - `python3-venv` (will be installed as part of the dotfile setup)
 
 ## Installation
