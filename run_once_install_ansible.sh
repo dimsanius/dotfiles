@@ -18,6 +18,8 @@ install_on_mac() {
 
 OS="$(uname -s)"
 
+
+echo "Installing python3-venv package"
 case "${OS}" in
     Linux*)
         if [ -f /etc/fedora-release ]; then
@@ -39,7 +41,7 @@ case "${OS}" in
 esac
 
 
-# Creating python venv and isntalling ansible
+echo "Creating python venv and installing ansible"
 python3 -m venv ~/.bootstrap/.venv --upgrade-deps
 source ~/.bootstrap/.venv/bin/activate
 pip install ansible
