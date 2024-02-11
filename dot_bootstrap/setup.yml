@@ -1,11 +1,4 @@
-# Dependencies:
-# - python3-venv
-# Getting started:
-# - Install python3-venv
-# - Create venv: python3 -m venv ~/.machine-setup/.venv --upgrade-deps (>= Python 3.9)
-# - Activate venv: source ~/.machine-setup/.venv/bin/activate
-# - Install ansible: pip install ansible
-# - Run current scipt: ansible-playbook ./setup.yaml --ask-become-pass
+# - Run current script: ansible-playbook ./setup.yml --ask-become-pass
 # - For dev: install ansible-lint: pip install ansible-lint
 - name: Machine setup
   hosts: localhost
