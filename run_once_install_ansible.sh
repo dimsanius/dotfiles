@@ -22,7 +22,7 @@ get_git_name() {
             # Correct name format
             break
         else
-            echo "Incorrect name format. Please try again."
+            say "Incorrect name format. Please try again."
         fi
     done
 }
@@ -35,14 +35,19 @@ get_git_email() {
             # Correct email format
             break
         else
-            echo "Incorrect name format. Please try again."
+            say "Incorrect name format. Please try again."
         fi
     done
 }
 
+say() {
+    echo "==> $1"
+}
+
+
 OS="$(uname -s)"
 
-echo "Installing python3-venv package"
+say "Installing python3-venv package"
 case "${OS}" in
     Linux*)
         if [ -f /etc/fedora-release ]; then
@@ -50,7 +55,7 @@ case "${OS}" in
         elif [ -f /etc/lsb-release ]; then
             install_python_venv_on_ubuntu
         else
-            echo "Unsupported Linux distribution"
+            say "Unsupported Linux distribution"
             exit 1
         fi
         ;;
@@ -58,20 +63,20 @@ case "${OS}" in
         install_python_venv_on_mac
         ;;
     *)
-        echo "Unsupported operating system: ${OS}"
+        say "Unsupported operating system: ${OS}"
         exit 1
         ;;
 esac
 
 
-echo "Creating python venv and installing ansible"
+say "Creating python venv and installing ansible"
 python3 -m venv ~/.bootstrap/.venv --upgrade-deps
 source ~/.bootstrap/.venv/bin/activate
 pip install -q ansible
 
-echo "Running Ansible..."
+say "Running Ansible..."
 ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
-echo "Ansible completed"
+say "Ansible completed"
 
 deactivate
 
