@@ -39,7 +39,7 @@
       stat:
         path: ~/.oh-my-zsh
       register: oh_my_zsh_exists
-    
+
     # TODO: Add prompt to ask user weather to delete ~/.oh-my-zsh
     - name: Removing current Oh-My-zsh installation
       when: oh_my_zsh_exists.stat.exists
@@ -50,9 +50,6 @@
     - name: Installing Oh-My-zsh
       ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
-
-    # TODO: remove ~/.zshrc file here, maybe? Or in chezmoi? Need to think
-    
     - name: Changing default shell to zsh
       become: true
       user: 
@@ -99,21 +96,8 @@
     - name: Installing vim-plug
       ansible.builtin.shell: curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    - name: Installing MesloLGS NF Regular font
-      ansible.builtin.shell: curl -sfLo ~/.local/share/fonts/MesloLGS\ NF\ Regular.ttf --create-dirs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-    
-    - name: Installing MesloLGS NF Bold font
-      ansible.builtin.shell: curl -sfLo ~/.local/share/fonts/MesloLGS\ NF\ Bold.ttf --create-dirs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-
-    - name: Installing MesloLGS NF Italic font
-      ansible.builtin.shell: curl -sfLo ~/.local/share/fonts/MesloLGS\ NF\ Italic.ttf --create-dirs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-
-    - name: Installing MesloLGS NF Bold Italic font
-      ansible.builtin.shell: curl -sfLo ~/.local/share/fonts/MesloLGS\ NF\ Bold\ Italic.ttf --create-dirs https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-    
     - name: Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
 
-    # TODO: consider installing chezmoi via ansible. Chezmoi guides: https://www.chezmoi.io/
     # TODO: consider installing VS Code, Brave etc
     # TODO: remember to install vim plugins
