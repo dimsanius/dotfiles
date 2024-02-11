@@ -92,43 +92,43 @@
     - name: Installing vim plugins
       ansible.builtin.shell: vim -u ~/.vimrc -e -s +PlugInstall +qall
 
-    - name: Add Brave Browser Repo
-      ansible.builtin.apt_repository:
-        name: brave-browser
-        description: Brave Browser
-        baseurl: https://brave-browser-rpm-release.s3.brave.com/x86_64/
-        gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        gpgcheck: true
-        enabled: true
+    # - name: Add Brave Browser Repo
+    #   ansible.builtin.apt_repository:
+    #     name: brave-browser
+    #     description: Brave Browser
+    #     baseurl: https://brave-browser-rpm-release.s3.brave.com/x86_64/
+    #     gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    #     gpgcheck: true
+    #     enabled: true
 
-    - name: Import Brave Browser GPG Key
-      ansible.builtin.apt_key:
-        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        state: present
+    # - name: Import Brave Browser GPG Key
+    #   ansible.builtin.apt_key:
+    #     key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    #     state: present
 
-    - name: Install Brave Browser
-      ansible.builtin.package:
-        name: brave-browser
-        state: present
+    # - name: Install Brave Browser
+    #   ansible.builtin.package:
+    #     name: brave-browser
+    #     state: present
 
-    - name: Import Microsoft GPG Key
-      ansible.builtin.apt_key:
-        key: https://packages.microsoft.com/keys/microsoft.asc
-        state: present
+    # - name: Import Microsoft GPG Key
+    #   ansible.builtin.apt_key:
+    #     key: https://packages.microsoft.com/keys/microsoft.asc
+    #     state: present
 
-    - name: Add Visual Studio Code Repo
-      ansible.builtin.apt_repository:
-        name: vscode
-        description: Visual Studio Code
-        baseurl: https://packages.microsoft.com/yumrepos/vscode
-        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-        gpgcheck: true
-        enabled: true
+    # - name: Add Visual Studio Code Repo
+    #   ansible.builtin.apt_repository:
+    #     name: vscode
+    #     description: Visual Studio Code
+    #     baseurl: https://packages.microsoft.com/yumrepos/vscode
+    #     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    #     gpgcheck: true
+    #     enabled: true
 
-    - name: Install VS Code
-      ansible.builtin.package:
-        name: code
-        state: present
+    # - name: Install VS Code
+    #   ansible.builtin.package:
+    #     name: code
+    #     state: present
 
     - name: Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
