@@ -1,3 +1,7 @@
 
 README.md
 .gitignore
+
+# TODO: remove when done developement
+main.sh
+install.sh
