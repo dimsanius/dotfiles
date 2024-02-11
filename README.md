@@ -7,12 +7,15 @@ Installs environment (e.g. dotfiles, packages, fonts etc.) for the system.
 One of the following:
 
 - `curl`
-- `python3-venv`
+- `python3-venv` (will be installed as part of the dotfile setup)
 
 ## Installation
 
-- Run following magical command: `sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius`
-- Enjoy the result
+- Run following one-liner:
+
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius
+```
 
 ## Adding new files
 
@@ -30,4 +33,3 @@ TODO
 
 - Try to split setup for headless distros
 - Introduce --update command to update symlinks
-- Update p10k.zsh (run `p10k configure` to generate a new file)
