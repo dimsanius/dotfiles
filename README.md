@@ -7,66 +7,24 @@ Installs environment (e.g. dotfiles, packages, fonts etc.) for the system.
 One of the following:
 
 - `curl`
-- `wget`
-- `fetch`
+- `python3-venv`
 
-## Strategy
+## Installation
 
-Try to avoid adding new dotfiles to `HOME` directly anymore. Instead, try adding dotfiles to `~/.dotfiles/files` and let `stow` handle the rest (e.g. symlinking). This will allow to version control the dotfiles making them so much more portable.
+- Run following magical command: `sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius`
+- Enjoy the result
 
-## Install
+## Adding new files
 
-Automatic installation is available via:
+TODO
 
-- `curl`:
+## Removing existing files
 
-```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/master/install.sh)"
-```
+TODO
 
-- `wget`:
+## Update existing files
 
-```shell
-sh -c "$(wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/master/install.sh)"
-```
-
-- `fetch`:
-
-```shell
-sh -c "$(fetch -o - https://raw.githubusercontent.com/dimsanius/dotfiles/master/install.sh)"
-```
-
-## Adding symlinks
-
-_Assuming that this repo was installed via one of the commands above._
-
-This will add symlinks to the new files (if any) created within `~/.dotfiles/files`:
-
-- Ensure to put new files and/or dotfiles within `~/.dotfiles/files`
-- (!!!) Navigate to the repo: `cd ~/.dotfiles`
-- Let `stow` create new symlinks:
-
-```shell
-stow files
-```
-
-## Remove symlinks
-
-_Assuming that this repo was installed via one of the commands above._
-
-- (!!!) Navigate to the repo: `cd ~/.dotfiles`
-- Let `stow` remove current symlinks:
-
-```shell
-stow -D files
-```
-
-- If required - delete or add files from/to `~/.dotfiles/files`
-- If required - recommission symlinks:
-
-```shell
-stow files
-```
+TODO
 
 ## TODO
 
