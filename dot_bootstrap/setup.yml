@@ -144,7 +144,8 @@
       ansible.builtin.apt_repository:
         repo: >-
           deb [arch=amd64,arm64,armhf
-          signed-by=/etc/apt/keyrings/microsoft.asc]
+          signed-by=/etc/apt/keyrings/microsoft.asc
+          trusted=yes]
           https://packages.microsoft.com/repos/code stable main
         filename: vscode
         state: present
