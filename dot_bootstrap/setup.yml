@@ -99,8 +99,7 @@
       ansible.builtin.apt_key:
         url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
         state: present
-        file: /usr/share/keyrings/brave-browser-archive-keyring.gpg
-        keyring: /etc/apt/sources.list.d/brave-browser-release.list
+        # keyring: /etc/apt/trusted.gpg.d/brave-browser-release.list
 
     - name: Add Brave Browser Repo
       become: true
