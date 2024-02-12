@@ -94,23 +94,52 @@
     - name: Installing vim plugins
       ansible.builtin.shell: vim -u ~/.vimrc -e -s +PlugInstall +qall
 
-    - name: Import Brave Browser GPG Key
-      become: true
-      ansible.builtin.apt_key:
+    - name: Check if Brave Browser GPG keyring exists
+      ansible.builtin.stat:
+        path: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+      register: keyring_file
+
+    - name: Get Brave Browser keyring file
+      ansible.builtin.get_url:
         url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-        state: present
-        # keyring: /etc/apt/trusted.gpg.d/brave-browser-release.list
-
-    - name: Add Brave Browser Repo
+        dest: "/usr/share/keyrings/brave-browser-archive-keyring.gpg"
+        mode: "0644"
+      when: not keyring_file.stat.exists
       become: true
-      ansible.builtin.apt_repository:
-        repo: deb https://brave-browser-apt-release.s3.brave.com/ stable main
-        state: present
 
-    - name: Install Brave Browser
-      ansible.builtin.package:
+    - name: Add Brave repository to list of repositories
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/apt/sources.list.d/brave-browser-release.list
+        content: |
+          deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+        mode: "0644"
+
+    - name: Install Brave
+      ansible.builtin.apt:
         name: brave-browser
         state: present
+        update_cache: true
+      become: true
+
+
+    # - name: Import Brave Browser GPG Key
+    #   become: true
+    #   ansible.builtin.apt_key:
+    #     url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    #     state: present
+    #     # keyring: /etc/apt/trusted.gpg.d/brave-browser-release.list
+
+    # - name: Add Brave Browser Repo
+    #   become: true
+    #   ansible.builtin.apt_repository:
+    #     repo: deb https://brave-browser-apt-release.s3.brave.com/ stable main
+    #     state: present
+
+    # - name: Install Brave Browser
+    #   ansible.builtin.package:
+    #     name: brave-browser
+    #     state: present
 
     # - name: Import Microsoft GPG Key
     #   become: true
