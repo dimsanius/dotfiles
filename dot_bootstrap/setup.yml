@@ -137,6 +137,7 @@
         mode: "0644"
       when: not microsoft_keyring_file.stat.exists
 
+    # TODO: Dearmor key, avoid using trusted
     - name: Add VS Code repository to list of repositories
       become: true
       ansible.builtin.apt_repository:
@@ -168,6 +169,8 @@
         mode: "0644"
       when: not sublime_text_keyring_file.stat.exists
 
+
+    # TODO: Dearmor key, avoid using trusted
     - name: Add Sublime Text repository to list of repositories
       become: true
       ansible.builtin.apt_repository:
