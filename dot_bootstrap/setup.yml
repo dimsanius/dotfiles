@@ -96,7 +96,7 @@
     - name: Installing vim plugins
       ansible.builtin.shell: vim -u ~/.vimrc -e -s +PlugInstall +qall
 
-    - name: Check if Brave Browser GPG keyring exists
+    - name: Check if Brave Browser keyring exists
       ansible.builtin.stat:
         path: /usr/share/keyrings/brave-browser-archive-keyring.gpg
       register: brave_keyring_file
@@ -126,7 +126,7 @@
 
     #### VS CODE
 
-    - name: Check if Microsoft GPG keyring exists
+    - name: Check if Microsoft keyring exists
       ansible.builtin.stat:
         path: /etc/apt/keyrings/packages.microsoft.asc
       register: microsoft_keyring_file
@@ -150,49 +150,12 @@
         filename: vscode
         state: present
 
-    - name: Install Brave
+    - name: Install VS Code
       become: true
       ansible.builtin.apt:
         name: code
         state: present
         update_cache: true
-
-
-    # - name: Import Brave Browser GPG Key
-    #   become: true
-    #   ansible.builtin.apt_key:
-    #     url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    #     state: present
-    #     # keyring: /etc/apt/trusted.gpg.d/brave-browser-release.list
-
-    # - name: Add Brave Browser Repo
-    #   become: true
-    #   ansible.builtin.apt_repository:
-    #     repo: deb https://brave-browser-apt-release.s3.brave.com/ stable main
-    #     state: present
-
-    # - name: Install Brave Browser
-    #   ansible.builtin.package:
-    #     name: brave-browser
-    #     state: present
-
-    # - name: Import Microsoft GPG Key
-    #   become: true
-    #   ansible.builtin.apt_key:
-    #     url: https://packages.microsoft.com/keys/microsoft.asc
-    #     state: present
-
-    # - name: Add Visual Studio Code Repo
-    #   become: true
-    #   ansible.builtin.apt_repository:
-    #     repo: deb https://packages.microsoft.com/repos/vscode stable main
-    #     state: present
-
-    # - name: Install VS Code
-    #   become: true
-    #   ansible.builtin.package:
-    #     name: code
-    #     state: present
 
     - name: Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
