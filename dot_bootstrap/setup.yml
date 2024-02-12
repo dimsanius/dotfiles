@@ -119,11 +119,13 @@
         state: present
 
     - name: Add Visual Studio Code Repo
+      become: true
       ansible.builtin.apt_repository:
-        repo: https://packages.microsoft.com/repos/vscode stable main
+        repo: deb https://packages.microsoft.com/repos/vscode stable main
         state: present
 
     - name: Install VS Code
+      become: true
       ansible.builtin.package:
         name: code
         state: present
