@@ -94,24 +94,21 @@
     - name: Installing vim plugins
       ansible.builtin.shell: vim -u ~/.vimrc -e -s +PlugInstall +qall
 
-    # - name: Add Brave Browser Repo
-    #   ansible.builtin.apt_repository:
-    #     name: brave-browser
-    #     description: Brave Browser
-    #     baseurl: https://brave-browser-rpm-release.s3.brave.com/x86_64/
-    #     gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    #     gpgcheck: true
-    #     enabled: true
+    - name: Import Brave Browser GPG Key
+      ansible.builtin.apt_key:
+        url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+        state: present
 
-    # - name: Import Brave Browser GPG Key
-    #   ansible.builtin.apt_key:
-    #     key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-    #     state: present
+    - name: Add Brave Browser Repo
+      become: true
+      ansible.builtin.apt_repository:
+        baseurl: deb https://brave-browser-apt-release.s3.brave.com/ stable main
+        state: present
 
-    # - name: Install Brave Browser
-    #   ansible.builtin.package:
-    #     name: brave-browser
-    #     state: present
+    - name: Install Brave Browser
+      ansible.builtin.package:
+        name: brave-browser
+        state: present
 
     - name: Import Microsoft GPG Key
       ansible.builtin.apt_key:
