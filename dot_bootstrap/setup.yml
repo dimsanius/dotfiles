@@ -124,8 +124,6 @@
         state: present
         update_cache: true
 
-    #### VS CODE
-
     - name: Check if Microsoft keyring exists
       ansible.builtin.stat:
         path: /etc/apt/keyrings/packages.microsoft.asc
