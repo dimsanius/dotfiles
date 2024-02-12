@@ -24,6 +24,8 @@
           - htop
           - jq
           - tree
+          - ca-certificates
+          - apt-transport-https
           # Below are packages for non-headless installs
           - terminator
           - gnome-shell-extensions
@@ -97,30 +99,62 @@
     - name: Check if Brave Browser GPG keyring exists
       ansible.builtin.stat:
         path: /usr/share/keyrings/brave-browser-archive-keyring.gpg
-      register: keyring_file
+      register: brave_keyring_file
 
     - name: Get Brave Browser keyring file
+      become: true
       ansible.builtin.get_url:
         url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
         dest: "/usr/share/keyrings/brave-browser-archive-keyring.gpg"
         mode: "0644"
-      when: not keyring_file.stat.exists
-      become: true
+      when: not brave_keyring_file.stat.exists
 
     - name: Add Brave repository to list of repositories
       become: true
       ansible.builtin.copy:
         dest: /etc/apt/sources.list.d/brave-browser-release.list
         content: |
-          deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+          deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main
         mode: "0644"
 
     - name: Install Brave
+      become: true
       ansible.builtin.apt:
         name: brave-browser
         state: present
         update_cache: true
+
+    #### VS CODE
+
+    - name: Check if Microsoft GPG keyring exists
+      ansible.builtin.stat:
+        path: /etc/apt/keyrings/packages.microsoft.asc
+      register: microsoft_keyring_file
+
+    - name: Get Microsoft keyring file
       become: true
+      ansible.builtin.get_url:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        dest: "/etc/apt/keyrings/packages.microsoft.asc"
+        mode: "0644"
+      when: not microsoft_keyring_file.stat.exists
+
+    - name: Add VS Code repository to list of repositories
+      become: true
+      ansible.builtin.apt_repository:
+        repo: >-
+          deb [arch=amd64,arm64,armhf
+          signed-by=/etc/apt/keyrings/microsoft.asc]
+          https://packages.microsoft.com/repos/code stable main
+        filename: vscode
+        state: present
+
+    - name: Install Brave
+      become: true
+      ansible.builtin.apt:
+        name: code
+        state: present
+        update_cache: true
 
 
     # - name: Import Brave Browser GPG Key
