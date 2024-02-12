@@ -16,6 +16,8 @@
         name:
           - git
           - curl
+          - wget
+          - gpg
           - zsh
           - vim
           - neofetch
@@ -111,24 +113,20 @@
     #     name: brave-browser
     #     state: present
 
-    # - name: Import Microsoft GPG Key
-    #   ansible.builtin.apt_key:
-    #     key: https://packages.microsoft.com/keys/microsoft.asc
-    #     state: present
+    - name: Import Microsoft GPG Key
+      ansible.builtin.apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        state: present
 
-    # - name: Add Visual Studio Code Repo
-    #   ansible.builtin.apt_repository:
-    #     name: vscode
-    #     description: Visual Studio Code
-    #     baseurl: https://packages.microsoft.com/yumrepos/vscode
-    #     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-    #     gpgcheck: true
-    #     enabled: true
+    - name: Add Visual Studio Code Repo
+      ansible.builtin.apt_repository:
+        repo: https://packages.microsoft.com/yumrepos/vscode
+        state: present
 
-    # - name: Install VS Code
-    #   ansible.builtin.package:
-    #     name: code
-    #     state: present
+    - name: Install VS Code
+      ansible.builtin.package:
+        name: code
+        state: present
 
     - name: Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
