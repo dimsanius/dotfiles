@@ -95,6 +95,7 @@
       ansible.builtin.shell: vim -u ~/.vimrc -e -s +PlugInstall +qall
 
     - name: Import Brave Browser GPG Key
+      become: true
       ansible.builtin.apt_key:
         url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
         state: present
@@ -111,6 +112,7 @@
         state: present
 
     - name: Import Microsoft GPG Key
+      become: true
       ansible.builtin.apt_key:
         url: https://packages.microsoft.com/keys/microsoft.asc
         state: present
