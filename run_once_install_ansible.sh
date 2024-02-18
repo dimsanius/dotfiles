@@ -36,9 +36,6 @@ say() {
     echo "==> $1"
 }
 
-
-OS="$(uname -s)"
-
 say "Installing ansible dependencies"
 install_ansible_deps
 
