@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_python_venv_on_debian() {
+install_ansible_deps() {
     sudo apt -qq update
     sudo apt -qq install -y python3-venv python3-apt
 }
@@ -39,8 +39,8 @@ say() {
 
 OS="$(uname -s)"
 
-say "Installing python3-venv package"
-install_python_venv_on_debian
+say "Installing ansible dependencies"
+install_ansible_deps
 
 
 say "Creating python venv and installing ansible"
