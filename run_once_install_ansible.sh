@@ -1,16 +1,8 @@
 #!/bin/bash
 
-install_python_venv_on_fedora() {
-    sudo dnf install -y python3-venv
-}
-
-install_python_venv_on_ubuntu() {
+install_python_venv_on_debian() {
     sudo apt -qq update
     sudo apt -qq install -y python3-venv
-}
-
-install_python_venv_on_mac() {
-    brew install python3-venv
 }
 
 get_git_name() {
@@ -35,7 +27,7 @@ get_git_email() {
             # Correct email format
             break
         else
-            say "Incorrect name format. Please try again."
+            say "Incorrect email format. Please try again."
         fi
     done
 }
@@ -48,25 +40,7 @@ say() {
 OS="$(uname -s)"
 
 say "Installing python3-venv package"
-case "${OS}" in
-    Linux*)
-        if [ -f /etc/fedora-release ]; then
-            install_python_venv_on_fedora
-        elif [ -f /etc/lsb-release ]; then
-            install_python_venv_on_ubuntu
-        else
-            say "Unsupported Linux distribution"
-            exit 1
-        fi
-        ;;
-    Darwin*)
-        install_python_venv_on_mac
-        ;;
-    *)
-        say "Unsupported operating system: ${OS}"
-        exit 1
-        ;;
-esac
+install_python_venv_on_debian
 
 
 say "Creating python venv and installing ansible"
