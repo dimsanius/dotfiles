@@ -2,7 +2,7 @@
 
 install_python_venv_on_debian() {
     sudo apt -qq update
-    sudo apt -qq install -y python3-venv
+    sudo apt -qq install -y python3-venv python3-apt
 }
 
 get_git_name() {
