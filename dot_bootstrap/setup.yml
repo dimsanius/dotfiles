@@ -199,7 +199,11 @@
         mode: '0755'
 
     - name: zoxide | Install zoxide
-      command: /tmp/zoxide/install.sh
+      ansible.builtin.command: /tmp/zoxide/install.sh
+
+    - name: nala | Finding best mirrors
+      become: true
+      ansible.builtin.command: nala fetch --auto -y --fetches 5
 
     - name: General | Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
