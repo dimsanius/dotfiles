@@ -205,5 +205,9 @@
       become: true
       ansible.builtin.command: nala fetch --auto -y --fetches 5
 
+    - name: timeshift | Initialising timeshift
+      become: true
+      ansible.builtin.command: timeshift
+
     - name: General | Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
