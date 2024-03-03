@@ -29,6 +29,9 @@
           - fzf
           - tig
           - exa
+          - nala
+          - timeshift
+          - ncdu
           # Below are packages for non-headless installs
           - terminator
           - gnome-shell-extensions
