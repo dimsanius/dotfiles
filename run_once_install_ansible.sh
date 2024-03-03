@@ -46,7 +46,7 @@ source ~/.bootstrap/.venv/bin/activate
 pip install -q ansible
 
 say "Running Ansible..."
-ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
+ANSIBLE_LOCALHOST_WARNING=False ANSIBLE_INVENTORY_UNPARSED_WARNING=False ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass
 say "Ansible completed"
 
 deactivate
