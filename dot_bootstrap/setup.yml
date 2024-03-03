@@ -32,6 +32,11 @@
           - nala
           - timeshift
           - ncdu
+          - batcat
+          - tldr
+          - ripgrep
+          - btop
+          - mc
           # Below are packages for non-headless installs
           - terminator
           - gnome-shell-extensions
