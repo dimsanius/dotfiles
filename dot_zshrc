@@ -76,3 +76,9 @@ custom_west_flash_args()
 alias wflash=custom_west_flash_args
 
 alias jviewer="nohup JLinkRTTViewer > /dev/null 2>&1 &"
+
+# Adding for zoxide
+export PATH=$PATH:/home/dmitrij/.local/bin
+
+# Running zoxide
+eval "$(zoxide init --cmd cd zsh)"

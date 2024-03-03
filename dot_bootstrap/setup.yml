@@ -181,6 +181,14 @@
         state: present
         update_cache: true
 
+    - name: zoxide | Download zoxide
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
+        dest: /tmp/zoxide/install.sh
+        mode: '0755'
+
+    - name: zoxide | Install zoxide
+      command: /tmp/zoxide/install.sh
 
     - name: General | Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
