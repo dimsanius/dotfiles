@@ -82,3 +82,8 @@ export PATH=$PATH:/home/dmitrij/.local/bin
 
 # Running zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# exa aliases
+alias la="exa --icons --long --group-directories-first --group --all --git"
+alias ll="exa --icons --long --group-directories-first --group --git"
+alias ls="exa --icons --group-directories-first --group"

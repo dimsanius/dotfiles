@@ -28,6 +28,7 @@
           - apt-transport-https
           - fzf
           - tig
+          - exa
           # Below are packages for non-headless installs
           - terminator
           - gnome-shell-extensions
