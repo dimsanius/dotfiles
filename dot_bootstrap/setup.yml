@@ -195,11 +195,11 @@
     - name: zoxide | Download zoxide
       ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
-        dest: /tmp/zoxide/install.sh
+        dest: /tmp/zoxide_install.sh
         mode: '0755'
 
     - name: zoxide | Install zoxide
-      ansible.builtin.command: /tmp/zoxide/install.sh
+      ansible.builtin.command: /tmp/zoxide_install.sh
 
     - name: nala | Finding best mirrors
       become: true
