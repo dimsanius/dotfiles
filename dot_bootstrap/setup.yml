@@ -26,6 +26,8 @@
           - tree
           - ca-certificates
           - apt-transport-https
+          - fzf
+          - tig
           # Below are packages for non-headless installs
           - terminator
           - gnome-shell-extensions
