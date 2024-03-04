@@ -1,10 +1,5 @@
 #!/bin/bash
 
-install_ansible_deps() {
-    sudo apt -qq update
-    sudo apt -qq install -y python3-venv python3-apt
-}
-
 get_git_name() {
     while true
     do
@@ -35,10 +30,6 @@ get_git_email() {
 say() {
     echo "==> $1"
 }
-
-say "Installing ansible dependencies"
-install_ansible_deps
-
 
 say "Creating python venv and installing ansible"
 python3 -m venv ~/.bootstrap/.venv --upgrade-deps

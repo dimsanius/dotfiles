@@ -4,7 +4,15 @@ Installs environment (e.g. dotfiles, packages, fonts etc.) for the system.
 
 ## Requirements
 
-- `python3-venv` (will be installed as part of the dotfile setup)
+Install following requirements manually:
+
+- `python3-venv`
+- `python3-apt`
+- `curl`
+
+```bash
+sudo apt install python3-venv python3-apt curl
+```
 
 ## Installation
 
