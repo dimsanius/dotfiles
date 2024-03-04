@@ -34,59 +34,10 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
+source $HOME/.included_envs.sh
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # Sourcing p10k theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Custom aliases
-# TODO: Split alias file
-export ZEPHYR_BASE=/home/dmitrij/dev/hav-aegis-tools/zephyrproject/zephyr
-
-# Zephyr SDK Toolchain
-# export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
-# export ZEPHYR_SDK_INSTALL_DIR=/home/dmitrij/dev/hav-aegis-tools/zephyr-sdk-0.15.2
-
-
-# ARM Toolchain
-export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-export GNUARMEMB_TOOLCHAIN_PATH=/home/dmitrij/dev/hav-aegis-tools/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi
-
-
-# Activate zephyrproject venv
-activate_west_venv(){
-    source $ZEPHYR_BASE/../.venv/bin/activate
-}
-
-# Pass custom args into west build
-custom_west_build_args(){
-    activate_west_venv
-    west build -p -b c159 -- -DEXT_FLASH="$1" 
-    deactivate
-}
-alias wbuild=custom_west_build_args
-
-# Alisaing west flash
-custom_west_flash_args()
-{
-    activate_west_venv
-    west flash
-    deactivate
-}
-alias wflash=custom_west_flash_args
-
-alias jviewer="nohup JLinkRTTViewer > /dev/null 2>&1 &"
-
-# Adding for zoxide
-export PATH=$PATH:$HOME/.local/bin
-
-# Running zoxide
-eval "$(zoxide init --cmd cd zsh)"
-
-# exa aliases
-alias la="exa --icons --long --group-directories-first --group --all --git"
-alias ll="exa --icons --long --group-directories-first --group --git"
-alias ls="exa --icons --group-directories-first --group"
-
-# alias cat with batcat
-alias cat="batcat"
