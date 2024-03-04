@@ -1,10 +1,22 @@
 # dimsanius dotfiles
 
-Installs environment (e.g. dotfiles, packages, fonts etc.) for the system.
+## Overview
 
-## Automatic install using one-line
+This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my liking. Feel free to take anything you find useful
 
-Following command will install all the deps and environments in one line:
+## Platform support
+
+Supports Debian-based amd64(x64) systems, that rely on `apt` package manager.
+
+## Environment management
+
+Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
+
+Afterwards, dot-files are managed via [chezmoi](https://www.chezmoi.io/).
+
+## Install using one-line
+
+Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
 
 ```bash
 sudo apt -y install python3-venv python3-apt curl && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius
@@ -12,21 +24,21 @@ sudo apt -y install python3-venv python3-apt curl && sh -c "$(curl -fsLS get.che
 
 ## Manual install
 
-### Requirements
+### Pre-requisites
 
-Install following requirements:
+Install following pre-requisites:
 
+- `curl`
 - `python3-venv`
 - `python3-apt`
-- `curl`
 
 ```bash
-sudo apt -y install python3-venv python3-apt curl
+sudo apt -y install curl python3-venv python3-apt
 ```
 
 ### Installation
 
-- Run following one-liner to install `chezmoi` and all the environment:
+- Run following one-liner to install `chezmoi` that will trigger environment set-up:
 
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius
@@ -48,4 +60,4 @@ TODO
 
 - Try to split setup for headless distros
 - Introduce update command
-- make stuff re-entrant
+- Finish writing readme
