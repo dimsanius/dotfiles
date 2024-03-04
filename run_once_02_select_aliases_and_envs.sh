@@ -4,6 +4,8 @@ say() {
     echo "==> $1"
 }
 
+chmod +x $HOME/.myenv/*.sh
+
 # Include this always
 echo "\$HOME/.myenv/aliases_batcat.sh" >> $HOME/.included_envs.sh
 echo "\$HOME/.myenv/aliases_exa.sh" >> $HOME/.included_envs.sh
