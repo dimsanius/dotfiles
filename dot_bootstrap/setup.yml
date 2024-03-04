@@ -111,6 +111,7 @@
       become: true
       ansible.builtin.apt_repository:
         repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+        filename: brave-browser-release.list
         state: present
 
     - name: Brave | Installing Brave
@@ -129,6 +130,7 @@
       become: true
       ansible.builtin.apt_repository:
         repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+        filename: vscode.list
         state: present
 
     - name: VS Code | Installing VS Code
@@ -150,6 +152,7 @@
       become: true
       ansible.builtin.apt_repository:
         content: "deb https://download.sublimetext.com/ apt/stable/"
+        filename: sublime-text.list
         state: present
 
     - name: Sublime Text | Installing Sublime Text
