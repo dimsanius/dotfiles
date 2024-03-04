@@ -4,8 +4,6 @@ say() {
     echo "==> $1"
 }
 
-chmod +x $HOME/.myenv/*.sh
-
 env_selector_file="$HOME/.env_selector.sh"
 
 # Include this always
