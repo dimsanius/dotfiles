@@ -34,7 +34,12 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.included_envs.sh
+if [[ ! -f $HOME/.env_selector.sh ]]; then
+    echo "$HOME/.env_selector.sh file does not exist! Aliases and environemnts likely to be non-existing or broken."
+else
+    source $HOME/.env_selector.sh
+fi
+
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
