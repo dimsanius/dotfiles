@@ -173,6 +173,9 @@
 
     - name: General | Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
+    
+    - name: tldr | Downloading tldr pages
+      ansible.builtin.shell: tldr --update
 
     - name: timeshift | Setting timeshift (via GUI)
     # Requires user input, hence running last
