@@ -22,8 +22,6 @@ case "$response" in
         ;;
 esac
 
-#!/bin/bash
-
 while true; do
     read -p "==> Include Zephyr env and aliases? [Y/n] " yn
     case $yn in
