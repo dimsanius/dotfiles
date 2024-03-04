@@ -151,7 +151,7 @@
     - name: Sublime Text | Adding Sublime Text repository to list of repositories
       become: true
       ansible.builtin.apt_repository:
-        content: "deb https://download.sublimetext.com/ apt/stable/"
+        repo: "deb https://download.sublimetext.com/ apt/stable/"
         filename: sublime-text
         state: present
 
