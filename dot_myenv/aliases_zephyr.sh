@@ -1,3 +1,5 @@
+#!/bin/bash
+
 activate_west_venv(){
     # Activate zephyrproject venv
     source $ZEPHYR_BASE/../.venv/bin/activate
