@@ -43,7 +43,7 @@
           - gnome-tweaks
         state: present
     
-    - name: OMZ | Checking if Oh-My-zsh is already exists
+    - name: OMZ | Checking if Oh-My-zsh already exists
       stat:
         path: ~/.oh-my-zsh
       register: oh_my_zsh_install
