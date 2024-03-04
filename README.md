@@ -7,7 +7,7 @@ Installs environment (e.g. dotfiles, packages, fonts etc.) for the system.
 Following command will install all the deps and environments in one line:
 
 ```bash
-sudo apt install python3-venv python3-apt curl && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius
+sudo apt -y install python3-venv python3-apt curl && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius
 ```
 
 ## Manual install
@@ -21,7 +21,7 @@ Install following requirements:
 - `curl`
 
 ```bash
-sudo apt install python3-venv python3-apt curl
+sudo apt -y install python3-venv python3-apt curl
 ```
 
 ### Installation
