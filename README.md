@@ -47,4 +47,5 @@ TODO
 ## TODO
 
 - Try to split setup for headless distros
-- Introduce --update command to update symlinks
+- Introduce update command
+- make stuff re-entrant
