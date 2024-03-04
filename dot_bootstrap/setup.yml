@@ -102,26 +102,16 @@
     - name: vim | Installing vim plugins
       ansible.builtin.shell: vim -u ~/.vimrc -e -s +PlugInstall +qall
 
-    - name: Brave | Checking if Brave Browser keyring exists
-      ansible.builtin.stat:
-        path: /usr/share/keyrings/brave-browser-archive-keyring.gpg
-      register: brave_keyring_file
-
-    - name: Brave | Getting Brave Browser keyring file
+    - name: Brave | Adding Brave apt repository key
       become: true
-      ansible.builtin.get_url:
-        url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-        dest: "/usr/share/keyrings/brave-browser-archive-keyring.gpg"
-        mode: "0644"
-      when: not brave_keyring_file.stat.exists
+      ansible.builtin.apt_key:
+        url: https://brave-browser-apt-release.s3.brave.com/brave-core.asc
 
     - name: Brave | Adding Brave repository to list of repositories
       become: true
-      ansible.builtin.copy:
-        dest: /etc/apt/sources.list.d/brave-browser-release.list
-        content: |
-          deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main
-        mode: "0644"
+      ansible.builtin.apt_repository:
+        repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+        state: present
 
     - name: Brave | Installing Brave
       become: true
@@ -130,29 +120,15 @@
         state: present
         update_cache: true
 
-    - name: VS Code | Checking if Microsoft keyring exists
-      ansible.builtin.stat:
-        path: /etc/apt/keyrings/packages.microsoft.asc
-      register: microsoft_keyring_file
-
-    - name: VS Code | Getting Microsoft keyring file
+    - name: VS Code | Adding Microsoft apt repository key
       become: true
-      ansible.builtin.get_url:
+      ansible.builtin.apt_key:
         url: https://packages.microsoft.com/keys/microsoft.asc
-        dest: "/etc/apt/keyrings/packages.microsoft.asc"
-        mode: "0644"
-      when: not microsoft_keyring_file.stat.exists
 
-    # TODO: Dearmor key, avoid using trusted
     - name: VS Code | Adding VS Code repository to list of repositories
       become: true
       ansible.builtin.apt_repository:
-        repo: >-
-          deb [arch=amd64,arm64,armhf
-          signed-by=/etc/apt/keyrings/microsoft.asc
-          trusted=yes]
-          https://packages.microsoft.com/repos/code stable main
-        filename: vscode
+        repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
         state: present
 
     - name: VS Code | Installing VS Code
@@ -162,28 +138,19 @@
         state: present
         update_cache: true
 
-    - name: Sublime Text | Checking if Sublime Text keyring exists
-      ansible.builtin.stat:
-        path: /etc/apt/trusted.gpg.d/sublimehq-archive.gpg
-      register: sublime_text_keyring_file
 
-    - name: Sublime Text | Getting Sublime Text keyring file
+    - name: Sublime Text | Adding Sublime Text apt repository key
       become: true
-      ansible.builtin.get_url:
+      ansible.builtin.apt_key:
         url: https://download.sublimetext.com/sublimehq-pub.gpg
-        dest: "/etc/apt/trusted.gpg.d/sublimehq-archive.gpg"
-        mode: "0644"
-      when: not sublime_text_keyring_file.stat.exists
+        state: present
 
 
-    # TODO: Dearmor key, avoid using trusted
     - name: Sublime Text | Adding Sublime Text repository to list of repositories
       become: true
-      ansible.builtin.apt_repository:
-        repo: >-
-          deb [trusted=yes] https://download.sublimetext.com/ apt/stable/
-        filename: sublime-text
-        state: present
+      ansible.builtin.copy:
+        content: "deb [signed-by=/usr/share/keyrings/sublimehq-pub.gpg arch=amd64] https://download.sublimetext.com/ apt/stable/"
+        dest: /etc/apt/sources.list.d/sublime-text.list
 
     - name: Sublime Text | Installing Sublime Text
       become: true
