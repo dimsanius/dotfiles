@@ -7,9 +7,9 @@ say() {
 chmod +x $HOME/.myenv/*.sh
 
 # Include this always
-echo "\$HOME/.myenv/aliases_batcat.sh" >> $HOME/.included_envs.sh
-echo "\$HOME/.myenv/aliases_exa.sh" >> $HOME/.included_envs.sh
-echo "\$HOME/.myenv/env_zoxide.sh" >> $HOME/.included_envs.sh
+echo "source \$HOME/.myenv/aliases_batcat.sh" >> $HOME/.included_envs.sh
+echo "source \$HOME/.myenv/aliases_exa.sh" >> $HOME/.included_envs.sh
+echo "source \$HOME/.myenv/env_zoxide.sh" >> $HOME/.included_envs.sh
 
 # Include this ocassionally
 while true; do
@@ -17,8 +17,8 @@ while true; do
     case $yn in
         [Yy]* ) 
             say "Zephyr env and aliases will be included"
-            echo "\$HOME/.myenv/aliases_zephyr.sh" >> $HOME/.included_envs.sh
-            echo "\$HOME/.myenv/env_zephyr.sh" >> $HOME/.included_envs.sh
+            echo "source \$HOME/.myenv/aliases_zephyr.sh" >> $HOME/.included_envs.sh
+            echo "source \$HOME/.myenv/env_zephyr.sh" >> $HOME/.included_envs.sh
             break
             ;;
         [Nn]* ) 
