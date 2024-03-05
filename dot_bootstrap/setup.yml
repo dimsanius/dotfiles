@@ -38,6 +38,7 @@
           - btop
           - htop
           - mc
+          - fd-find
           # Below are packages for non-headless installs
           - terminator
           - gnome-shell-extensions
