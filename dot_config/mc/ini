@@ -89,10 +89,10 @@ skin=modarin256-defbg
 output_lines=0
 left_panel_size=92
 top_panel_size=0
-message_visible=true
+message_visible=false
 keybar_visible=true
 xterm_title=true
-command_prompt=true
+command_prompt=false
 menubar_visible=true
 free_space=true
 horizontal_split=false
@@ -134,8 +134,9 @@ mouse_move_pages=true
 filetype_mode=true
 permission_mode=false
 torben_fj_mode=false
-quick_search_mode=2
+quick_search_mode=0
 select_flags=6
+simple_swap=false
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print
