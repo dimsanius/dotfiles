@@ -23,7 +23,6 @@
           - neofetch
           - htop
           - jq
-          - tree
           - ca-certificates
           - apt-transport-https
           - fzf
