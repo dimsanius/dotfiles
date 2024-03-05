@@ -14,17 +14,18 @@
       become: true
       ansible.builtin.apt:
         name:
-          - git
+          # Dependencies
           - curl
           - wget
           - gpg
+          - ca-certificates
+          - apt-transport-https
+          - git
+          - jq
+          # Apps
           - zsh
           - vim
           - neofetch
-          - htop
-          - jq
-          - ca-certificates
-          - apt-transport-https
           - fzf
           - tig
           - exa
@@ -35,6 +36,7 @@
           - tldr
           - ripgrep
           - btop
+          - htop
           - mc
           # Below are packages for non-headless installs
           - terminator
