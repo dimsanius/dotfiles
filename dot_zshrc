@@ -41,7 +41,7 @@ else
     source $HOME/.env_selector.sh
 fi
 
-
+zstyle ':fzf-tab:complete:cd:*' fzf-preview `exa -1 --icons --group-directories-first $realpath'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # Sourcing p10k theme
