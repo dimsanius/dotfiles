@@ -28,6 +28,7 @@ plugins=(
     web-search
     auto-notify
     you-should-use
+    fzf-tab
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src

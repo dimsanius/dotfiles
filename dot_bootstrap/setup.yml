@@ -91,6 +91,12 @@
         repo: 'https://github.com/zsh-users/zsh-completions.git'
         dest: ~/.oh-my-zsh/custom/plugins/zsh-completions
         depth: 1
+
+    - name: OMZ Addons | Installing fzf-tab addon
+      ansible.builtin.git:
+        repo: 'https://github.com/Aloxaf/fzf-tab'
+        dest: ~/.oh-my-zsh/custom/plugins/fzf-tab
+        depth: 1
     
     - name: OMZ Addons | Installing powerlevel10k theme for zsh
       ansible.builtin.git:
