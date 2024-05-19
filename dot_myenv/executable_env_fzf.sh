@@ -12,11 +12,11 @@ export FZF_DEFAULT_COMMAND="fdfind -u --type f"
 zstyle ':completion:*:git-checkout:*' sort false
 
 # preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else cat $realpath; fi'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else batcat --color=always --plain $realpath; fi'
 # preview directory's content with exa when completing rm, preview files
-zstyle ':fzf-tab:complete:rm:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else cat $realpath; fi'
+zstyle ':fzf-tab:complete:rm:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else batcat --color=always --plain $realpath; fi'
 # preview directory's content with exa when completing cp, preview files
-zstyle ':fzf-tab:complete:cp:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else cat $realpath; fi'
+zstyle ':fzf-tab:complete:cp:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else batcat --color=always --plain $realpath; fi'
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
 # set list-colors to enable filename colorizing
