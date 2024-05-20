@@ -5,19 +5,33 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=info:#c3e88d,prompt:#6ffd00,pointer:#6ffd00
  --color=marker:#c3e88d,spinner:#c3e88d,header:#c3e88d'
 
-# Use fdfind to find all the files
+# Use fdfind for fzf
 export FZF_DEFAULT_COMMAND="fdfind -u --type f"
 
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
+# ---- system ----
 
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else batcat --color=always --plain $realpath; fi'
-# preview directory's content with exa when completing rm, preview files
-zstyle ':fzf-tab:complete:rm:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else batcat --color=always --plain $realpath; fi'
-# preview directory's content with exa when completing cp, preview files
-zstyle ':fzf-tab:complete:cp:*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else batcat --color=always --plain $realpath; fi'
-# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+# Preview 'systemctl' unit status
+zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+
+# Show environment variable contents
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ${(P)word}'
+
+# Preview file/folder contents
+zstyle ':fzf-tab:complete:(cd|rm|cp|batcat|cat|vim):*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else batcat --color=always --plain $realpath; fi'
+
+# Force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
-# set list-colors to enable filename colorizing
+
+# Set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# ---- git ----
+
+# Disable sort in some cases for git
+zstyle ':completion:*:git-(checkout|log|diff):*' sort false
+
+# Preview 'git log'
+zstyle ':fzf-tab:complete:git-log:*' fzf-preview 'git log --color=always $word'
+
+# Preview 'git help'
+zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help $word | batcat -plman --color=always'
