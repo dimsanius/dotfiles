@@ -39,6 +39,7 @@
           - htop
           - mc
           - fd-find
+          - git-delta
           # Below are packages for non-headless installs
           - terminator
           - gnome-shell-extensions
