@@ -17,6 +17,8 @@ echo "source \$HOME/.myenv/aliases_exa.sh" >> $env_selector_file
 echo "source \$HOME/.myenv/env_zoxide.sh" >> $env_selector_file
 echo "source \$HOME/.myenv/env_chezmoi.sh" >> $env_selector_file
 echo "source \$HOME/.myenv/env_fzf.sh" >> $env_selector_file
+echo "source \$HOME/.myenv/env_fzf_completion.zsh" >> $env_selector_file
+echo "source \$HOME/.myenv/env_fzf_key_bindings.zsh" >> $env_selector_file
 
 # Include this ocassionally
 while true; do
