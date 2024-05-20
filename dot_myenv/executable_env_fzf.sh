@@ -6,7 +6,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=marker:#c3e88d,spinner:#c3e88d,header:#c3e88d'
 
 # Use fdfind for fzf
-export FZF_DEFAULT_COMMAND="fdfind -u --type f"
+export FZF_DEFAULT_COMMAND="fdfind -u --exclude .git --exclude .venv --exclude .env --exclude '*.pyc'"
 
 # ---- system ----
 
