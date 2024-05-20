@@ -1,2 +1,5 @@
 cd:
   command: "/bin/zsh"
+diff:
+  command: "delta"
+
