@@ -1,6 +1,14 @@
 [include]
     # File included must contain user settings only!
     path = .gituser
+[core]
+    pager = delta
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 [alias]
     lo = log --all --branches --tags --remotes --decorate --graph --oneline --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     subupdate = submodule foreach git pull origin master
