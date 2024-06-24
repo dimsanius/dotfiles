@@ -28,7 +28,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # ---- git ----
 
 # Disable sort in some cases for git
-zstyle ':completion:*:git-(checkout|log|diff|show|reset):*' sort false
+zstyle ':completion:*:git-(checkout|log|diff|show|reset|rebase):*' sort false
 
 # Preview 'git log'
 zstyle ':fzf-tab:complete:git-log:*' fzf-preview 'git log --color=always $word'
