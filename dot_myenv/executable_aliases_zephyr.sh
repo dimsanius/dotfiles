@@ -5,22 +5,34 @@ activate_west_venv(){
     source $ZEPHYR_BASE/../.venv/bin/activate
 }
 
-
-custom_west_build_args(){
-    # Pass custom args into west build
+custom_west_build_args_old(){
     activate_west_venv
     west build -p -b c159 -- -DEXT_FLASH="$1" 
     deactivate
 }
 
-
-# Alisaing west flash
-custom_west_flash_args()
+custom_west_flash_args_old()
 {
     activate_west_venv
     west flash
     deactivate
 }
+
+custom_west_build_args(){
+    activate_west_venv
+    west build -p always -b aegis
+    deactivate
+}
+
+custom_west_flash_args(){
+    activate_west_venv
+    west flash --bin-file $1
+    deactivate
+}
+
+alias wbuild_old=custom_west_build_args_old
+
+alias wflash_old=custom_west_flash_args_old
 
 alias wbuild=custom_west_build_args
 
