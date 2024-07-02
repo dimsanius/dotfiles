@@ -6,9 +6,7 @@
 [profiles]
   [[default]]
     background_color = "#263238"
-    cursor_color = "#e92d94"
-    cursor_color_fg = False
-    font = MesloLGS NF 12
+    font = MesloLGS NF 13
     foreground_color = "#b0bec5"
     show_titlebar = False
     scrollbar_position = hidden
