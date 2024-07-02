@@ -28,7 +28,7 @@
           - neofetch
           - fzf
           - tig
-          - exa
+          - eza
           - nala
           - timeshift
           - ncdu
@@ -44,7 +44,7 @@
           - gnome-shell-extensions
           - gnome-tweaks
         state: present
-    
+
     - name: OMZ | Checking if Oh-My-zsh already exists
       stat:
         path: ~/.oh-my-zsh
@@ -54,59 +54,58 @@
       when: not oh_my_zsh_install.stat.exists
       ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
-
     - name: OMZ | Changing default shell to zsh
       become: true
-      user: 
+      user:
         name: "{{ remote_regular_user }}"
         shell: /usr/bin/zsh
 
     - name: OMZ Addons | Installing zsh-syntax-highlighting addon
       ansible.builtin.git:
-        repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+        repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
         dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
         depth: 1
-    
+
     - name: OMZ Addons | Installing zsh-autosuggestions addon
       ansible.builtin.git:
-        repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+        repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
         dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
         depth: 1
 
     - name: OMZ Addons | Installing zsh-auto-notify addon
       # Only in non-headless distros
       ansible.builtin.git:
-        repo: 'https://github.com/MichaelAquilina/zsh-auto-notify.git'
+        repo: "https://github.com/MichaelAquilina/zsh-auto-notify.git"
         dest: ~/.oh-my-zsh/custom/plugins/auto-notify
         depth: 1
 
     - name: OMZ Addons | Installing zsh-you-should-use addon
       ansible.builtin.git:
-        repo: 'https://github.com/MichaelAquilina/zsh-you-should-use.git'
+        repo: "https://github.com/MichaelAquilina/zsh-you-should-use.git"
         dest: ~/.oh-my-zsh/custom/plugins/you-should-use
         depth: 1
 
     - name: OMZ Addons | Installing zsh-completions addon
       ansible.builtin.git:
-        repo: 'https://github.com/zsh-users/zsh-completions.git'
+        repo: "https://github.com/zsh-users/zsh-completions.git"
         dest: ~/.oh-my-zsh/custom/plugins/zsh-completions
         depth: 1
 
     - name: OMZ Addons | Installing fzf-tab addon
       ansible.builtin.git:
-        repo: 'https://github.com/Aloxaf/fzf-tab'
+        repo: "https://github.com/Aloxaf/fzf-tab"
         dest: ~/.oh-my-zsh/custom/plugins/fzf-tab
         depth: 1
-    
+
     - name: OMZ Addons | Installing powerlevel10k theme for zsh
       ansible.builtin.git:
-        repo: 'https://github.com/romkatv/powerlevel10k.git'
+        repo: "https://github.com/romkatv/powerlevel10k.git"
         dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
         depth: 1
 
     - name: vim | Installing vim-plug
       ansible.builtin.shell: curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    
+
     - name: vim | Installing vim plugins
       ansible.builtin.shell: vim +PlugInstall +qall
 
@@ -148,13 +147,11 @@
         state: present
         update_cache: true
 
-
     - name: Sublime Text | Adding Sublime Text apt repository key
       become: true
       ansible.builtin.apt_key:
         url: https://download.sublimetext.com/sublimehq-pub.gpg
         state: present
-
 
     - name: Sublime Text | Adding Sublime Text repository to list of repositories
       become: true
@@ -174,18 +171,18 @@
       ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
         dest: /tmp/zoxide_install.sh
-        mode: '0755'
+        mode: "0755"
 
     - name: zoxide | Installing zoxide
       ansible.builtin.command: /tmp/zoxide_install.sh
 
     - name: General | Clearing font cache
       ansible.builtin.shell: fc-cache -f -v >/dev/null
-    
+
     - name: tldr | Downloading tldr pages
       ansible.builtin.shell: tldr --update
 
     - name: timeshift | Setting timeshift (via GUI)
-    # Requires user input, hence running last
+      # Requires user input, hence running last
       become: true
       ansible.builtin.command: timeshift-gtk
