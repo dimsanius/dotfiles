@@ -39,6 +39,7 @@
           - htop
           - mc
           - fd-find
+          - git-delta
           # Below are packages for non-headless installs
           - terminator
           - gnome-shell-extensions
@@ -117,7 +118,7 @@
     - name: Brave | Adding Brave repository to list of repositories
       become: true
       ansible.builtin.apt_repository:
-        repo: deb https://brave-browser-apt-release.s3.brave.com/ stable main
+        repo: deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
         filename: brave-browser-release
         state: present
 
