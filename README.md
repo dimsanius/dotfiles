@@ -61,3 +61,7 @@ TODO
 - Try to split setup for headless distros
 - Introduce update command
 - Finish writing readme
+- Change chezmoi from https to ssh
+- Add full Zephyr install (including repo clone, zephyr patch, compiler download)
+- Add entire workspace clone including venv build
+- Install gnome extensions
