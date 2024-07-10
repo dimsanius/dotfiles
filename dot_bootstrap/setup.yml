@@ -118,7 +118,6 @@
         mode: "0644"
         force: true
 
-
     - name: Brave | Adding Brave repository to list of repositories
       become: true
       ansible.builtin.apt_repository:
