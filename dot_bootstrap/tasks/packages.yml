@@ -1,0 +1,36 @@
+- name: General | Installing packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      # Dependencies
+      - curl
+      - wget
+      - gpg
+      - ca-certificates
+      - apt-transport-https
+      - git
+      - jq
+      # Apps
+      - zsh
+      - vim
+      - neofetch
+      - fzf
+      - tig
+      - eza
+      - nala
+      - timeshift
+      - ncdu
+      - bat
+      - tldr
+      - ripgrep
+      - btop
+      - htop
+      - mc
+      - fd-find
+      - git-delta
+      # Below are packages for non-headless installs
+      - terminator
+      - gnome-shell-extensions
+      - gnome-tweaks
+    state: present
+

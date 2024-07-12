@@ -1,0 +1,18 @@
+- name: OMZ | Checking if Oh My zsh already exists
+  stat:
+    path: ~/.oh-my-zsh
+  register: oh_my_zsh_dir
+
+- name: OMZ | Installing Oh My zsh
+  when: not oh_my_zsh_dir.stat.exists
+  ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+
+- name: OMZ | Remembering current user id
+  ansible.builtin.set_fact:
+    remote_regular_user: "{{ ansible_user_id }}"
+
+- name: OMZ | Changing default shell to zsh for current user id
+  become: true
+  user:
+    name: "{{ remote_regular_user }}"
+    shell: /usr/bin/zsh
