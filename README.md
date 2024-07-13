@@ -59,6 +59,6 @@ TODO
 ## TODO
 
 - Finish writing readme
+- Add entire work-related repo clone (include venv build)
 - Add full Zephyr install (including repo clone, zephyr patch, compiler download)
-- Add entire workspace clone including venv build
 - Install gnome extensions
