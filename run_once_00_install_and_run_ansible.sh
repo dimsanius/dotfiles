@@ -14,11 +14,11 @@ while [ "$retries" -le 3 ]; do
 
     say "[try $retries of 3] Running Ansible..."
     if ANSIBLE_LOCALHOST_WARNING=False ANSIBLE_INVENTORY_UNPARSED_WARNING=False ansible-playbook ~/.bootstrap/setup.yml --ask-become-pass --ask-vault-pass; then
-        # Command finished successfully
+        # Ansible run succeeded
         say "Ansible compeleted successfully."
         break
     else
-        # Ansible run failed. 
+        # Ansible run failed. Consume try attempt
         retries=$((retries + 1))
     fi
 done
