@@ -5,33 +5,33 @@
   connection: local
   gather_facts: true
   tasks:
-    - name: Main | Including package install
+    - name: Main | Including package install task
       ansible.builtin.include_tasks: tasks/packages.yml
 
-    - name: Main | Including Oh My zsh install
+    - name: Main | Including Oh My zsh install task
       ansible.builtin.include_tasks: tasks/omz.yml
     
     - name: Main | Including Oh My zsh addon install
       ansible.builtin.include_tasks: tasks/omz_addons.yml
 
-    - name: Main | Including vim addon install
+    - name: Main | Including vim addon install task
       ansible.builtin.include_tasks: tasks/vim.yml
 
-    - name: Main | Including Brave install
+    - name: Main | Including Brave install task
       ansible.builtin.include_tasks: tasks/brave.yml
 
-    - name: Main | Including VS Code install
+    - name: Main | Including VS Code install task
       ansible.builtin.include_tasks: tasks/vs_code.yml
 
-    - name: Main | Including Sublime Text install
+    - name: Main | Including Sublime Text install task
       ansible.builtin.include_tasks: tasks/sublime_text.yml
 
-    - name: Main | Including Zoxide install
+    - name: Main | Including Zoxide install task
       ansible.builtin.include_tasks: tasks/zoxide.yml
 
-    - name: Main | Including SSH key decrypt
+    - name: Main | Including SSH key decrypt task
       ansible.builtin.include_tasks: tasks/ssh.yml
 
     # Ensure to run misc as a last task
-    - name: Main | Including misc install
+    - name: Main | Including misc install task
       ansible.builtin.include_tasks: tasks/misc.yml
