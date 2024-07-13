@@ -18,7 +18,7 @@ while [ "$retries" -le 3 ]; do
         say "Ansible compeleted successfully."
         break
     else
-        # Failed for whatever other reason. Try to retry.
+        # Ansible run failed. 
         retries=$((retries + 1))
     fi
 done
