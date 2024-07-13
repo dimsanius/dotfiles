@@ -58,8 +58,6 @@ TODO
 
 ## TODO
 
-- Try to split setup for headless distros
-- Introduce update command
 - Finish writing readme
 - Add full Zephyr install (including repo clone, zephyr patch, compiler download)
 - Add entire workspace clone including venv build
