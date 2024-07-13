@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my liking. Feel free to take anything you find useful
+This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my liking. Feel free to take anything you find useful.
 
 ## Platform support
 
@@ -44,19 +44,13 @@ sudo apt -y install curl python3-venv python3-apt
 sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius
 ```
 
-## Adding new files
+## Adding/removing/updating files
 
-TODO
+My preffered way is based on [official chezmoi documentation](https://www.chezmoi.io/user-guide/frequently-asked-questions/usage/):
 
-## Removing existing files
+> 4. Edit the file in your home directory, and then either re-add it by running `chezmoi add $FILE` or `chezmoi re-add`.
 
-TODO
-
-## Update existing files
-
-TODO
-
-## TODO
+## To-do list
 
 - Finish writing readme
 - Add entire work-related repo clone (include venv build)
