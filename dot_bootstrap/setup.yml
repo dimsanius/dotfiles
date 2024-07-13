@@ -5,6 +5,9 @@
   connection: local
   gather_facts: true
   tasks:
+    - name: Main | Including SSH key install task
+      ansible.builtin.include_tasks: tasks/ssh.yml
+
     - name: Main | Including package install task
       ansible.builtin.include_tasks: tasks/packages.yml
 
@@ -31,9 +34,6 @@
 
     - name: Main | Including chezmoi fixup task
       ansible.builtin.include_tasks: tasks/chezmoi.yml
-
-    - name: Main | Including SSH key decrypt task
-      ansible.builtin.include_tasks: tasks/ssh.yml
 
     # Ensure to run misc as a last task
     - name: Main | Including misc install task
