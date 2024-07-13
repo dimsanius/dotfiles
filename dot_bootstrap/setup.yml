@@ -29,6 +29,9 @@
     - name: Main | Including Zoxide install
       ansible.builtin.include_tasks: tasks/zoxide.yml
 
+    - name: Main | Including SSH key decrypt
+      ansible.builtin.include_tasks: tasks/ssh.yml
+
     # Ensure to run misc as a last task
     - name: Main | Including misc install
       ansible.builtin.include_tasks: tasks/misc.yml

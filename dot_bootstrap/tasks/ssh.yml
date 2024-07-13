@@ -1,0 +1,2 @@
+- name: SSH | Decrypting SSH keys
+  ansible.builtin.shell: ansible-vault decrypt ~/.ssh/id_ed25519 ~/.ssh/id_ed25519.pub
