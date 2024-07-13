@@ -1,0 +1,4 @@
+- name: chezmoi | Changing remote from HTTPS to SSH
+  ansible.builtin.git:
+    repo: "git@github.com:dimsanius/dotfiles.git"
+    dest: ~/.local/share/chezmoi

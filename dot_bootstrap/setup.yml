@@ -29,6 +29,9 @@
     - name: Main | Including Zoxide install task
       ansible.builtin.include_tasks: tasks/zoxide.yml
 
+    - name: Main | Including chezmoi fixup task
+      ansible.builtin.include_tasks: tasks/chezmoi.yml
+
     - name: Main | Including SSH key decrypt task
       ansible.builtin.include_tasks: tasks/ssh.yml
 
