@@ -1,2 +1,0 @@
-- name: tldr | Downloading tldr pages
-  ansible.builtin.shell: tldr --update
