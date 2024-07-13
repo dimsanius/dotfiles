@@ -56,3 +56,4 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 - Add entire work-related repo clone (include venv build)
 - Add full Zephyr install (including repo clone, zephyr patch, compiler download)
 - Install gnome extensions
+- Install JetBrains Toolbox
