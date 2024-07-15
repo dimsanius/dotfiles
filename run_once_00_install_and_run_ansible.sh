@@ -7,7 +7,7 @@ say() {
 say "Creating python venv and installing ansible"
 python3 -m venv ~/.bootstrap/.venv
 source ~/.bootstrap/.venv/bin/activate
-pip install -q ansible
+pip install -q ansible gnome-extensions-cli
 
 retries=1
 while [ "$retries" -le 3 ]; do
