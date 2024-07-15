@@ -1,13 +1,13 @@
 - name: env selector | Setting personal environment
   when: environment_type == "personal"
   ansible.builtin.copy:
-    src: env_files/personal_env_selector.sh
+    src: env_selector_files/personal_env_selector.sh
     dest: ~/.env_selector.sh
     mode: '0664'
 
 - name: env selector | Setting work environment
   when: environment_type == "work"
   ansible.builtin.copy:
-    src: env_files/work_env_selector.sh
+    src: env_selector_files/work_env_selector.sh
     dest: ~/.env_selector.sh
     mode: '0664'
