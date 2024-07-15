@@ -44,6 +44,10 @@
     - name: Main | Including chezmoi fixup task
       ansible.builtin.include_tasks: tasks/chezmoi.yml
 
+    - name: Main | Including Slack install task
+      when: environment == "work"
+      ansible.builtin.include_tasks: tasks/slack.yml
+
     # Ensure to run misc as a last task
     - name: Main | Including misc install task
       ansible.builtin.include_tasks: tasks/misc.yml
