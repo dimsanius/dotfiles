@@ -1,4 +1,4 @@
-- name: Brave | Downloading Brave apt repository key
+- name: Brave | Download Brave apt repository key
   become: true
   ansible.builtin.get_url:
     url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -6,14 +6,14 @@
     mode: "0644"
     force: true
 
-- name: Brave | Adding Brave repository to list of repositories
+- name: Brave | Add Brave repository to list of repositories
   become: true
   ansible.builtin.apt_repository:
     repo: deb [signed-by=/etc/apt/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
     filename: brave-browser
     state: present
 
-- name: Brave | Installing Brave
+- name: Brave | Install Brave
   become: true
   ansible.builtin.apt:
     name: brave-browser

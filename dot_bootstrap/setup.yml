@@ -8,55 +8,55 @@
     jetbrains_toolbox_version: "jetbrains-toolbox-2.4.0.32175"
 
   tasks:
-    - name: Main | Including SSH key install task
+    - name: Main | Include SSH key install task
       ansible.builtin.include_tasks: tasks/ssh.yml
 
-    - name: Main | Including package install task
+    - name: Main | Include package install task
       ansible.builtin.include_tasks: tasks/packages.yml
 
-    - name: Main | Including GNOME Extension install task
+    - name: Main | Include GNOME Extension install task
       ansible.builtin.include_tasks: tasks/gnome_extensions.yml
     
-    - name: Main | Including JetBrains Toolbox install task
+    - name: Main | Include JetBrains Toolbox install task
       ansible.builtin.include_tasks: tasks/jetbrains_toolbox.yml
 
-    - name: Main | Including Oh My zsh install task
+    - name: Main | Include Oh My ZSH install task
       ansible.builtin.include_tasks: tasks/omz.yml
     
-    - name: Main | Including Oh My zsh addon install
+    - name: Main | Include Oh My ZSH addon install task
       ansible.builtin.include_tasks: tasks/omz_addons.yml
 
-    - name: Main | Including vim addon install task
+    - name: Main | Include vim addon install task
       ansible.builtin.include_tasks: tasks/vim.yml
 
-    - name: Main | Including Brave install task
+    - name: Main | Include Brave install task
       ansible.builtin.include_tasks: tasks/brave.yml
 
-    - name: Main | Including Brave Sync code task
+    - name: Main | Include Brave Sync code decode task
       ansible.builtin.include_tasks: tasks/brave_sync_code.yml
 
-    - name: Main | Including VS Code install task
+    - name: Main | Include VS Code install task
       ansible.builtin.include_tasks: tasks/vs_code.yml
 
-    - name: Main | Including Sublime Text install task
+    - name: Main | Include Sublime Text install task
       ansible.builtin.include_tasks: tasks/sublime_text.yml
 
-    - name: Main | Including Slack install task
+    - name: Main | Include Slack install task
       when: environment_type == "work"
       ansible.builtin.include_tasks: tasks/slack.yml
 
-    - name: Main | Including Zoxide install task
+    - name: Main | Include Zoxide install task
       ansible.builtin.include_tasks: tasks/zoxide.yml
 
-    - name: Main | Including chezmoi fixup task
+    - name: Main | Include chezmoi fixup task
       ansible.builtin.include_tasks: tasks/chezmoi.yml
 
-    - name: Main | Including Git commit user info set task
+    - name: Main | Include Git commit user info set task
       ansible.builtin.include_tasks: tasks/git_set.yml
 
-    - name: Main | Including environment selector install task
+    - name: Main | Include environment selector install task
       ansible.builtin.include_tasks: tasks/env_selector.yml
 
     # Ensure to run misc as a last task
-    - name: Main | Including misc install task
+    - name: Main | Include misc install task
       ansible.builtin.include_tasks: tasks/misc.yml

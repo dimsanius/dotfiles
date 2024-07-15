@@ -1,8 +1,8 @@
-- name: zoxide | Downloading zoxide
+- name: zoxide | Download zoxide
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
     dest: /tmp/zoxide_install.sh
     mode: "0755"
 
-- name: zoxide | Installing zoxide
+- name: zoxide | Install zoxide
   ansible.builtin.command: /tmp/zoxide_install.sh

@@ -1,4 +1,4 @@
-- name: SSH | Creating ~/.ssh directory
+- name: SSH | Create ~/.ssh directory
   ansible.builtin.file:
       path: ~/.ssh
       state: directory

@@ -1,2 +1,2 @@
-- name: GNOME Extensions | Installing extensions
+- name: GNOME Extensions | Install extensions
   ansible.builtin.shell: gext install caffeine@patapon.info openweather-extension@penguin-teal.github.io tophat@fflewddur.github.io
