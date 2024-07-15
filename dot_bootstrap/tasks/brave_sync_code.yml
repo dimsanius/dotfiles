@@ -12,4 +12,5 @@
   ansible.builtin.file:
     src: /tmp/brave_sync_code
     dest: ~/Desktop/brave_sync_code
+    force: true
     state: link
