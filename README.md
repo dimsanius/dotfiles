@@ -52,8 +52,5 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 
 ## To-do list
 
-- Create a split between personal and work installs
 - Install work/personal Brave Sync key
-- Fill git name and git email automatically based on selection above
 - Add entire work-related repo clone (include venv build, zephyr patch, compiler download):
-  - Slack snap install
