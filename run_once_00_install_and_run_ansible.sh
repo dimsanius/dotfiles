@@ -9,7 +9,7 @@ python3 -m venv ~/.bootstrap/.venv
 source ~/.bootstrap/.venv/bin/activate
 
 say "Installing pip dependencies"
-pip install -q ansible gnome-extensions-cli
+pip install -q -r ~/.bootstrap/requirements.txt
 
 while true
 do
