@@ -52,10 +52,6 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 
 ## To-do list
 
-- Install gnome extensions:
-  - Caffeine
-  - OpenWeather Refined
-  - TopHat (required apt  package `gir1.2-gtkclutter-1.0`)
 - Install JetBrains Toolbox (requires apt package `libfuse2`)
 - Install work/personal Brave Sync key
 - Add entire work-related repo clone (include venv build, zephyr patch, compiler download):
