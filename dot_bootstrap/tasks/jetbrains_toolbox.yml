@@ -1,8 +1,10 @@
+- jetbrains_filename: jetbrains-toolbox-2.4.0.32175
+
 - name: JetBrains Toolbox | Download and extract JetBrains Toolbox install tarball
   ansible.builtin.get_url:
-    url: "https://download.jetbrains.com/toolbox/jetbrains-toolbox-2.4.0.32175.tar.gz"
-    dest: "/tmp/jetbrains-toolbox.tar.gz"
+    url: "https://download.jetbrains.com/toolbox/{{ jetbrains_filename }}.tar.gz"
+    dest: "/tmp"
     decompress: true
 
 - name: JetBrains Toolbox | Execute JetBrains Toolbox install script
-  ansible.builtin.shell: "./tmp/jetbrains-toolbox/jetbrains-toolbox"
+  ansible.builtin.shell: "/tmp/{{ jetbrains_filename }}/{{ jetbrains_filename }}"
