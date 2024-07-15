@@ -26,9 +26,6 @@ do
     echo "Wrong selection. Try again."
 done
 
-echo $environment
-
-exit
 say "Preparing Python's virtual environment"
 python3 -m venv ~/.bootstrap/.venv
 source ~/.bootstrap/.venv/bin/activate
