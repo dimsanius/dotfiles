@@ -1,3 +1,4 @@
+---
 - name: vim | Prepare directory structure for vim-plug plugin manager
   ansible.builtin.file:
     path: ~/.vim/autoload
@@ -13,4 +14,4 @@
 
 - name: vim | Install vim plugins
   when: plug_vim.changed
-  ansible.builtin.shell: vim +PlugInstall +qall
+  ansible.builtin.command: vim +PlugInstall +qall

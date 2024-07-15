@@ -1,3 +1,4 @@
+---
 - name: Sublime Text | Download Sublime Text apt repository key
   become: true
   ansible.builtin.get_url:
@@ -8,12 +9,12 @@
 
 - name: Sublime Text | De-armor GPG key
   become: true
-  ansible.builtin.shell: gpg --yes --output /etc/apt/keyrings/sublimehq-archive-keyring.gpg --dearmor /tmp/sublimehq-pub.gpg
+  ansible.builtin.command: gpg --yes --output /etc/apt/keyrings/sublimehq-archive-keyring.gpg --dearmor /tmp/sublimehq-pub.gpg
 
 - name: Sublime Text | Adding Sublime Text repository to list of repositories
   become: true
   ansible.builtin.apt_repository:
-    repo: "deb [signed-by=/etc/apt/keyrings/sublimehq-archive-keyring.gpg arch=amd64] https://download.sublimetext.com/ apt/stable/"
+    repo: deb [signed-by=/etc/apt/keyrings/sublimehq-archive-keyring.gpg arch=amd64] https://download.sublimetext.com/ apt/stable/
     filename: sublime-text
     state: present
 

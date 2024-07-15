@@ -1,3 +1,4 @@
+---
 - name: Brave | Download Brave apt repository key
   become: true
   ansible.builtin.get_url:

@@ -1,3 +1,4 @@
+---
 # - Run current script: ansible-playbook ./setup.yml --ask-become-pass
 # - For dev: install ansible-lint: pip install ansible-lint
 - name: Machine setup
@@ -5,7 +6,7 @@
   connection: local
   gather_facts: true
   vars:
-    jetbrains_toolbox_version: "jetbrains-toolbox-2.4.0.32175"
+    jetbrains_toolbox_version: jetbrains-toolbox-2.4.0.32175
 
   tasks:
     - name: Main | Include SSH key install task

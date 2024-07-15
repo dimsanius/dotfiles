@@ -1,3 +1,4 @@
+---
 - name: Slack | Install Slack snap
   become: true
-  ansible.builtin.shell: snap install slack
+  ansible.builtin.command: snap install slack

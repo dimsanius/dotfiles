@@ -1,2 +1,3 @@
+---
 - name: Misc | Download tldr pages
-  ansible.builtin.shell: tldr --update
+  ansible.builtin.command: tldr --update

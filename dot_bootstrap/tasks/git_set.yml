@@ -1,13 +1,14 @@
+---
 - name: Git User | Set git commit user name and personal email
   when: environment_type == "personal"
   ansible.builtin.copy:
     src: vault/gituser_personal
     dest: ~/.gituser
-    mode: '0600'
+    mode: "0600"
 
 - name: Git User | Set git commit user name and work email
   when: environment_type == "work"
   ansible.builtin.copy:
     src: vault/gituser_work
     dest: ~/.gituser
-    mode: '0600'
+    mode: "0600"
