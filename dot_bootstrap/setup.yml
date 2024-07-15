@@ -45,7 +45,7 @@
       ansible.builtin.include_tasks: tasks/chezmoi.yml
 
     - name: Main | Including Slack install task
-      when: environment == "work"
+      when: environment_type == "work"
       ansible.builtin.include_tasks: tasks/slack.yml
 
     # Ensure to run misc as a last task
