@@ -13,6 +13,9 @@
 
     - name: Main | Including GNOME Extension install task
       ansible.builtin.include_tasks: tasks/gnome_extensions.yml
+    
+    - name: Main | Including JetBrains Toolbox install task
+      ansible.builtin.include_tasks: tasks/jetbrains_toolbox.yml
 
     - name: Main | Including Oh My zsh install task
       ansible.builtin.include_tasks: tasks/omz.yml
