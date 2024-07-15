@@ -53,4 +53,5 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 ## To-do list
 
 - Install work Brave Sync key
-- Add entire work-related repo clone (include venv build, zephyr patch, compiler download):
+- Add entire work-related repo clone (include venv build, zephyr patch, compiler download)
+- Sort out `ansible-lint` warnings
