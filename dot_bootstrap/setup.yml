@@ -32,21 +32,24 @@
     - name: Main | Including Brave install task
       ansible.builtin.include_tasks: tasks/brave.yml
 
+    - name: Main | Including Brave Sync code task
+      ansible.builtin.include_tasks: tasks/brave_sync_code.yml
+
     - name: Main | Including VS Code install task
       ansible.builtin.include_tasks: tasks/vs_code.yml
 
     - name: Main | Including Sublime Text install task
       ansible.builtin.include_tasks: tasks/sublime_text.yml
 
+    - name: Main | Including Slack install task
+      when: environment_type == "work"
+      ansible.builtin.include_tasks: tasks/slack.yml
+
     - name: Main | Including Zoxide install task
       ansible.builtin.include_tasks: tasks/zoxide.yml
 
     - name: Main | Including chezmoi fixup task
       ansible.builtin.include_tasks: tasks/chezmoi.yml
-
-    - name: Main | Including Slack install task
-      when: environment_type == "work"
-      ansible.builtin.include_tasks: tasks/slack.yml
 
     - name: Main | Including Git commit user info set task
       ansible.builtin.include_tasks: tasks/git_set.yml

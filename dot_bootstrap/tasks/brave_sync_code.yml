@@ -1,0 +1,15 @@
+- name: Brave Sync Code | Copying file to /tmp
+  when: environment_type == "personal"
+  ansible.builtin.copy:
+    decrypt: true
+    src: vault/brave_sync_codes/personal_brave_sync_code
+    dest: /tmp/brave_sync_code
+    mode: '0400'
+
+# TODO: Work environment Brave Browser Sync Code
+
+- name: Brave Sync Code | Create a symbolic link on a desktop
+  ansible.builtin.file:
+    src: /tmp/brave_sync_code
+    dest: ~/Desktop/brave_sync_code
+    state: link
