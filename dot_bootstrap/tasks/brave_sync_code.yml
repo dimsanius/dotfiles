@@ -1,4 +1,4 @@
-- name: Brave Sync Code | Copy file to /tmp
+- name: Brave Sync Code | Decode and copy personal sync code to /tmp
   when: environment_type == "personal"
   ansible.builtin.copy:
     decrypt: true

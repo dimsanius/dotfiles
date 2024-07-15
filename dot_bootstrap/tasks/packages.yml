@@ -1,4 +1,4 @@
-- name: General | Install apt packages
+- name: APT Packages | Install apt packages
   become: true
   ansible.builtin.apt:
     name:
