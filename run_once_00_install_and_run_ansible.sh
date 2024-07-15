@@ -4,6 +4,11 @@ say() {
     echo "==> $1"
 }
 
+say "Preparing Python's virtual environment"
+python3 -m venv ~/.bootstrap/.venv
+source ~/.bootstrap/.venv/bin/activate
+pip install -q ansible gnome-extensions-cli
+
 while true
 do
     say "Environment selection:"
@@ -26,11 +31,6 @@ do
 
     echo "Wrong selection. Try again."
 done
-
-say "Preparing Python's virtual environment"
-python3 -m venv ~/.bootstrap/.venv
-source ~/.bootstrap/.venv/bin/activate
-pip install -q ansible gnome-extensions-cli
 
 retries=1
 while [ "$retries" -le 3 ]; do
