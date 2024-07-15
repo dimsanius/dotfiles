@@ -7,13 +7,13 @@
 - name: SSH | Copy public SSH key
   ansible.builtin.copy:
     decrypt: true
-    src: ssh_keys/id_ed25519.pub
+    src: vault/ssh_keys/id_ed25519.pub
     dest: ~/.ssh/id_ed25519.pub
     mode: '0644'
 
 - name: SSH | Copy private SSH key
   ansible.builtin.copy:
     decrypt: true
-    src: ssh_keys/id_ed25519
+    src: vault/ssh_keys/id_ed25519
     dest: ~/.ssh/id_ed25519
     mode: '0600'
