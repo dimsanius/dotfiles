@@ -4,9 +4,11 @@ say() {
     echo "==> $1"
 }
 
-say "Preparing Python's virtual environment"
+say "Creating Python's virtual environment"
 python3 -m venv ~/.bootstrap/.venv
 source ~/.bootstrap/.venv/bin/activate
+
+say "Installing pip dependencies"
 pip install -q ansible gnome-extensions-cli
 
 while true
