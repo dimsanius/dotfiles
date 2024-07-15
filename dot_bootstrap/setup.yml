@@ -4,6 +4,9 @@
   hosts: localhost
   connection: local
   gather_facts: true
+  vars:
+    jetbrains_toolbox_version: "jetbrains-toolbox-2.4.0.32175"
+
   tasks:
     - name: Main | Including SSH key install task
       ansible.builtin.include_tasks: tasks/ssh.yml
