@@ -1,5 +1,5 @@
 - name: OMZ | Check if Oh My ZSH already exists
-  stat:
+  ansible.builtin.stat:
     path: ~/.oh-my-zsh
   register: oh_my_zsh_dir
 
@@ -13,6 +13,6 @@
 
 - name: "OMZ | Change default shell to zsh for {{ ansible_user_id }}"
   become: true
-  user:
+  ansible.builtin.user:
     name: "{{ remote_regular_user }}"
     shell: /usr/bin/zsh

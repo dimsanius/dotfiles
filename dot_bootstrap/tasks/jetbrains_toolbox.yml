@@ -2,6 +2,7 @@
   ansible.builtin.get_url:
     url: "https://download.jetbrains.com/toolbox/{{ jetbrains_toolbox_version }}.tar.gz"
     dest: "/tmp"
+    mode: "400"
 
 - name: JetBrains Toolbox | Extract JetBrains Toolbox install tarball
   ansible.builtin.unarchive:

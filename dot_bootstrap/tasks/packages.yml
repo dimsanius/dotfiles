@@ -35,4 +35,3 @@
       - gnome-shell-extensions
       - gnome-tweaks
     state: present
-

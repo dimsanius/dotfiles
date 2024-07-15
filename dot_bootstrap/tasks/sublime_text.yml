@@ -6,7 +6,7 @@
     mode: "0644"
     force: true
 
-- name : Sublime Text | De-armor GPG key
+- name: Sublime Text | De-armor GPG key
   become: true
   ansible.builtin.shell: gpg --yes --output /etc/apt/keyrings/sublimehq-archive-keyring.gpg --dearmor /tmp/sublimehq-pub.gpg
 
