@@ -51,6 +51,9 @@
     - name: Main | Including Git commit user info set task
       ansible.builtin.include_tasks: tasks/git_set.yml
 
+    - name: Main | Including environment selector install task
+      ansible.builtin.include_tasks: tasks/env_selector.yml
+
     # Ensure to run misc as a last task
     - name: Main | Including misc install task
       ansible.builtin.include_tasks: tasks/misc.yml
