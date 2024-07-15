@@ -10,7 +10,6 @@ do
     echo " 1. Personal"
     echo " 2. Work"
     echo ""
-    echo ""
     read -p " Selection [1-2]: " -n 1 answer
     echo ""
     echo ""
