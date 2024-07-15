@@ -1,0 +1,4 @@
+- name: Timeshift | Start timeshift (via GUI)
+  # This task requires user input to finish
+  become: true
+  ansible.builtin.command: timeshift-gtk

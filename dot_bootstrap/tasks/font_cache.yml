@@ -1,0 +1,2 @@
+- name: Misc | Clear font cache
+  ansible.builtin.shell: fc-cache -f -v >/dev/null

@@ -57,6 +57,12 @@
     - name: Main | Include environment selector install task
       ansible.builtin.include_tasks: tasks/env_selector.yml
 
-    # Ensure to run misc as a last task
-    - name: Main | Include misc install task
-      ansible.builtin.include_tasks: tasks/misc.yml
+    - name: Main | Include TLDR update task
+      ansible.builtin.include_tasks: tasks/tldr.yml
+
+    - name: Main | Include font cache clear task
+      ansible.builtin.include_tasks: tasks/font_cache.yml
+
+    # Ensure to run Timeshift as a last task
+    - name: Main | Include Timeshift start task
+      ansible.builtin.include_tasks: tasks/timeshift.yml
