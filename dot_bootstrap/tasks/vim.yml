@@ -13,6 +13,6 @@
     mode: "664"
 
 - name: vim | Install vim plugins
-  when: plug_vim.changed
+  when: plug_vim.changed # noqa: no-handler
   ansible.builtin.command: vim +PlugInstall +qall
   changed_when: true
