@@ -1,6 +1,6 @@
 ---
 - name: Font Cache | Clear font cache
-  ansible.builtin.shell: fc-cache -f -v
+  ansible.builtin.command: fc-cache -f -v
   register: font_cache_task
   changed_when: font_cache_task.rc == 0
   failed_when: font_cache_task.rc != 0
