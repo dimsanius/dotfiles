@@ -29,6 +29,7 @@ plugins=(
     auto-notify
     you-should-use
     fzf-tab
+    autoupdate
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src

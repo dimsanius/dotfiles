@@ -2,42 +2,48 @@
 - name: OMZ Addons | Install zsh-syntax-highlighting addon
   ansible.builtin.git: # noqa: latest
     repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    dest: $ZSH_CUSTOM/custom/plugins/zsh-syntax-highlighting
     depth: 1
 
 - name: OMZ Addons | Install zsh-autosuggestions addon
   ansible.builtin.git: # noqa: latest
     repo: https://github.com/zsh-users/zsh-autosuggestions.git
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    dest: $ZSH_CUSTOM/plugins/zsh-autosuggestions
     depth: 1
 
 - name: OMZ Addons | Install zsh-you-should-use addon
   ansible.builtin.git: # noqa: latest
     repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
-    dest: ~/.oh-my-zsh/custom/plugins/you-should-use
+    dest: $ZSH_CUSTOM/plugins/you-should-use
     depth: 1
 
 - name: OMZ Addons | Install zsh-completions addon
   ansible.builtin.git: # noqa: latest
     repo: https://github.com/zsh-users/zsh-completions.git
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-completions
+    dest: $ZSH_CUSTOM/plugins/zsh-completions
     depth: 1
 
 - name: OMZ Addons | Install fzf-tab addon
   ansible.builtin.git: # noqa: latest
     repo: https://github.com/Aloxaf/fzf-tab
-    dest: ~/.oh-my-zsh/custom/plugins/fzf-tab
-    depth: 1
-
-- name: OMZ Addons | Install powerlevel10k theme for zsh
-  ansible.builtin.git: # noqa: latest
-    repo: https://github.com/romkatv/powerlevel10k.git
-    dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
+    dest: $ZSH_CUSTOM/plugins/fzf-tab
     depth: 1
 
 - name: OMZ Addons | Install zsh-auto-notify addon
   # Only in non-headless distros
   ansible.builtin.git: # noqa: latest
     repo: https://github.com/MichaelAquilina/zsh-auto-notify.git
-    dest: ~/.oh-my-zsh/custom/plugins/auto-notify
+    dest: $ZSH_CUSTOM/plugins/auto-notify
+    depth: 1
+
+- name: OMZ Addons | Install autoupdate-oh-my-zsh-plugins addon
+  ansible.builtin.git: # noqa: latest
+    repo: https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git
+    dest: $ZSH_CUSTOM/plugins/autoupdate
+    depth: 1
+
+- name: OMZ Addons | Install powerlevel10k theme for zsh
+  ansible.builtin.git: # noqa: latest
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: $ZSH_CUSTOM/themes/powerlevel10k
     depth: 1
