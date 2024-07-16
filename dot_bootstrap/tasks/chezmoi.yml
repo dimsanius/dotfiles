@@ -4,4 +4,4 @@
     scope: local
     repo: ~/.local/share/chezmoi
     name: remote.origin.url
-    value: "git@github.com:dimsanius/dotfiles.git"
+    value: git@github.com:dimsanius/dotfiles.git
