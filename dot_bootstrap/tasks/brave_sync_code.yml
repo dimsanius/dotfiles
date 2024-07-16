@@ -7,7 +7,13 @@
     dest: /tmp/brave_sync_code
     mode: "0400"
 
-# TODO: Work environment Brave Browser Sync Code
+- name: Brave Sync Code | Decode and copy work sync code to /tmp
+  when: environment_type == "work"
+  ansible.builtin.copy:
+    decrypt: true
+    src: vault/brave_sync_codes/work_brave_sync_code
+    dest: /tmp/brave_sync_code
+    mode: "0400"
 
 - name: Brave Sync Code | Create a symbolic link on a desktop
   ansible.builtin.file:
