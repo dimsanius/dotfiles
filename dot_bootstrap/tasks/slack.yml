@@ -2,3 +2,5 @@
 - name: Slack | Install Slack snap
   become: true
   ansible.builtin.command: snap install slack
+  register: slack_install_task
+  changed_when: '"snap \"slack\" is already installed" not in slack_install_task.stderr'
