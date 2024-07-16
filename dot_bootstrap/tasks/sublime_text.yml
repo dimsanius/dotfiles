@@ -10,6 +10,7 @@
 - name: Sublime Text | De-armor GPG key
   become: true
   ansible.builtin.command: gpg --yes --output /etc/apt/keyrings/sublimehq-archive-keyring.gpg --dearmor /tmp/sublimehq-pub.gpg
+  changed_when: true
 
 - name: Sublime Text | Adding Sublime Text repository to list of repositories
   become: true
