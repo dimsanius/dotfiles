@@ -1,15 +1,12 @@
 ---
 - name: GNOME Extensions | Install extensions
   ansible.builtin.command: |
-    gext install 
-      caffeine@patapon.info 
-      openweather-extension@penguin-teal.github.io 
-      tophat@fflewddur.github.io
-      autoselectheadset@josephlbarnett.github.com
-      blur-my-shell@aunetx
-      clipboard-indicator@tudmotu.com
+    gext install
+    caffeine@patapon.info
+    openweather-extension@penguin-teal.github.io
+    tophat@fflewddur.github.io
+    autoselectheadset@josephlbarnett.github.com
+    blur-my-shell@aunetx
+    clipboard-indicator@tudmotu.com
   register: gext_install
-  changed_when: '"Download" in gext_install.stdout or 
-      "Extract" in gext_install.stdout or 
-      "Enable" in gext_install.stdout'
-
+  changed_when: '"Download" in gext_install.stdout or "Extract" in gext_install.stdout or "Enable" in gext_install.stdout'
