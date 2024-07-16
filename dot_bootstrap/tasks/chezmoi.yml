@@ -1,3 +1,7 @@
 ---
 - name: chezmoi | Change remote from HTTPS to SSH
-  ansible.builtin.command: git -C ~/.local/share/chezmoi remote set-url origin git@github.com:dimsanius/dotfiles.git
+  community.general.git_config:
+    scope: local
+    repo: ~/.local/share/chezmoi
+    name: remote.origin.url
+    value: "git@github.com:dimsanius/dotfiles.git"
