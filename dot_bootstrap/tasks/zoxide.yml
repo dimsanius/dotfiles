@@ -7,3 +7,4 @@
 
 - name: zoxide | Install zoxide
   ansible.builtin.command: /tmp/zoxide_install.sh
+  changed_when: true
