@@ -12,3 +12,5 @@
 
 - name: JetBrains Toolbox | Execute JetBrains Toolbox install script
   ansible.builtin.command: /tmp/{{ jetbrains_toolbox_version }}/jetbrains-toolbox
+  register: jetbrains_toolbox_install_task
+  changed_when: jetbrains_toolbox_install_task == 0
