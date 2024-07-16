@@ -15,3 +15,4 @@
 - name: vim | Install vim plugins
   when: plug_vim.changed
   ansible.builtin.command: vim +PlugInstall +qall
+  changed_when: true

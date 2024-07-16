@@ -1,3 +1,4 @@
 ---
 - name: Misc | Download tldr pages
   ansible.builtin.command: tldr --update
+  changed_when: true

@@ -3,3 +3,4 @@
   # This task requires user input to finish
   become: true
   ansible.builtin.command: timeshift-gtk
+  changed_when: true
