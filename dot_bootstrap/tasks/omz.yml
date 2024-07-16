@@ -4,15 +4,23 @@
     path: ~/.oh-my-zsh
   register: oh_my_zsh_dir
 
+- name: OMZ | Download Oh My ZSH
+  when: not oh_my_zsh_dir.stat.exists
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: /tmp/omz_install.sh
+    mode: "700"
+
+
 - name: OMZ | Install Oh My ZSH
   when: not oh_my_zsh_dir.stat.exists
-  ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+  ansible.builtin.command: /tmp/omz_install.sh --unattended --keep-zshrc
 
 - name: OMZ | Remember current user id
   ansible.builtin.set_fact:
     remote_regular_user: "{{ ansible_user_id }}"
 
-- name: OMZ | Change default shell to zsh for {{ ansible_user_id }}
+- name: OMZ | Change default shell to zsh for "{{ ansible_user_id }}"
   become: true
   ansible.builtin.user:
     name: "{{ remote_regular_user }}"
