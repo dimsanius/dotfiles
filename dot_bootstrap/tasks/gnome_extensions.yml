@@ -8,5 +8,6 @@
     autoselectheadset@josephlbarnett.github.com
     blur-my-shell@aunetx
     clipboard-indicator@tudmotu.com
+    burn-my-windows@schneegans.github.com
   register: gext_install
   changed_when: '"Download" in gext_install.stdout or "Extract" in gext_install.stdout or "Enable" in gext_install.stdout'
