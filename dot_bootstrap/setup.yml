@@ -49,9 +49,6 @@
     - name: Main | Include Zoxide install task
       ansible.builtin.import_tasks: tasks/zoxide.yml
 
-    - name: Main | Include chezmoi fixup task
-      ansible.builtin.import_tasks: tasks/chezmoi.yml
-
     - name: Main | Include Git commit user info set task
       ansible.builtin.import_tasks: tasks/git_set.yml
 
