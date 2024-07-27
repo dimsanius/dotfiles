@@ -23,7 +23,7 @@ Ensure to generate a new set of SSH keys and add it to this GitHub account.
 Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
 
 ```bash
-sudo apt -y install python3-venv python3-apt curl && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
+sudo apt -y install python3-venv python3-apt curl git && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
 ```
 
 ## Manual install
@@ -35,6 +35,7 @@ Install following pre-requisites:
 - `curl`
 - `python3-venv`
 - `python3-apt`
+- `git`
 
 ```bash
 sudo apt -y install curl python3-venv python3-apt
