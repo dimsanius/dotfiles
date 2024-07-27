@@ -13,8 +13,6 @@ if [[ $answer != [Yy] ]];then
     exit 1
 fi
 
-exit 0
-
 say "Creating Python's virtual environment"
 python3 -m venv ~/.bootstrap/.venv
 source ~/.bootstrap/.venv/bin/activate
