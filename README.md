@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my liking. Feel free to take anything you find useful.
+This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my liking.
 
 ## Platform support
 
@@ -14,12 +14,16 @@ Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/inde
 
 Afterwards, dot-files are managed via [chezmoi](https://www.chezmoi.io/).
 
+## Prerequisites
+
+Ensure to generate a new set of SSH keys and add it to this GitHub account.
+
 ## Install using one-line
 
 Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
 
 ```bash
-sudo apt -y install python3-venv python3-apt curl && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius
+sudo apt -y install python3-venv python3-apt curl && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
 ```
 
 ## Manual install
@@ -41,7 +45,7 @@ sudo apt -y install curl python3-venv python3-apt
 - Run following one-liner to install `chezmoi` that will trigger environment set-up:
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply dimsanius
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
 ```
 
 ## Adding/removing/updating files

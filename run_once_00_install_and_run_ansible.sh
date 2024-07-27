@@ -4,6 +4,17 @@ say() {
     echo "==> $1"
 }
 
+say "Were SSH keys generated and added to GitHub account?"
+read -p " Selection [Yn]: " -n 1 answer
+echo ""
+
+if [[ $answer != [Yy] ]];then
+    say "Please generate and add SSH keys to GitHub account. Aborting installation."
+    exit 1
+fi
+
+exit 0
+
 say "Creating Python's virtual environment"
 python3 -m venv ~/.bootstrap/.venv
 source ~/.bootstrap/.venv/bin/activate
