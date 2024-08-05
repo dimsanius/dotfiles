@@ -6,14 +6,14 @@ say() {
 
 say "Checking Ansible status..."
 
-if [ -d "~/.bootstrap/.venv" ]; then
+if [ -d "$HOME/.bootstrap/.venv" ]; then
     say "Ansible found. Deleting it."
-    rm -r venv ~/.bootstrap/.venv
+    rm -r $HOME/.bootstrap/.venv
 fi
 
 say "Installing Ansible"
-python3 -m venv ~/.bootstrap/.venv
-source ~/.bootstrap/.venv/bin/activate
+python3 -m venv $HOME/.bootstrap/.venv
+source $HOME/.bootstrap/.venv/bin/activate
 
 say "Installing Ansible dependencies"
-pip install -q -r ~/.bootstrap/requirements.txt
+pip install -q -r $HOME/.bootstrap/requirements.txt
