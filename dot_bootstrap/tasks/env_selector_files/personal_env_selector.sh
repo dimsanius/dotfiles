@@ -1,5 +1,9 @@
+# General alias files
 source $HOME/.myenv/aliases_batcat.sh
 source $HOME/.myenv/aliases_eza.sh
+source $HOME/.myenv/aliases_package_update.sh
+
+# General environment files
 source $HOME/.myenv/env_zoxide.sh
 source $HOME/.myenv/env_chezmoi.sh
 source $HOME/.myenv/env_fzf.sh
