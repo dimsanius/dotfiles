@@ -4,6 +4,8 @@ say() {
     echo "[Ansible Run] ==> $1"
 }
 
+source ~/.bootstrap/.venv/bin/activate
+
 while true; do
     say "Environment selection:"
     echo " 1. Personal"
