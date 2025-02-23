@@ -1,2 +1,2 @@
 ansible==10.1.0
-gnome-extensions-cli==0.10.4
+gnome-extensions-cli==0.10.5
