@@ -8,7 +8,7 @@ This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my 
 
 Platform support: amd64 (x64), Debian-based systems
 
-Target package manger: `apt`
+Target package manager: `apt`
 
 In a nutshell:
  - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
