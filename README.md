@@ -14,16 +14,22 @@ In a nutshell:
  - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
  - Dot-files are managed via [chezmoi](https://www.chezmoi.io/).
 
-## Prerequisites
+## One-line install via SSH (recommended)
 
 :warning: Ensure to generate a new set of SSH keys and add it to this GitHub account. :warning:
-
-## Install using one-line
 
 Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
 
 ```bash
 sudo apt update && sudo apt install -y python3-venv python3-apt curl git && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
+```
+
+## One-line install via HTTPS
+
+Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
+
+```bash
+sudo apt update && sudo apt install -y python3-venv python3-apt curl git && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply https://github.com/dimsanius/dotfiles.git
 ```
 
 <details><summary>Manual install</summary>
@@ -46,13 +52,25 @@ Install following pre-requisites:
 sudo apt -y install curl python3-venv python3-apt
 ```
 
-### Install & run
+### Install & run via SSH (recommended)
+
+⚠️ Ensure to generate a new set of SSH keys and add it to this GitHub account. ⚠️
 
 - Run following one-liner to install `chezmoi` that will trigger environment set-up:
 
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
 ```
+
+### Install & run via HTTPS
+
+- Run following one-liner to install `chezmoi` that will trigger environment set-up:
+
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply https://github.com/dimsanius/dotfiles.git
+```
+
+
 </details>
 
 ## Adding/removing/updating files
