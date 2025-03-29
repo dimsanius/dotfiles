@@ -36,9 +36,12 @@
     - name: Main | Include Sublime Text install task
       ansible.builtin.import_tasks: tasks/sublime_text.yml
 
-    - name: Main | Include Slack install task
-      when: environment_type == "work"
-      ansible.builtin.import_tasks: tasks/slack.yml
+    # TODO: Slack is now distributed as *.deb package too.
+    # .deb package has no issues with screen share.
+    # Link: https://slack.com/intl/en-gb/downloads/instructions/linux?ddl=1&build=deb
+    # - name: Main | Include Slack install task
+    #  when: environment_type == "work"
+    #  ansible.builtin.import_tasks: tasks/slack.yml
 
     - name: Main | Include Zoxide install task
       ansible.builtin.import_tasks: tasks/zoxide.yml
