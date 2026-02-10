@@ -10,3 +10,4 @@ source $HOME/.myenv/env_fzf.sh
 source $HOME/.myenv/env_fzf_completion.zsh
 source $HOME/.myenv/env_fzf_key_bindings.zsh
 source $HOME/.myenv/env_zsh_autoupdate.zsh
+source $HOME/.myenv/env_tailscale_completion.zsh
