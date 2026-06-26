@@ -6,7 +6,7 @@
   connection: local
   gather_facts: true
   vars:
-    jetbrains_toolbox_version: jetbrains-toolbox-2.4.0.32175
+    jetbrains_toolbox_version: jetbrains-toolbox-3.5.0.84344
 
   tasks:
     - name: Main | Include package install task
