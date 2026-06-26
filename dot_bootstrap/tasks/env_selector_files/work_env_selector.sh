@@ -1,4 +1,4 @@
-# General alias files 
+# General alias files
 source $HOME/.myenv/aliases_batcat.sh
 source $HOME/.myenv/aliases_eza.sh
 source $HOME/.myenv/aliases_package_update.sh
@@ -12,6 +12,7 @@ source $HOME/.myenv/env_fzf_key_bindings.zsh
 source $HOME/.myenv/env_zsh_custom_autoupdate.zsh
 source $HOME/.myenv/env_zsh_update.zsh
 source $HOME/.myenv/env_tailscale_completion.zsh
+source $HOME/.myenv/env_python.zsh
 
 # Specific alias and environment files
 source $HOME/.myenv/aliases_zephyr.sh

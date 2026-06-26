@@ -12,3 +12,4 @@ source $HOME/.myenv/env_fzf_key_bindings.zsh
 source $HOME/.myenv/env_zsh_custom_autoupdate.zsh
 source $HOME/.myenv/env_zsh_update.zsh
 source $HOME/.myenv/env_tailscale_completion.zsh
+source $HOME/.myenv/env_python.zsh
