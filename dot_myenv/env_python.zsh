@@ -1,1 +1,1 @@
-export PATH="/opt/python/3.13.14/bin:$PATH
+export PATH="/opt/python/3.13.14/bin:$PATH"
