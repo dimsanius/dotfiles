@@ -82,6 +82,6 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 
 ## TODO
 
-- [] Ensure appropriate Python version is selected
-- [] Remove exact version pin from JetBrains Toolbox
-- [] Ensure .env_selector is updated (have a look at chezmoi templates)
+- [ ] Ensure appropriate Python version is selected
+- [ ] Remove exact version pin from JetBrains Toolbox
+- [ ] Ensure .env_selector is updated (have a look at chezmoi templates)
