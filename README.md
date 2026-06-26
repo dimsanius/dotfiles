@@ -78,3 +78,10 @@ sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply https://github.com/dimsa
 My preffered way is based on [official chezmoi documentation](https://www.chezmoi.io/user-guide/frequently-asked-questions/usage/):
 
 > 4. Edit the file in your home directory, and then either re-add it by running `chezmoi add $FILE` or `chezmoi re-add`.
+
+
+## TODO
+
+[ ] Ensure appropriate Python version is selected
+[ ] Remove exact version pin from JetBrains Toolbox
+[ ] Ensure .env_selector is updated (have a look at chezmoi templates)
