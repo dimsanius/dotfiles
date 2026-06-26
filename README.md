@@ -11,8 +11,9 @@ Platform support: amd64 (x64), Debian-based systems
 Target package manager: `apt`
 
 In a nutshell:
- - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
- - Dot-files are managed via [chezmoi](https://www.chezmoi.io/).
+
+- Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
+- Dot-files are managed via [chezmoi](https://www.chezmoi.io/).
 
 ## One-line install via SSH (recommended)
 
@@ -37,6 +38,7 @@ sudo apt update && sudo apt install -y python3-venv python3-apt curl git && sh -
 ### Pre-requisites
 
 Update `apt` list:
+
 ```bash
 sudo apt update
 ```
@@ -70,18 +72,16 @@ sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius
 sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply https://github.com/dimsanius/dotfiles.git
 ```
 
-
 </details>
 
 ## Adding/removing/updating files
 
 My preffered way is based on [official chezmoi documentation](https://www.chezmoi.io/user-guide/frequently-asked-questions/usage/):
 
-> 4. Edit the file in your home directory, and then either re-add it by running `chezmoi add $FILE` or `chezmoi re-add`.
-
+> 1. Edit the file in your home directory, and then either re-add it by running `chezmoi add $FILE` or `chezmoi re-add`.
 
 ## TODO
 
-[ ] Ensure appropriate Python version is selected
-[ ] Remove exact version pin from JetBrains Toolbox
-[ ] Ensure .env_selector is updated (have a look at chezmoi templates)
+- [] Ensure appropriate Python version is selected
+- [] Remove exact version pin from JetBrains Toolbox
+- [] Ensure .env_selector is updated (have a look at chezmoi templates)
