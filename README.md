@@ -88,3 +88,5 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 - [ ] Ensure Jetbrains Toolbox requirements are satisfied (<https://www.jetbrains.com/help/toolbox-app/installation.html>)
 - [ ] Convert ansible tasks to roles
 - [ ] Install uv
+- [ ] Change preffered apprach as it is different
+- [ ] Install Slack via *.deb package
