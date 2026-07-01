@@ -22,7 +22,7 @@ In a nutshell:
 Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
 
 ```bash
-sudo apt update && sudo apt install -y python3-venv python3-apt curl git && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
+curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.sh | bash
 ```
 
 ## One-line install via HTTPS
@@ -30,7 +30,7 @@ sudo apt update && sudo apt install -y python3-venv python3-apt curl git && sh -
 Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
 
 ```bash
-sudo apt update && sudo apt install -y python3-venv python3-apt curl git && sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply https://github.com/dimsanius/dotfiles.git
+curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh | bash
 ```
 
 <details><summary>Manual install</summary>

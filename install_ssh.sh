@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -euo pipefail
+
+sudo apt update
+sudo apt install -y python3-venv python3-apt curl git
+
+sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
