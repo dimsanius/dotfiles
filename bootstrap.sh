@@ -7,7 +7,8 @@ if [ "${BOOTSTRAP_HTTPS:-0}" = "1" ]; then
 else
     REPO="git@github.com:dimsanius/dotfiles.git"
 fi
-
+echo "$REPO"
+exit 0
 sudo apt update
 sudo apt install -y \
             python3-venv \
