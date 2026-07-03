@@ -90,3 +90,4 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 - [ ] Install uv
 - [ ] Change preffered apprach as it is different
 - [ ] Install Slack via *.deb package
+- [ ] Add ~/.local/bin to PATH
