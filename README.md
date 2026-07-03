@@ -32,7 +32,7 @@ chmod +x /tmp/dotfile_install_ssh.sh
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh-o /tmp/dotfile_install_https.sh
+curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh -o /tmp/dotfile_install_https.sh
 chmod +x /tmp/dotfile_install_https.sh
 /tmp/dotfile_install_https.sh
 ```
