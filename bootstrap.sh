@@ -3,8 +3,10 @@
 set -e
 
 if [ "${BOOTSTRAP_HTTPS:-0}" = "1" ]; then
+    # When BOOTSTRAP_HTTPS is set to 1
     REPO="https://github.com/dimsanius/dotfiles.git"
 else
+    # When BOOTSTRAP_HTTPS is not set or set to anything but 1
     REPO="git@github.com:dimsanius/dotfiles.git"
 fi
 
