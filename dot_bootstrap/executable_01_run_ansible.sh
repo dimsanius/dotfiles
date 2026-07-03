@@ -11,7 +11,7 @@ while true; do
     echo " 1. Personal"
     echo " 2. Work"
     echo ""
-    read -r " Selection [1-2]: " -n 1 answer
+    read -p " Selection [1-2]: " -n 1 answer
     echo ""
     echo ""
 
