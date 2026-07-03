@@ -4,7 +4,7 @@ say() {
     echo "[Ansible Install] ==> $1"
 }
 
-say "Creating venv"
+say "(Re-)Creating venv"
 uv venv --clear $HOME/.bootstrap/.venv
 source $HOME/.bootstrap/.venv/bin/activate
 
