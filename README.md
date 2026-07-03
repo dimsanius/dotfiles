@@ -15,11 +15,6 @@ In a nutshell:
 - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
 - Dot-files are managed via [chezmoi](https://www.chezmoi.io/).
 
-## Pre-requisites
-
-Installed package:
-- `curl`
-
 ## Install via SSH (recommended)
 
 :warning: Ensure to generate a new set of SSH keys and add it to this GitHub account. :warning:
@@ -27,7 +22,7 @@ Installed package:
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.sh | bash
+wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.sh | sh
 ```
 
 ## Install via HTTPS
@@ -35,7 +30,7 @@ curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh | bash
+wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh | sh
 ```
 
 <details><summary>Manual install</summary>
