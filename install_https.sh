@@ -1,6 +1,4 @@
-#!/bin/bash
-
-set -euo pipefail
+#!/bin/sh
 
 sudo apt update
 sudo apt install -y python3-venv python3-apt curl git
