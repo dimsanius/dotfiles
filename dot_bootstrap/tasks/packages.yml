@@ -22,7 +22,6 @@
       - timeshift
       - ncdu
       - bat
-      - tldr
       - ripgrep
       - btop
       - htop
