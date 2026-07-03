@@ -8,7 +8,7 @@ say "Checking venv status..."
 
 if [ -d "$HOME/.bootstrap/.venv" ]; then
     say "venv found. Deleting it."
-    rm -r $HOME/.bootstrap/.venv
+    rm -rfv $HOME/.bootstrap/.venv
 fi
 
 say "Creating venv"
