@@ -30,7 +30,7 @@ wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.sh
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-BOOTSTRAP_HTTPS=1 wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.sh | sh
+wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.sh | BOOTSTRAP_HTTPS=1 sh
 ```
 
 <details><summary>Manual install</summary>
