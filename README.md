@@ -22,7 +22,7 @@ In a nutshell:
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.sh | sh
+wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.sh | sh
 ```
 
 ## Install via HTTPS
@@ -30,7 +30,7 @@ wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh | sh
+BOOTSTRAP_HTTPS=1 wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.sh | sh
 ```
 
 <details><summary>Manual install</summary>

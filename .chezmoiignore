@@ -1,6 +1,4 @@
-
 README.md
 .gitignore
 .github/
-install_https.sh
-install_ssh.sh
+bootstrap.sh
