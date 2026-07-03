@@ -16,4 +16,4 @@ uv venv $HOME/.bootstrap/.venv
 source $HOME/.bootstrap/.venv/bin/activate
 
 say "Installing Ansible dependencies"
-uv pip install -q -r $HOME/.bootstrap/requirements.txt
+uv pip install -r $HOME/.bootstrap/requirements.txt
