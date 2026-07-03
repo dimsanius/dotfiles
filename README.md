@@ -15,7 +15,7 @@ In a nutshell:
 - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
 - Dot-files are managed via [chezmoi](https://www.chezmoi.io/).
 
-## Prerequisites
+## Pre-requisites
 
 Installed package:
 - `curl`
