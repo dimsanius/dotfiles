@@ -4,15 +4,8 @@ say() {
     echo "[Ansible Install] ==> $1"
 }
 
-say "Checking venv status..."
-
-if [ -d "$HOME/.bootstrap/.venv" ]; then
-    say "venv found. Deleting it."
-    rm -rfv $HOME/.bootstrap/.venv
-fi
-
 say "Creating venv"
-uv venv $HOME/.bootstrap/.venv
+uv venv --clear $HOME/.bootstrap/.venv
 source $HOME/.bootstrap/.venv/bin/activate
 
 say "Installing Ansible dependencies"
