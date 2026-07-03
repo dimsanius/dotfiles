@@ -6,14 +6,19 @@ This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my 
 
 ## Description
 
-Platform support: amd64 (x64), Debian-based systems
-
+Platform support: `amd64 (x64)`
+Target OS: `Ubuntu 24.04 LTS`
 Target package manager: `apt`
 
 In a nutshell:
 
 - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
 - Dot-files are managed via [chezmoi](https://www.chezmoi.io/).
+
+## Prerequisites
+
+Installed package:
+- `curl`
 
 ## Install via SSH (recommended)
 
@@ -22,9 +27,7 @@ In a nutshell:
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.sh -o /tmp/dotfile_install_ssh.sh
-chmod +x /tmp/dotfile_install_ssh.sh
-/tmp/dotfile_install_ssh.sh
+curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.sh | bash
 ```
 
 ## Install via HTTPS
@@ -32,9 +35,7 @@ chmod +x /tmp/dotfile_install_ssh.sh
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh -o /tmp/dotfile_install_https.sh
-chmod +x /tmp/dotfile_install_https.sh
-/tmp/dotfile_install_https.sh
+curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh | bash
 ```
 
 <details><summary>Manual install</summary>
