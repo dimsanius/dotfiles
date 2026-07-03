@@ -9,4 +9,7 @@ sudo apt install -y \
             git
 
 wget -qO- https://astral.sh/uv/install.sh | sh
+# Adds ~/.local/bin to PATH to allow uv to be discoverable
+source $HOME/.local/bin/env
+
 wget -qO- https://get.chezmoi.io/lb | sh -s -- init --apply git@github.com:dimsanius/dotfiles.git
