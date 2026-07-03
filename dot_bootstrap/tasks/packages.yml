@@ -16,7 +16,6 @@
       # Apps
       - zsh
       - vim
-      - neofetch
       - fzf
       - tig
       - eza
