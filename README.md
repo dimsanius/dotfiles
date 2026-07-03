@@ -15,7 +15,7 @@ In a nutshell:
 - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
 - Dot-files are managed via [chezmoi](https://www.chezmoi.io/).
 
-## One-line install via SSH (recommended)
+## Install via SSH (recommended)
 
 :warning: Ensure to generate a new set of SSH keys and add it to this GitHub account. :warning:
 
@@ -27,7 +27,7 @@ chmod +x /tmp/dotfile_install_ssh.sh
 /tmp/dotfile_install_ssh.sh
 ```
 
-## One-line install via HTTPS
+## Install via HTTPS
 
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
