@@ -11,7 +11,7 @@ while true; do
     echo " 1. Personal"
     echo " 2. Work"
     echo ""
-    read -rp " Selection [1-2]: " -n 1 answer < /dev/tty
+    read -r " Selection [1-2]: " -n 1 answer
     echo ""
     echo ""
 
@@ -32,7 +32,7 @@ retries=1
 while [ "$retries" -le 3 ]; do
 
     say "[try $retries of 3] Running Ansible..."
-    if ANSIBLE_LOCALHOST_WARNING=False ANSIBLE_INVENTORY_UNPARSED_WARNING=False ansible-playbook $HOME/.bootstrap/setup.yml --ask-become-pass --ask-vault-pass --extra-vars "environment_type=$environment" < /dev/tty; then
+    if ANSIBLE_LOCALHOST_WARNING=False ANSIBLE_INVENTORY_UNPARSED_WARNING=False ansible-playbook $HOME/.bootstrap/setup.yml --ask-become-pass --ask-vault-pass --extra-vars "environment_type=$environment"; then
         # Ansible run succeeded
         say "Ansible compeleted successfully."
         break
