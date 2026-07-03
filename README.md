@@ -6,9 +6,9 @@ This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my 
 
 ## Description
 
-Platform support: `amd64 (x64)`
-Target OS: `Ubuntu 24.04 LTS`
-Target package manager: `apt`
+- Platform support: `amd64 (x64)`
+- Target OS: `Ubuntu 24.04 LTS`
+- Target package manager: `apt`
 
 In a nutshell:
 
