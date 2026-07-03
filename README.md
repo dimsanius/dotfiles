@@ -19,18 +19,22 @@ In a nutshell:
 
 :warning: Ensure to generate a new set of SSH keys and add it to this GitHub account. :warning:
 
-Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
+Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_ssh.sh -o /tmp/dotfile_install_ssh.sh
+chmod +x /tmp/dotfile_install_ssh.sh
+/tmp/dotfile_install_ssh.sh
 ```
 
 ## One-line install via HTTPS
 
-Following command will install all the deps and environments in one line (will prompt for `sudo` password twice):
+Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dimsanius/dotfiles/main/install_https.sh-o /tmp/dotfile_install_https.sh
+chmod +x /tmp/dotfile_install_https.sh
+/tmp/dotfile_install_https.sh
 ```
 
 <details><summary>Manual install</summary>
