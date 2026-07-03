@@ -45,13 +45,12 @@ sudo apt update
 
 Install following pre-requisites:
 
-- `curl`
 - `python3-venv`
 - `python3-apt`
 - `git`
 
 ```bash
-sudo apt -y install curl python3-venv python3-apt
+sudo apt -y install python3-venv python3-apt
 ```
 
 ### Install & run via SSH (recommended)
@@ -61,7 +60,7 @@ sudo apt -y install curl python3-venv python3-apt
 - Run following one-liner to install `chezmoi` that will trigger environment set-up:
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius/dotfiles.git
+wget -qO- https://get.chezmoi.io/lb | sh -s -- init --apply git@github.com:dimsanius/dotfiles.git
 ```
 
 ### Install & run via HTTPS
@@ -69,7 +68,7 @@ sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply git@github.com:dimsanius
 - Run following one-liner to install `chezmoi` that will trigger environment set-up:
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply https://github.com/dimsanius/dotfiles.git
+wget -qO- https://get.chezmoi.io/lb | sh -s -- init --apply https://github.com/dimsanius/dotfiles.git
 ```
 
 </details>
