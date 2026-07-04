@@ -2,3 +2,4 @@
 .venv
 
 home/.chezmoidata
+**/group_vars/git.yml
