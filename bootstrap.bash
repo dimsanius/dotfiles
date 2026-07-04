@@ -22,6 +22,13 @@ if ! command -v uv >/dev/null 2>&1; then
     source "$HOME/.local/bin/env"
 fi
 
+mkdir -p ~/.config/chezmoi
+
+cat > "$HOME/.config/chezmoi/chezmoidata.yaml" <<EOF
+git_name: "Your Name"
+git_email: "you@example.com"
+EOF
+
 wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO" --apply
 
 source "$HOME/.local/share/chezmoi/bootstrap/00_install_ansible.bash"
