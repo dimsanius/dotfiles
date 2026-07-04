@@ -47,7 +47,7 @@ bootstrap_system() {
 abort_if_chezmoi_present() {
     if [ -f "$CHEZMOI_BIN" ];then
         log "found chezmoi at '$CHEZMOI_BIN'. Checking chezmoi status..."
-        if [[ "$('$CHEZMOI_BIN' source-path)" == "$CHEZMOI_DIR/home" ]]; then
+        if [[ "$("$CHEZMOI_BIN" source-path)" == "$CHEZMOI_DIR/home" ]]; then
             log "'$CHEZMOI_DIR/home' exists and is sourced. Aborting further chezmoi operations."
             exit 0
         fi
