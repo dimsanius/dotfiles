@@ -37,10 +37,9 @@ wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.ba
 
 My preffered way is based on [official chezmoi documentation](https://www.chezmoi.io/user-guide/frequently-asked-questions/usage/):
 
-> 1. Edit the file in your home directory, and then either re-add it by running `chezmoi add $FILE` or `chezmoi re-add`.
+> 2. Use `chezmoi cd` and edit the files in the source directory directly. Run `chezmoi diff` to see what changes would be made, and `chezmoi apply` to make the changes.
 
 ## TODO
 
-- [ ] Change preffered apprach as it is different
 - [ ] Install Slack via *.deb package
 - [ ] Prevent install if chezmoi is already present
