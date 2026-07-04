@@ -15,16 +15,17 @@
     dest: /etc/apt/keyrings/sublimehq-pub.asc
     mode: "0644"
 
-- name: Add APT source
+- name: Add Sublime Text repo (manual deb822 file)
   become: true
-  ansible.builtin.deb822_repository:
-    name: sublime-text
-    state: present
-    types: deb
-    uris: https://download.sublimetext.com
-    suites: ./
-    components: main
-    signed_by: /etc/apt/keyrings/sublimehq-pub.asc
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/sublime-text.sources
+    mode: "0644"
+    content: |
+      Types: deb
+      URIs: https://download.sublimetext.com/
+      Suites: apt/stable/
+      Components: main
+      Signed-By: /etc/apt/keyrings/sublimehq-pub.asc
 
 - name: Install package
   become: true
