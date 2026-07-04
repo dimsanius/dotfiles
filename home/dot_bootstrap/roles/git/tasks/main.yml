@@ -6,12 +6,12 @@
   when: environment_type == "personal"
   ansible.builtin.copy:
     src: gituser_personal
-    dest: "{{ ansible_env.HOME }}/.gituser"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.gituser"
     mode: "0600"
 
 - name: Set git commit user name and work email
   when: environment_type == "work"
   ansible.builtin.copy:
     src: gituser_work
-    dest: "{{ ansible_env.HOME }}/.gituser"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.gituser"
     mode: "0600"

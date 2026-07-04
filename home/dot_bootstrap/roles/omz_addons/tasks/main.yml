@@ -4,6 +4,6 @@
 - name: Install OMZ addons and themes
   ansible.builtin.git:
     repo: "{{ item.repo }}"
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/{{ item.dest }}"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh/custom/plugins/{{ item.dest }}"
     depth: 1
   loop: "{{ omz_addons }}"
