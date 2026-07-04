@@ -23,10 +23,10 @@
       https://download.sublimetext.com/ apt/stable/
     filename: sublime-text
     state: present
-    update_cache: true
 
 - name: Install package
   become: true
   ansible.builtin.apt:
     name: sublime-text
     state: present
+    update_cache: true

@@ -30,10 +30,10 @@
       https://packages.microsoft.com/repos/vscode stable main
     filename: vscode
     state: present
-    update_cache: true
 
 - name: Install package
   become: true
   ansible.builtin.apt:
     name: code
     state: present
+    update_cache: true
