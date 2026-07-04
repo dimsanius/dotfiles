@@ -37,8 +37,8 @@ run_script() {
 
 bootstrap_system() {
     if [ "$BE_QUITE" == 1 ]; then
-        run sudo apt -q update
-        run sudo apt -q install -y python3-venv python3-apt git
+        run sudo apt -qq update
+        run sudo apt -qq install -y python3-venv python3-apt git
     else
         run sudo apt update
         run sudo apt install -y python3-venv python3-apt git
