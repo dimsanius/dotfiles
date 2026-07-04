@@ -1,6 +1,12 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/jetbrains_toolbox
+- name: Create JetBrains Toolbox install directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/"
+    state: directory
+    mode: "0775"
+
 - name: Download JetBrains Toolbox
   ansible.builtin.get_url:
     url: https://download.jetbrains.com/toolbox/{{ jetbrains_toolbox_archive }}
