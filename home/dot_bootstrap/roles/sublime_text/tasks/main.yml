@@ -15,6 +15,9 @@
     dest: /etc/apt/keyrings/sublimehq-pub.asc
     mode: "0644"
 
+# TODO: SublimeText use really weird deb822 format which does not
+# fit strict checking. Hence, write it in manually. Update this when/if
+# SublimeText change their approach
 - name: Add Sublime Text repo
   become: true
   ansible.builtin.copy:
