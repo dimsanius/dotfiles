@@ -84,6 +84,7 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 - [ ] Ensure appropriate Python version is selected
 - [ ] Remove exact version pin from JetBrains Toolbox
 - [ ] Ensure .env_selector is updated (have a look at chezmoi templates: <https://www.chezmoi.io/user-guide/templating/>)
+- [ ] Improve personal vs work env handling altogether
 - [ ] Ensure Jetbrains Toolbox requirements are satisfied (<https://www.jetbrains.com/help/toolbox-app/installation.html>)
 - [ ] Install uv within ansible as well (consider skipping install from script if already present)
 - [ ] Change preffered apprach as it is different
