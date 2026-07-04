@@ -1,12 +1,11 @@
 #!/bin/bash
 
-say() {
-    echo "[Ansible Install] ==> $1"
-}
+log() { echo "→ $*" >&2; }
+run() { log "$*"; "$@"; }
 
-say "(Re-)Creating venv"
-uv venv --clear $HOME/.local/share/chezmoi/bootstrap/.venv
-source $HOME/.local/share/chezmoi/bootstrap/.venv/bin/activate
+log "(Re-)Creating venv"
+run venv --clear $HOME/.local/share/chezmoi/bootstrap/.venv
+run source $HOME/.local/share/chezmoi/bootstrap/.venv/bin/activate
 
-say "Installing Ansible dependencies"
-uv pip install -r $HOME/.local/share/chezmoi/bootstrap/requirements.txt
+log "Installing Ansible dependencies"
+run pip install -r $HOME/.local/share/chezmoi/bootstrap/requirements.txt
