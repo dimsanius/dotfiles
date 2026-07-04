@@ -44,6 +44,17 @@ bootstrap_system() {
     fi
 }
 
+abort_if_chezmoi_present() {
+    if [ -f "$CHEZMOI_BIN" ];then
+        log "found chezmoi at '$CHEZMOI_BIN'. Checking chezmoi status..."
+        if [[ "$('$CHEZMOI_BIN' source-path)" == "$CHEZMOI_DIR/home" ]]; then
+            log "'$CHEZMOI_DIR/home' exists and is sourced. Aborting further chezmoi operations."
+            exit 0
+        fi
+        log "chezmoi exists but is not initialised. Continuing operations."
+    fi
+}
+
 collect_user_config() {
     echo
     log "Input user data below:"
@@ -107,6 +118,7 @@ finish() {
 
 main() {
     bootstrap_system
+    abort_if_chezmoi_present
     collect_user_config
     setup_chezmoi
     write_config
