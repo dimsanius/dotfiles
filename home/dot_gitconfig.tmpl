@@ -1,6 +1,8 @@
+{{ $git_name := promptString "git_name" -}}
+{{ $git_email := promptString "git_email" -}}
 [user]
-    name = {{ .git_name | quote }}
-    email = {{ .git_email | quote }}
+    name = {{ $git_name | quote }}
+    email = {{ $git_email | quote }}
 [core]
     pager = delta
 [delta]

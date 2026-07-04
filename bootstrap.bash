@@ -22,7 +22,7 @@ if ! command -v uv >/dev/null 2>&1; then
     source "$HOME/.local/bin/env"
 fi
 
-wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO" --promptString git_name --promptString git_email --apply 
+wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO" --apply 
 
 source "$HOME/.local/share/chezmoi/bootstrap/00_install_ansible.bash"
 source "$HOME/.local/share/chezmoi/bootstrap/01_run_ansible.bash"
