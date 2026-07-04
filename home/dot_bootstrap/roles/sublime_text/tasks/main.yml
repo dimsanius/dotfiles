@@ -21,8 +21,8 @@
     name: sublime-text
     state: present
     types: deb
-    uris: https://download.sublimetext.com/
-    suites: apt/stable
+    uris: https://download.sublimetext.com
+    suites: ./
     components: main
     signed_by: /etc/apt/keyrings/sublimehq-pub.asc
 
