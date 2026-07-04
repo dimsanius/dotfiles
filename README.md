@@ -42,4 +42,3 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 ## TODO
 
 - [ ] Install Slack via *.deb package
-- [ ] Prevent install if chezmoi is already present
