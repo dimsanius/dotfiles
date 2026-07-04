@@ -33,46 +33,6 @@ Following command will install all the deps and environments (will prompt for `s
 wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.bash | BOOTSTRAP_HTTPS=1 bash
 ```
 
-<details><summary>Manual install</summary>
-
-### Pre-requisites
-
-Update `apt` list:
-
-```bash
-sudo apt update
-```
-
-Install following pre-requisites:
-
-- `python3-venv`
-- `python3-apt`
-- `git`
-
-```bash
-sudo apt -y install python3-venv python3-apt
-```
-
-### Install & run via SSH (recommended)
-
-⚠️ Ensure to generate a new set of SSH keys and add it to this GitHub account. ⚠️
-
-- Run following one-liner to install `chezmoi` that will trigger environment set-up:
-
-```bash
-wget -qO- https://get.chezmoi.io/lb | sh -s -- init --apply git@github.com:dimsanius/dotfiles.git
-```
-
-### Install & run via HTTPS
-
-- Run following one-liner to install `chezmoi` that will trigger environment set-up:
-
-```bash
-wget -qO- https://get.chezmoi.io/lb | sh -s -- init --apply https://github.com/dimsanius/dotfiles.git
-```
-
-</details>
-
 ## Adding/removing/updating files
 
 My preffered way is based on [official chezmoi documentation](https://www.chezmoi.io/user-guide/frequently-asked-questions/usage/):
