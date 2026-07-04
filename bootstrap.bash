@@ -27,8 +27,8 @@ read -p " Git email: " git_email < /dev/tty
 
 wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO"
 
-mkdir -p $HOME/.local/share/chezmoi/.chezmoidata
-cat > $HOME/.local/share/chezmoi/.chezmoidata/git.yaml <<EOF
+mkdir -p $HOME/.local/share/chezmoi/home/.chezmoidata
+cat > $HOME/.local/share/chezmoi/home/.chezmoidata/git.yaml <<EOF
 git_name: "$git_name"
 git_email: "$git_email"
 EOF
