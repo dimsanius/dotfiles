@@ -41,4 +41,4 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 
 ## TODO
 
-- None
+- [ ] Use envsubst to create all.yml
