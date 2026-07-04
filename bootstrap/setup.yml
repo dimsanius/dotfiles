@@ -7,33 +7,34 @@
   gather_facts: true
 
   tasks:
-    - debug:
+    - name: Print configs
+      debug:
         msg:
           - "Git name: {{ git.name }}"
           - "Git email: {{ git.email }}"
           - "Environment: {{ environment }}"
 
-  roles:
-    - packages
-    - gnome_extensions
-    - jetbrains_toolbox
-    - omz
-    - omz_addons
-    - vim
-    - brave
-    - vs_code
-    - sublime_text
-    - zoxide
-    # TODO: Using chemzoi instead, ensure data is pre-provided
-    # - git
-    # - env_selector
-    - font_cache
-    # Ensure to run Timeshift as a last task
-    - timeshift
+  # roles:
+  #   - packages
+  #   - gnome_extensions
+  #   - jetbrains_toolbox
+  #   - omz
+  #   - omz_addons
+  #   - vim
+  #   - brave
+  #   - vs_code
+  #   - sublime_text
+  #   - zoxide
+  #   # TODO: Using chemzoi instead, ensure data is pre-provided
+  #   # - git
+  #   # - env_selector
+  #   - font_cache
+  #   # Ensure to run Timeshift as a last task
+  #   - timeshift
 
-    # TODO: Slack is now distributed as *.deb package too.
-    # .deb package has no issues with screen share.
-    # Link: https://slack.com/intl/en-gb/downloads/instructions/linux?ddl=1&build=deb
-    # - name: Main | Include Slack install task
-    #  when: environment_type == "work"
-    #  ansible.builtin.import_tasks: tasks/slack.yml
+  # TODO: Slack is now distributed as *.deb package too.
+  # .deb package has no issues with screen share.
+  # Link: https://slack.com/intl/en-gb/downloads/instructions/linux?ddl=1&build=deb
+  # - name: Main | Include Slack install task
+  #  when: environment_type == "work"
+  #  ansible.builtin.import_tasks: tasks/slack.yml
