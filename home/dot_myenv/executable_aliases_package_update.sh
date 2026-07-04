@@ -15,15 +15,23 @@ snap_packages_update() {
     sudo snap refresh
 }
 
+uv_update() {
+    _say "uv update"
+    uv self update
+}
+
 omz_update() {
     _say "OMZ update"
     omz update
 }
 
+
 do_update() {
     apt_package_update
     echo
     snap_packages_update
+    echo
+    uv_update
     echo
     omz_update
 }
