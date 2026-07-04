@@ -88,7 +88,7 @@ setup_chezmoi() {
 write_config() {
     mkdir -p "$CHEZMOIDATA_DIR"
 
-    cat > "$CHEZMOIDATA_DIR/all.yaml" <<EOF
+    cat > "$CHEZMOIDATA_DIR/all.yml" <<EOF
 git:
   name: "$git_name"
   email: "$git_email"
@@ -98,8 +98,8 @@ EOF
     run "$CHEZMOI_BIN" apply
 
     ln -sf \
-        "$CHEZMOIDATA_DIR/all.yaml" \
-        "$BOOTSTRAP_DIR/group_vars/all.yaml"
+        "$CHEZMOIDATA_DIR/all.yml" \
+        "$BOOTSTRAP_DIR/group_vars/all.yml"
 }
 
 run_ansible() {
