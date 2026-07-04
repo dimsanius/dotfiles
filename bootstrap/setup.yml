@@ -17,9 +17,6 @@
     - vs_code
     - sublime_text
     - zoxide
-    # TODO: Using chemzoi instead, ensure data is pre-provided
-    # - git
-    # - env_selector
     - font_cache
     # Ensure to run Timeshift as a last task
     - timeshift
