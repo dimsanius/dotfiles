@@ -8,8 +8,6 @@ set -euo pipefail
 REPO_SSH="git@github.com:dimsanius/dotfiles.git"
 REPO_HTTPS="https://github.com/dimsanius/dotfiles.git"
 
-BE_QUITE="${BE_QUITE:-0}"
-
 CHEZMOI_DIR="$HOME/.local/share/chezmoi"
 CHEZMOIDATA_DIR="$CHEZMOI_DIR/home/.chezmoidata"
 BOOTSTRAP_DIR="$CHEZMOI_DIR/bootstrap"
@@ -36,23 +34,12 @@ run_script() {
 # ----------------------------
 
 bootstrap_system() {
-    if [ "$BE_QUITE" == 1 ]; then
-        run sudo apt -q update
-        run sudo apt -q install -y python3-venv python3-apt git
-    else
-        run sudo apt update
-        run sudo apt install -y python3-venv python3-apt git
-    fi
-    
+    run sudo apt update
+    run sudo apt install -y python3-venv python3-apt git
 
     if ! command -v uv >/dev/null 2>&1; then
         log "installing uv"
-
-        if [ "$BE_QUITE" == 1 ]; then
-            wget -qO- https://astral.sh/uv/install.sh | PRINT_QUIET=1 sh
-        else
-            wget -qO- https://astral.sh/uv/install.sh | sh
-        fi
+        wget -qO- https://astral.sh/uv/install.sh | sh
         source "$HOME/.local/bin/env"
     fi
 }
@@ -94,11 +81,7 @@ collect_user_config() {
 
 setup_chezmoi() {
     log "installing chezmoi"
-    if [ "$BE_QUITE" == 1 ]; then
-        wget -qO- https://get.chezmoi.io/lb | LOG_LEVEL=0 sh -s -- init "$TARGET_REPO"
-    else
-        wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$TARGET_REPO"
-    fi
+    wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$TARGET_REPO"
 }
 
 
