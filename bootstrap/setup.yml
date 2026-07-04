@@ -6,11 +6,12 @@
   connection: local
   gather_facts: true
 
-- debug:
-    msg:
-      - "Git name: {{ git.name }}"
-      - "Git email: {{ git.email }}"
-      - "Environment: {{ environment }}"
+  tasks:
+    - debug:
+        msg:
+          - "Git name: {{ git.name }}"
+          - "Git email: {{ git.email }}"
+          - "Environment: {{ environment }}"
 
   roles:
     - packages
