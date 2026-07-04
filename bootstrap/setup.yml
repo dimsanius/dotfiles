@@ -6,31 +6,23 @@
   connection: local
   gather_facts: true
 
-  tasks:
-    - name: Print configs
-      debug:
-        msg:
-          - "Git name: {{ git.name }}"
-          - "Git email: {{ git.email }}"
-          - "Environment: {{ target_env }}"
-
-  # roles:
-  #   - packages
-  #   - gnome_extensions
-  #   - jetbrains_toolbox
-  #   - omz
-  #   - omz_addons
-  #   - vim
-  #   - brave
-  #   - vs_code
-  #   - sublime_text
-  #   - zoxide
-  #   # TODO: Using chemzoi instead, ensure data is pre-provided
-  #   # - git
-  #   # - env_selector
-  #   - font_cache
-  #   # Ensure to run Timeshift as a last task
-  #   - timeshift
+  roles:
+    - packages
+    - gnome_extensions
+    - jetbrains_toolbox
+    - omz
+    - omz_addons
+    - vim
+    - brave
+    - vs_code
+    - sublime_text
+    - zoxide
+    # TODO: Using chemzoi instead, ensure data is pre-provided
+    # - git
+    # - env_selector
+    - font_cache
+    # Ensure to run Timeshift as a last task
+    - timeshift
 
   # TODO: Slack is now distributed as *.deb package too.
   # .deb package has no issues with screen share.
