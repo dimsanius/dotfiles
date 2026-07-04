@@ -31,7 +31,7 @@
       - /tmp/oh-my-zsh-install.sh
       - --unattended
       - --keep-zshrc
-  creates: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh"
+    creates: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh"
 
 - name: Change default shell to zsh
   become: true
