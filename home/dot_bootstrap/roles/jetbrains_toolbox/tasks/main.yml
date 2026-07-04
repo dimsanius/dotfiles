@@ -3,7 +3,7 @@
 # tasks file for roles/jetbrains_toolbox
 - name: Create JetBrains Toolbox install directory
   ansible.builtin.file:
-    path: "{{ env.HOME }}/.local/share/JetBrains/Toolbox/bin/"
+    path: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/"
     state: directory
     mode: "0775"
 
