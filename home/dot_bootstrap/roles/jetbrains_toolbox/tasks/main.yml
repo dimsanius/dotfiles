@@ -10,17 +10,15 @@
 - name: Extract JetBrains Toolbox
   ansible.builtin.unarchive:
     src: /tmp/{{ jetbrains_toolbox_archive }}
-    dest: /tmp
+    dest: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/"
     remote_src: true
 
 - name: Find extracted folder
   ansible.builtin.find:
-    paths: /tmp
+    paths: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/"
     patterns: "jetbrains-toolbox-*"
     file_type: directory
   register: toolbox_dir
 
 - name: Run Toolbox installer
-  ansible.builtin.command: "{{ toolbox_dir.files[0].path }}/jetbrains-toolbox"
-  args:
-    creates: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox"
+  ansible.builtin.command: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox"
