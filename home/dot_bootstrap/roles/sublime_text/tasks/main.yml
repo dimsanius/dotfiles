@@ -15,14 +15,14 @@
     dest: /etc/apt/keyrings/sublimehq-pub.asc
     mode: "0644"
 
-- name: Add APT source (deb822 format)
+- name: Add APT source
   become: true
   ansible.builtin.deb822_repository:
     name: sublime-text
     state: present
     types: deb
     uris: https://download.sublimetext.com/
-    suites: apt/stable
+    suites: apt/stable/
     components: main
     signed_by: /etc/apt/keyrings/sublimehq-pub.asc
 
