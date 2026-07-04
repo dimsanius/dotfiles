@@ -57,6 +57,10 @@ environment: "$environment"
 EOF
 $HOME/.local/bin/chezmoi apply
 
+ln -s \
+  "$HOME/.local/share/chezmoi/home/.chezmoidata/env.yaml" \
+  "$HOME/.local/share/chezmoi/bootstrap/group_vars/env.yaml"
+
 source "$HOME/.local/share/chezmoi/bootstrap/00_install_ansible.bash"
 source "$HOME/.local/share/chezmoi/bootstrap/01_run_ansible.bash"
 deactivate || true
