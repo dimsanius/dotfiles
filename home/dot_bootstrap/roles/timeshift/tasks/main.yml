@@ -5,4 +5,5 @@
   # This task requires user input to finish
   become: true
   ansible.builtin.command: timeshift-gtk
-  changed_when: true
+  async: 3600
+  poll: 0
