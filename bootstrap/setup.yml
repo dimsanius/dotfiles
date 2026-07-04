@@ -16,6 +16,7 @@
     - brave
     - vs_code
     - sublime_text
+    - tailscale
     - zoxide
     - font_cache
     - role: slack
