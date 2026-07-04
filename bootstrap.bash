@@ -25,7 +25,7 @@ fi
 read -p " Git name: " git_name < /dev/tty
 read -p " Git email: " git_email < /dev/tty
 while true; do
-    echo "Select environment:"
+    echo "Select target environment:"
     echo " 1. Personal"
     echo " 2. Work"
     echo ""
@@ -34,12 +34,12 @@ while true; do
     echo ""
 
     if [[ "$answer" == 1 ]]; then
-        environment="personal"
+        target_env="personal"
         break
     fi
 
     if [[ "$answer" == 2 ]]; then
-        environment="work"
+        target_env="work"
         break
     fi
 
@@ -49,17 +49,17 @@ done
 wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO"
 
 mkdir -p $HOME/.local/share/chezmoi/home/.chezmoidata
-cat > $HOME/.local/share/chezmoi/home/.chezmoidata/env.yaml <<EOF
+cat > $HOME/.local/share/chezmoi/home/.chezmoidata/all.yaml <<EOF
 git:
   name: "$git_name"
   email: "$git_email"
-environment: "$environment"
+target_env: "$target_env"
 EOF
 $HOME/.local/bin/chezmoi apply
 
 ln -s \
-  "$HOME/.local/share/chezmoi/home/.chezmoidata/env.yaml" \
-  "$HOME/.local/share/chezmoi/bootstrap/group_vars/env.yaml"
+  "$HOME/.local/share/chezmoi/home/.chezmoidata/all.yaml" \
+  "$HOME/.local/share/chezmoi/bootstrap/group_vars/all.yaml"
 
 source "$HOME/.local/share/chezmoi/bootstrap/00_install_ansible.bash"
 source "$HOME/.local/share/chezmoi/bootstrap/01_run_ansible.bash"

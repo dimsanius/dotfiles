@@ -12,7 +12,7 @@
         msg:
           - "Git name: {{ git.name }}"
           - "Git email: {{ git.email }}"
-          - "Environment: {{ environment }}"
+          - "Environment: {{ target_env }}"
 
   # roles:
   #   - packages
