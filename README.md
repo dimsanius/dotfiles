@@ -41,4 +41,4 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 
 ## TODO
 
-- [ ] Add verbosity level
+- None
