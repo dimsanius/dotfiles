@@ -1,0 +1,4 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for roles/jetbrains_toolbox
+jetbrains_toolbox_archive: jetbrains-toolbox-3.6.1.85592.tar.gz

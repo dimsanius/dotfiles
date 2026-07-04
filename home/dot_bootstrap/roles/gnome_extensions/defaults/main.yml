@@ -1,0 +1,11 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for roles/gnome_extensions
+gnome_extensions_to_install:
+  - caffeine@patapon.info
+  - openweather-extension@penguin-teal.github.io
+  - tophat@fflewddur.github.io
+  - autoselectheadset@josephlbarnett.github.com
+  - blur-my-shell@aunetx
+  - clipboard-indicator@tudmotu.com
+  - burn-my-windows@schneegans.github.com

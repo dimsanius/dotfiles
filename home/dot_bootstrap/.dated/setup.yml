@@ -1,0 +1,63 @@
+---
+# - Run current script: ansible-playbook ./setup.yml --ask-become-pass
+# - For dev: install ansible-lint: pip install ansible-lint
+- name: Machine setup
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    jetbrains_toolbox_version: jetbrains-toolbox-3.5.0.84344
+
+  tasks:
+    - name: Main | Include package install task
+      ansible.builtin.import_tasks: tasks/packages.yml
+
+    - name: Main | Include GNOME Extension install task
+      ansible.builtin.import_tasks: tasks/gnome_extensions.yml
+
+    - name: Main | Include JetBrains Toolbox install task
+      ansible.builtin.import_tasks: tasks/jetbrains_toolbox.yml
+
+    - name: Main | Include Oh My ZSH install task
+      ansible.builtin.import_tasks: tasks/omz.yml
+
+    - name: Main | Include Oh My ZSH addon install task
+      ansible.builtin.import_tasks: tasks/omz_addons.yml
+
+    - name: Main | Include vim addon install task
+      ansible.builtin.import_tasks: tasks/vim.yml
+
+    - name: Main | Include Brave install task
+      ansible.builtin.import_tasks: tasks/brave.yml
+
+    - name: Main | Include VS Code install task
+      ansible.builtin.import_tasks: tasks/vs_code.yml
+
+    - name: Main | Include Sublime Text install task
+      ansible.builtin.import_tasks: tasks/sublime_text.yml
+
+    # TODO: Slack is now distributed as *.deb package too.
+    # .deb package has no issues with screen share.
+    # Link: https://slack.com/intl/en-gb/downloads/instructions/linux?ddl=1&build=deb
+    # - name: Main | Include Slack install task
+    #  when: environment_type == "work"
+    #  ansible.builtin.import_tasks: tasks/slack.yml
+
+    - name: Main | Include Zoxide install task
+      ansible.builtin.import_tasks: tasks/zoxide.yml
+
+    - name: Main | Include Git commit user info set task
+      ansible.builtin.import_tasks: tasks/git_set.yml
+
+    - name: Main | Include environment selector install task
+      ansible.builtin.import_tasks: tasks/env_selector.yml
+
+    - name: Main | Include TLDR update task
+      ansible.builtin.import_tasks: tasks/tldr.yml
+
+    - name: Main | Include font cache clear task
+      ansible.builtin.import_tasks: tasks/font_cache.yml
+
+    # Ensure to run Timeshift as a last task
+    - name: Main | Include Timeshift start task
+      ansible.builtin.import_tasks: tasks/timeshift.yml

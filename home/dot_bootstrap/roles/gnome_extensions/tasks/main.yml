@@ -1,0 +1,12 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/gnome_extensions
+- name: Install
+  ansible.builtin.command: >
+    gext install {{ item }}
+  loop: "{{ gnome_extensions_to_install }}"
+  register: gext_install
+  changed_when: >
+    'Download' in gext_install.stdout or
+    'Extract' in gext_install.stdout or
+    'Enable' in gext_install.stdout

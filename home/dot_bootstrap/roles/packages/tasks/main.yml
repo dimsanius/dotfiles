@@ -1,0 +1,8 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/packages
+- name: Install
+  become: true
+  ansible.builtin.apt:
+    name: "{{ packages_to_install }}"
+    state: present

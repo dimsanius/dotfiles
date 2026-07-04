@@ -1,0 +1,27 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for roles/omz-addons
+omz_addons:
+  - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: zsh-syntax-highlighting
+
+  - repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: zsh-autosuggestions
+
+  - repo: https://github.com/MichaelAquilina/zsh-you-should-use.git
+    dest: you-should-use
+
+  - repo: https://github.com/zsh-users/zsh-completions.git
+    dest: zsh-completions
+
+  - repo: https://github.com/Aloxaf/fzf-tab
+    dest: fzf-tab
+
+  - repo: https://github.com/MichaelAquilina/zsh-auto-notify.git
+    dest: auto-notify
+
+  - repo: https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git
+    dest: autoupdate
+
+  - repo: https://github.com/romkatv/powerlevel10k.git
+    dest: ../themes/powerlevel10k
