@@ -22,14 +22,17 @@ if ! command -v uv >/dev/null 2>&1; then
     source "$HOME/.local/bin/env"
 fi
 
+echo ""
+echo ""
+echo "Input user data below:"
 read -p " Git name: " git_name < /dev/tty
 read -p " Git email: " git_email < /dev/tty
 while true; do
-    echo "Select target environment:"
-    echo " 1. Personal"
-    echo " 2. Work"
+    echo "  Select target environment:"
+    echo "    1. Personal"
+    echo "    2. Work"
     echo ""
-    read -p " Selection [1-2]: " -n 1 answer < /dev/tty
+    read -p "  Selection [1-2]: " -n 1 answer < /dev/tty
     echo ""
     echo ""
 
