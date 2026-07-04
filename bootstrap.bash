@@ -34,8 +34,6 @@ git_email: "$git_email"
 EOF
 $HOME/.local/bin/chezmoi apply
 
-# wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO" --apply
-
 source "$HOME/.local/share/chezmoi/bootstrap/00_install_ansible.bash"
 source "$HOME/.local/share/chezmoi/bootstrap/01_run_ansible.bash"
 deactivate || true
