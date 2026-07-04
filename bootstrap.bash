@@ -22,10 +22,9 @@ TARGET_REPO="$REPO_SSH"
 # Helpers
 # ----------------------------
 
-run() {
-    echo "→ $*"
-    "$@"
-}
+log() { echo "→ $*" >&2; }
+run() { log "$*"; "$@"; }
+log_pipe() { echo "→ $*" >&2; }
 
 run_script() {
     source "$BOOTSTRAP_DIR/$1"
@@ -40,7 +39,8 @@ bootstrap_system() {
     run sudo apt install -y python3-venv python3-apt git
 
     if ! command -v uv >/dev/null 2>&1; then
-        run wget -qO- https://astral.sh/uv/install.sh | sh
+        log_pipe "installing uv"
+        wget -qO- https://astral.sh/uv/install.sh | sh
         source "$HOME/.local/bin/env"
     fi
 }
@@ -58,7 +58,7 @@ collect_user_config() {
         echo "    2) Work"
         echo
 
-        read -r -p "  Selection [1-2]: " answer < /dev/tty
+        read -r -n 1 -p "  Selection [1-2]: " answer < /dev/tty
         echo
 
         case "$answer" in
@@ -70,7 +70,8 @@ collect_user_config() {
 }
 
 setup_chezmoi() {
-    run wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$TARGET_REPO"
+    log_pipe "installing chezmoi"
+    wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$TARGET_REPO"
 }
 
 
