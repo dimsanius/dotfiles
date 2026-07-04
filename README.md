@@ -17,7 +17,7 @@ In a nutshell:
 
 ## Install via SSH (recommended)
 
-:warning: Ensure to generate a new set of SSH keys and add it to this GitHub account. :warning:
+:warning: Ensure to add an SSH key. :warning:
 
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
