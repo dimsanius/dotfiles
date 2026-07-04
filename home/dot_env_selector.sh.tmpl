@@ -12,9 +12,11 @@ source $HOME/.myenv/env_fzf_key_bindings.zsh
 source $HOME/.myenv/env_zsh_custom_autoupdate.zsh
 source $HOME/.myenv/env_zsh_update.zsh
 source $HOME/.myenv/env_tailscale_completion.zsh
-source $HOME/.myenv/env_python.zsh
 {{ if eq .target_env "work" }}
-# Specific alias and environment files
+# Work-related alias files
 source $HOME/.myenv/aliases_zephyr.sh
+
+# Work-related env files
+source $HOME/.myenv/env_python.zsh
 source $HOME/.myenv/env_zephyr.sh
 {{ end }}
