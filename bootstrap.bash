@@ -49,9 +49,10 @@ done
 wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO"
 
 mkdir -p $HOME/.local/share/chezmoi/home/.chezmoidata
-cat > $HOME/.local/share/chezmoi/home/.chezmoidata/git.yaml <<EOF
-git_name: "$git_name"
-git_email: "$git_email"
+cat > $HOME/.local/share/chezmoi/home/.chezmoidata/env.yaml <<EOF
+git:
+  name: "$git_name"
+  email: "$git_email"
 environment: "$environment"
 EOF
 $HOME/.local/bin/chezmoi apply
