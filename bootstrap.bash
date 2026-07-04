@@ -24,6 +24,27 @@ fi
 
 read -p " Git name: " git_name < /dev/tty
 read -p " Git email: " git_email < /dev/tty
+while true; do
+    echo "Select environment:"
+    echo " 1. Personal"
+    echo " 2. Work"
+    echo ""
+    read -p " Selection [1-2]: " -n 1 answer < /dev/tty
+    echo ""
+    echo ""
+
+    if [[ "$answer" == 1 ]]; then
+        environment="personal"
+        break
+    fi
+
+    if [[ "$answer" == 2 ]]; then
+        environment="work"
+        break
+    fi
+
+    echo "Wrong selection. Try again."
+done
 
 wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO"
 
@@ -31,6 +52,7 @@ mkdir -p $HOME/.local/share/chezmoi/home/.chezmoidata
 cat > $HOME/.local/share/chezmoi/home/.chezmoidata/git.yaml <<EOF
 git_name: "$git_name"
 git_email: "$git_email"
+environment: "$environment"
 EOF
 $HOME/.local/bin/chezmoi apply
 
