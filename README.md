@@ -41,8 +41,6 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 
 ## TODO
 
-- [ ] Ensure appropriate Python version is selected
-- [ ] Install uv within ansible as well (consider skipping install from script if already present)
 - [ ] Change preffered apprach as it is different
 - [ ] Install Slack via *.deb package
 - [ ] Prevent install if chezmoi is already present
