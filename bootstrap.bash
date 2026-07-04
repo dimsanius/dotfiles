@@ -2,12 +2,12 @@
 
 set -euo pipefail
 
-if [ "${BOOTSTRAP_HTTPS:-0}" = "1" ]; then
-    # When BOOTSTRAP_HTTPS is set to 1
+# Set SSH repo as a default
+REPO="git@github.com:dimsanius/dotfiles.git"
+
+if [[ "${BOOTSTRAP_HTTPS:-0}" == "1" ]]; then
+    # Update target if flag is set
     REPO="https://github.com/dimsanius/dotfiles.git"
-else
-    # When BOOTSTRAP_HTTPS is not set or set to anything but 1
-    REPO="git@github.com:dimsanius/dotfiles.git"
 fi
 
 sudo apt update
@@ -51,21 +51,27 @@ done
 
 wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$REPO"
 
-mkdir -p $HOME/.local/share/chezmoi/home/.chezmoidata
-cat > $HOME/.local/share/chezmoi/home/.chezmoidata/all.yaml <<EOF
+
+CHEZMOI_DIR="$HOME/.local/share/chezmoi"
+CHEZMOIDATA_DIR="$CHEZMOI_DIR/home/.chezmoidata"
+BOOTSTRAP_DIR="$CHEZMOI_DIR/bootstrap"
+CHEZMOI_BIN="$HOME/.local/bin/chezmoi"
+
+mkdir -p "$CHEZMOIDATA_DIR"
+cat > "$CHEZMOIDATA_DIR/all.yaml" <<EOF
 git:
   name: "$git_name"
   email: "$git_email"
 target_env: "$target_env"
 EOF
-$HOME/.local/bin/chezmoi apply
+"$CHEZMOI_BIN" apply
 
 ln -s \
-  "$HOME/.local/share/chezmoi/home/.chezmoidata/all.yaml" \
-  "$HOME/.local/share/chezmoi/bootstrap/group_vars/all.yaml"
+  "$CHEZMOIDATA_DIR/all.yaml" \
+  "$BOOTSTRAP_DIR/group_vars/all.yaml"
 
-source "$HOME/.local/share/chezmoi/bootstrap/00_install_ansible.bash"
-source "$HOME/.local/share/chezmoi/bootstrap/01_run_ansible.bash"
+source "$BOOTSTRAP_DIR/00_install_ansible.bash"
+source "$BOOTSTRAP_DIR/01_run_ansible.bash"
 deactivate || true
 
-source "$HOME/.local/share/chezmoi/bootstrap/99_notice.bash"
+source "$BOOTSTRAP_DIR/99_notice.bash"
