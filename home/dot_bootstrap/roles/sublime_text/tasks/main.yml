@@ -23,6 +23,7 @@
     types: deb
     uris: https://download.sublimetext.com/
     suites: apt/stable
+    components: main
     signed_by: /etc/apt/keyrings/sublimehq-pub.asc
 
 - name: Install package
