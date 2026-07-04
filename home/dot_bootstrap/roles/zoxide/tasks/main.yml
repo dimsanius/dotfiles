@@ -1,14 +1,19 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/zoxide
+- name: Check if zoxide is installed
+  ansible.builtin.stat:
+    path: "{{ ansible_facts['env']['HOME'] }}/.local/bin/zoxide"
+  register: zoxide_bin
+
 - name: Download installer
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
     dest: /tmp/zoxide-install.sh
     mode: "0755"
+  when: not zoxide_bin.stat.exists
 
 - name: Run installer
   ansible.builtin.command:
     cmd: /tmp/zoxide-install.sh
-  args:
-    creates: "{{ ansible_facts['env']['HOME'] }}/.local/bin/zoxide"
+  when: not zoxide_bin.stat.exists
