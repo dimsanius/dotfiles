@@ -16,8 +16,10 @@ sudo apt install -y \
             python3-apt \
             git
 
-wget -qO- https://astral.sh/uv/install.sh | sh
-# Adds ~/.local/bin to PATH to allow uv to be discoverable
-. $HOME/.local/bin/env
+if ! command -v uv >/dev/null 2>&1; then 
+    wget -qO- https://astral.sh/uv/install.sh | sh
+    # Adds ~/.local/bin to PATH to allow uv to be discoverable
+    . $HOME/.local/bin/env
+fi
 
 wget -qO- https://get.chezmoi.io/lb | sh -s -- init --apply "$REPO"
