@@ -30,5 +30,5 @@
 
 - name: Run Toolbox installer
   ansible.builtin.command: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox &"
-  async: 0
+  async: 3600
   poll: 0
