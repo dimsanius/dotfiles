@@ -12,15 +12,8 @@
   become: true
   ansible.builtin.get_url:
     url: https://packages.microsoft.com/keys/microsoft.asc
-    dest: /tmp/microsoft.asc
+    dest: /etc/apt/keyrings/microsoft.asc
     mode: "0644"
-
-- name: Dearmor key
-  become: true
-  ansible.builtin.command: >
-    gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg /tmp/microsoft.asc
-  args:
-    creates: /etc/apt/keyrings/microsoft.gpg
 
 - name: Add repository
   become: true
@@ -32,7 +25,7 @@
     suites: stable
     components: main
     architectures: amd64
-    signed_by: /etc/apt/keyrings/microsoft.gpg
+    signed_by: /etc/apt/keyrings/microsoft.asc
 
 - name: Install
   become: true
