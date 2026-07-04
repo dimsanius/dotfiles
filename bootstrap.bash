@@ -53,8 +53,14 @@ collect_user_config() {
     read -p "Git email: " git_email < /dev/tty
 
     PS3=$'\nSelect environment: '
-    select env in personal work; do
-        [[ -n "$env" ]] && target_env="$env" && break
+
+    select env in personal work < /dev/tty; do
+        if [[ -n "${env:-}" ]]; then
+            target_env="$env"
+            break
+        else
+            echo "Invalid selection. Try again."
+        fi
     done
 }
 
