@@ -24,7 +24,6 @@ TARGET_REPO="$REPO_SSH"
 
 log() { echo "→ $*" >&2; }
 run() { log "$*"; "$@"; }
-log_pipe() { echo "→ $*" >&2; }
 
 run_script() {
     source "$BOOTSTRAP_DIR/$1"
@@ -39,7 +38,7 @@ bootstrap_system() {
     run sudo apt install -y python3-venv python3-apt git
 
     if ! command -v uv >/dev/null 2>&1; then
-        log_pipe "installing uv"
+        log "installing uv"
         wget -qO- https://astral.sh/uv/install.sh | sh
         source "$HOME/.local/bin/env"
     fi
@@ -47,7 +46,7 @@ bootstrap_system() {
 
 collect_user_config() {
     echo
-    echo "Input user data below:"
+    log "Input user data below:"
 
     read -p "  Git name: " git_name < /dev/tty
     read -p "  Git email: " git_email < /dev/tty
@@ -64,13 +63,13 @@ collect_user_config() {
         case "$answer" in
             1) target_env="personal"; break ;;
             2) target_env="work"; break ;;
-            *) echo "Wrong selection. Try again." ;;
+            *) log "Wrong selection. Try again." ;;
         esac
     done
 }
 
 setup_chezmoi() {
-    log_pipe "installing chezmoi"
+    log "installing chezmoi"
     wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$TARGET_REPO"
 }
 
