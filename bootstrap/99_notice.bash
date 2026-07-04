@@ -1,9 +1,8 @@
 #!/bin/bash
 
-say() {
-    echo "==> $1"
-}
+log() { echo "→ $*" >&2; }
+run() { log "$*"; "$@"; }
 
 for a in `seq 20`; do echo -n _; done; echo
-say "Re-login into your system for changes to take effect."
-say "On next terminal launch, wait for powerlevel10k to fetch gitstatusd."
+log "Re-login into your system for changes to take effect."
+log "On next terminal launch, wait for powerlevel10k to fetch gitstatusd."
