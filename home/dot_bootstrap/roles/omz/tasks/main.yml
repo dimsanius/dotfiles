@@ -1,12 +1,12 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/omz
-- name: Check if Oh My ZSH already exists
+- name: Check if already exists
   ansible.builtin.stat:
     path: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh"
   register: oh_my_zsh_dir
 
-- name: Install Oh My Zsh
+- name: Install
   ansible.builtin.shell: |
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
   args:

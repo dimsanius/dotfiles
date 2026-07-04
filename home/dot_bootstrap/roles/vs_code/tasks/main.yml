@@ -8,21 +8,21 @@
     state: directory
     mode: "0755"
 
-- name: Download Microsoft GPG key
+- name: Download key
   become: true
   ansible.builtin.get_url:
     url: https://packages.microsoft.com/keys/microsoft.asc
     dest: /tmp/microsoft.asc
     mode: "0644"
 
-- name: Dearmor GPG key
+- name: Dearmor key
   become: true
   ansible.builtin.command: >
     gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg /tmp/microsoft.asc
   args:
     creates: /etc/apt/keyrings/microsoft.gpg
 
-- name: Add VS Code repository
+- name: Add repository
   become: true
   ansible.builtin.deb822_repository:
     name: vscode
@@ -34,7 +34,7 @@
     architectures: amd64
     signed_by: /etc/apt/keyrings/microsoft.gpg
 
-- name: Install package
+- name: Install
   become: true
   ansible.builtin.apt:
     name: code

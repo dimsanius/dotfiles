@@ -16,7 +16,7 @@
     dest: /etc/apt/keyrings/brave-browser-archive-keyring.gpg
     mode: "0644"
 
-- name: Add Brave repository
+- name: Add repository
   become: true
   ansible.builtin.deb822_repository:
     name: brave-browser
@@ -28,7 +28,7 @@
     architectures: amd64
     signed_by: /etc/apt/keyrings/brave-browser-archive-keyring.gpg
 
-- name: Install browser
+- name: Install
   become: true
   ansible.builtin.apt:
     name: brave-browser

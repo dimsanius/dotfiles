@@ -1,7 +1,7 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/omz-addons
-- name: Install OMZ addons and themes
+- name: Install addons and themes
   ansible.builtin.git:
     repo: "{{ item.repo }}"
     dest: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh/custom/plugins/{{ item.dest }}"

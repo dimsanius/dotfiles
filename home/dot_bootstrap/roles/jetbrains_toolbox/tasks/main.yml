@@ -1,19 +1,19 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/jetbrains_toolbox
-- name: Create JetBrains Toolbox install directory
+- name: Create install directory
   ansible.builtin.file:
     path: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/"
     state: directory
     mode: "0775"
 
-- name: Download JetBrains Toolbox
+- name: Download
   ansible.builtin.get_url:
     url: https://download.jetbrains.com/toolbox/{{ jetbrains_toolbox_archive }}
     dest: /tmp/{{ jetbrains_toolbox_archive }}
     mode: "0644"
 
-- name: Extract JetBrains Toolbox
+- name: Extract
   ansible.builtin.unarchive:
     src: /tmp/{{ jetbrains_toolbox_archive }}
     dest: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/"
@@ -21,14 +21,14 @@
     extra_opts:
       - --strip-components=2
 
-- name: Find extracted folder
+- name: Find folder
   ansible.builtin.find:
     paths: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/"
     patterns: "jetbrains-toolbox-*"
     file_type: directory
   register: toolbox_dir
 
-- name: Run Toolbox installer
+- name: Run installer
   ansible.builtin.command: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox &"
   async: 3600
   poll: 0

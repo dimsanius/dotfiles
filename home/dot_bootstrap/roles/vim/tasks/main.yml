@@ -13,7 +13,7 @@
     dest: "{{ ansible_facts['env']['HOME'] }}/.vim/autoload/plug.vim"
     mode: "0644"
 
-- name: Install plugins (if not already installed)
+- name: Install plugins
   ansible.builtin.command: vim +PlugInstall +qall
   args:
     creates: "{{ ansible_facts['env']['HOME'] }}/.vim/plugged"
