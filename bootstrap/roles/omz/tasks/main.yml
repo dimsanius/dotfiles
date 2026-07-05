@@ -18,7 +18,9 @@
       - /tmp/oh-my-zsh-install.sh
       - --unattended
       - --keep-zshrc
+  register: omz_install_output
   when: not omz_dir.stat.exists
+  changed_when: omz_install_output.rc == 0
 
 - name: Change default shell to zsh
   become: true
