@@ -5,8 +5,8 @@
   ansible.builtin.command: >
     gext install {{ item }}
   loop: "{{ gnome_extensions_to_install }}"
-  register: gext_install
+  register: gnome_extensions_install_result
   changed_when: >
-    'Download' in gext_install.stdout or
-    'Extract' in gext_install.stdout or
-    'Enable' in gext_install.stdout
+    'Download' in gnome_extensions_install_result.stdout or
+    'Extract' in gnome_extensions_install_result.stdout or
+    'Enable' in gnome_extensions_install_result.stdout
