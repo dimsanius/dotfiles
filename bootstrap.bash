@@ -37,7 +37,7 @@ bootstrap_system() {
     run sudo apt update
     run sudo apt install -y python3-venv python3-apt git
 
-    if ! command -v uv >/dev/null 2>&1; then
+    if ! command -v uv >/dev/null 2>&1 || ! command -v uvx >/dev/null 2>&1; then
         log "installing uv"
         wget -qO- https://astral.sh/uv/install.sh | sh
         source "$HOME/.local/bin/env"
