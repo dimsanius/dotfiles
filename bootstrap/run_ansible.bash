@@ -8,9 +8,10 @@ run() { log "$*"; "$@"; }
 BOOTSTRAP_DIR="$HOME/.local/share/chezmoi/bootstrap"
 ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 
-attempt=1
-for attempt in 1 2 3; do
-    log "[try $attempt of 3] Running Ansible..."
+max_attempts=3
+
+for current_attempt in $(seq 1 "$max_attempts"); do
+    log "[try $current_attempt of $max_attempts] Running Ansible..."
 
     if ANSIBLE_LOCALHOST_WARNING=False \
        ANSIBLE_INVENTORY_UNPARSED_WARNING=False \
@@ -24,9 +25,9 @@ for attempt in 1 2 3; do
         exit 0
     else
         # Ansible run attempt failed
-        log "Attempt $attempt failed."
+        log "Attempt $current_attempt failed."
     fi
 done
 
-log "Ansible failed after $attempt attempts."
+log "Ansible failed after $max_attempts attempts."
 exit 1
