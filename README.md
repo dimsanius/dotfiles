@@ -45,11 +45,22 @@ These details will be templated as following to `chezmoi`:
 Afterwards, target setup environment will be symlinked from `chezmoi` to `ansible`:
 - From `home/.chezmoidata/target_env.yml` to `bootstrap/group_vars/all.yml`
 
-## Adding/removing/updating dotfiles
+## Dotfiles - add/remove/update via `chezmoi`
 
 My preffered way is based on [official chezmoi documentation](https://www.chezmoi.io/user-guide/frequently-asked-questions/usage/):
 
 > 2. Use `chezmoi cd` and edit the files in the source directory directly. Run `chezmoi diff` to see what changes would be made, and `chezmoi apply` to make the changes.
+
+Remember to commit and push changes to Git afterwards.
+
+## Environment - add/remove/update via `ansible`
+
+After making changes to `bootstrap` configuration, run `ansible` from `chezmoi` root (to navigate to `chezmoi` root use either `chezmoi cd` or `cd ~/.local/share/chezmoi`):
+```bash
+bootstrap/run_ansible.bash
+```
+
+Remember to commit and push changes to Git afterwards.
 
 ## TODO
 
