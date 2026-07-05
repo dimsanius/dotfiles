@@ -7,3 +7,4 @@
   ansible.builtin.command: timeshift-gtk
   async: 3600
   poll: 0
+  changed_when: false
