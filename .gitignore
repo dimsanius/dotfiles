@@ -1,5 +1,6 @@
 .idea
 .venv
 
-**/.chezmoidata
+**/.chezmoidata/**
 **/group_vars/all.yml
+!**.gitkeep
