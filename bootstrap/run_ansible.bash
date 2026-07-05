@@ -9,7 +9,7 @@ BOOTSTRAP_DIR="$HOME/.local/share/chezmoi/bootstrap"
 ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 
 for attempt in 1 2 3; do
-    log "[try $retries of 3] Running Ansible..."
+    log "[try $attempt of 3] Running Ansible..."
 
     if ANSIBLE_LOCALHOST_WARNING=False \
        ANSIBLE_INVENTORY_UNPARSED_WARNING=False \
