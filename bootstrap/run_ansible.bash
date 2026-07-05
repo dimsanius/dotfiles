@@ -1,14 +1,14 @@
 #!/bin/bash
 
+set -euo pipefail
+
 log() { echo "→ $*" >&2; }
 run() { log "$*"; "$@"; }
 
 BOOTSTRAP_DIR="$HOME/.local/share/chezmoi/bootstrap"
 ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 
-retries=1
-while [ "$retries" -le 3 ]; do
-
+for attempt in 1 2 3; do
     log "[try $retries of 3] Running Ansible..."
 
     if ANSIBLE_LOCALHOST_WARNING=False \
@@ -19,14 +19,13 @@ while [ "$retries" -le 3 ]; do
         ansible-playbook "$ANSIBLE_PLAYBOOK" \
         --ask-become-pass; then
         # Ansible run succeeded
-        log "Ansible compeleted successfully."
-        break
+        log "Ansible completed successfully."
+        exit 0
     else
-        # Ansible run failed. Consume try attempt
-        retries=$((retries + 1))
+        # Ansible run attempt failed
+        log "Attempt $attempt failed."
     fi
 done
 
-if [ "$retries" -eq 4 ]; then
-    log "Ansible failed to complete."
-fi
+log "Ansible failed after 3 attempts."
+exit 1
