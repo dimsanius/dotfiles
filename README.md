@@ -12,8 +12,23 @@ This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my 
 
 In a nutshell:
 
+- Dot-files are managed via [chezmoi](https://www.chezmoi.io/)
 - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
-- Dot-files are managed via [chezmoi](https://www.chezmoi.io/).
+
+During the first-install, you will be prompted to specify some details: 
+
+- Git details, such as user name and user email
+- Target setup environment
+
+These details will be templated as following to `chezmoi`:
+- Git details: from `template/git_user.yml.j2` to `home/.chezmoidata/git_user.yml`.
+- Target setup environment: from `template/target_env.yml.j2` to `home/.chezmoidata/target_env.yml`.
+
+Afterwards, target setup environment will be symlinked from `chezmoi` to `ansible`:
+- From `home/.chezmoidata/target_env.yml` to `bootstrap/group_vars/all.yml`
+
+
+
 
 ## Install via SSH (recommended)
 
