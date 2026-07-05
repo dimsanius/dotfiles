@@ -86,8 +86,6 @@ setup_chezmoi() {
 
 
 write_config() {
-    mkdir -p "$CHEZMOIDATA_DIR"
-
     uvx --from jinja2-cli jinja2 \
         "$CHEZMOI_DIR/templates/git_user.yml.j2" \
         -D git_name="$git_name" \
