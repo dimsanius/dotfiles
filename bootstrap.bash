@@ -34,8 +34,8 @@ run_script() {
 # ----------------------------
 
 bootstrap_system() {
-    run sudo apt update
-    run sudo apt install -y git
+    run sudo apt -qqq update
+    run sudo apt -qqq install -y git
 
     if ! command -v uv >/dev/null 2>&1 || ! command -v uvx >/dev/null 2>&1; then
         log "installing uv"
