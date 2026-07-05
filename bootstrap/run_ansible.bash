@@ -8,7 +8,7 @@ run() { log "$*"; "$@"; }
 BOOTSTRAP_DIR="$HOME/.local/share/chezmoi/bootstrap"
 ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 
-max_attempts=3
+max_attempts=5
 
 for current_attempt in $(seq 1 "$max_attempts"); do
     log "[try $current_attempt of $max_attempts] Running Ansible..."
