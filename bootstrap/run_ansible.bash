@@ -29,5 +29,5 @@ for current_attempt in $(seq 1 "$max_attempts"); do
     fi
 done
 
-log "Ansible failed after max retry attempts of $max_attempts. Aborting."
+log "All $max_attempts Ansible run attempts failed. Aborting."
 exit 1
