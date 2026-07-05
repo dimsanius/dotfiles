@@ -102,16 +102,6 @@ EOF
         "$BOOTSTRAP_DIR/group_vars/all.yml"
 }
 
-run_ansible() {
-    run_script 00_install_ansible.bash
-    run_script 01_run_ansible.bash
-    deactivate 2>/dev/null || true
-}
-
-finish() {
-    run_script 99_notice.bash
-}
-
 # ----------------------------
 # Main (declarative flow)
 # ----------------------------
@@ -122,8 +112,8 @@ main() {
     collect_user_config
     setup_chezmoi
     write_config
-    run_ansible
-    finish
+    run_script 00_run_ansible.bash
+    run_script 99_notice.bash
 }
 
 main "$@"
