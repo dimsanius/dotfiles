@@ -6,4 +6,4 @@
     repo: "{{ item.repo }}"
     dest: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh/custom/plugins/{{ item.dest }}"
     depth: 1
-  loop: "{{ omz_addons }}"
+  loop: "{{ omz_addons_to_install }}"

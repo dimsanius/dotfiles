@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT-0
 ---
 # defaults file for roles/omz-addons
-omz_addons:
+omz_addons_to_install:
   - repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
     dest: zsh-syntax-highlighting
 
