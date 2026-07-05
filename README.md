@@ -43,4 +43,3 @@ My preffered way is based on [official chezmoi documentation](https://www.chezmo
 
 - [ ] Use jinja2
 - [ ] Move chezmoi config to .config/chezmoi/chezmoi.yml
-- [ ] Use uvx instead of installing venv locally
