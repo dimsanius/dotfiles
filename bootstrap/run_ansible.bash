@@ -11,7 +11,7 @@ ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 max_attempts=3
 
 for current_attempt in $(seq 1 "$max_attempts"); do
-    log "[try $current_attempt of $max_attempts] Running Ansible..."
+    log "[attempt $current_attempt of $max_attempts] Running Ansible..."
 
     if ANSIBLE_LOCALHOST_WARNING=False \
        ANSIBLE_INVENTORY_UNPARSED_WARNING=False \
