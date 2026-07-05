@@ -34,8 +34,8 @@ run_script() {
 # ----------------------------
 
 bootstrap_system() {
-    # run sudo apt update
-    # run sudo apt install -y python3-venv python3-apt git
+    run sudo apt update
+    run sudo apt install -y git
 
     if ! command -v uv >/dev/null 2>&1 || ! command -v uvx >/dev/null 2>&1; then
         log "installing uv"
