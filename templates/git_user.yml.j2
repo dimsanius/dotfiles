@@ -1,4 +1,4 @@
 data:
   git:
-    name: {{ git_name | quote }}
-    email: {{ git_email | quote }}
+    name: {{ git_name | tojson }}
+    email: {{ git_email | tojson }}
