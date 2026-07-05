@@ -80,6 +80,7 @@ collect_user_config() {
 }
 
 install_chezmoi() {
+    cd "$HOME"
     log "installing chezmoi"
     wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$TARGET_REPO"
 }
