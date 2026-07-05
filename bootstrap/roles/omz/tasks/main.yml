@@ -2,6 +2,7 @@
 ---
 - name: Install
   ansible.builtin.shell: >
+    set -o pipefail
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
     | sh -s -- --unattended --keep-zshrc
   args:
