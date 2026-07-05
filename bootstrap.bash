@@ -97,11 +97,14 @@ write_config() {
         -D target_env="$target_env" \
         -o "$CHEZMOIDATA_DIR/target_env.yml"
 
-    run "$CHEZMOI_BIN" apply
-
     ln -sf \
         "$CHEZMOIDATA_DIR/target_env.yml" \
         "$BOOTSTRAP_DIR/group_vars/all.yml"
+}
+
+apply_chezmoi() {
+    log "applying chezmoi"
+    run "$CHEZMOI_BIN" apply
 }
 
 final_notice() {
@@ -120,6 +123,7 @@ main() {
     collect_user_config
     setup_chezmoi
     write_config
+    apply_chezmoi
     run_script run_ansible.bash
     final_notice
 }
