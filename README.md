@@ -6,7 +6,7 @@ This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my 
 
 ## Install via SSH (recommended)
 
-:warning: Ensure to add an SSH key. :warning:
+:warning: Ensure to have a valid SSH key :warning:
 
 Following command will install all the deps and environments (will prompt for `sudo` password twice):
 
