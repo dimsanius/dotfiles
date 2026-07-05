@@ -1,6 +1,11 @@
+# Ignore all IDE folders
 .idea
 .venv
 
+# Ignore generated folder
 **/.chezmoidata/**
+# Ignore generated file
 **/group_vars/all.yml
+
+# Un-ignore any previously ignored .gitkeep. Keep this line last.
 !**.gitkeep
