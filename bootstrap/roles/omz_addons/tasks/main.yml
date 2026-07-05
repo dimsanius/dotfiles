@@ -2,7 +2,7 @@
 ---
 # tasks file for roles/omz-addons
 - name: Install addons and themes
-  ansible.builtin.git:
+  ansible.builtin.git: # noqa: latest
     repo: "{{ item.repo }}"
     dest: "{{ ansible_facts['env']['HOME'] }}/.oh-my-zsh/custom/plugins/{{ item.dest }}"
     depth: 1
