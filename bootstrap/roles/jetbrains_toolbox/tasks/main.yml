@@ -10,11 +10,11 @@
 - name: Install toolbox
   ansible.builtin.unarchive:
     src: "https://download.jetbrains.com/toolbox/{{ jetbrains_toolbox_archive }}"
-    dest: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/"
     remote_src: true
     extra_opts:
       - --strip-components=2
-    creates: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox"
+    creates: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox"
 
 - name: Run
   ansible.builtin.command: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox"
