@@ -3,9 +3,7 @@
 # tasks file for roles/zoxide
 - name: Install
   ansible.builtin.shell: >
-    set -o pipefail
-    curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
-    | sh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh)"
   args:
     executable: /bin/bash
     creates: "{{ ansible_facts['env']['HOME'] }}/.local/bin/zoxide"
