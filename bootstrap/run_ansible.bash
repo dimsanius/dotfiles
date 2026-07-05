@@ -3,6 +3,8 @@
 log() { echo "→ $*" >&2; }
 run() { log "$*"; "$@"; }
 
+sudo -v
+
 BOOTSTRAP_DIR="$HOME/.local/share/chezmoi/bootstrap"
 ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 
@@ -17,7 +19,7 @@ while [ "$retries" -le 3 ]; do
         --with-requirements "$BOOTSTRAP_DIR/requirements.txt" \
         --from ansible-core \
         ansible-playbook "$ANSIBLE_PLAYBOOK" \
-        --ask-become-pass; then
+        --become; then
         # Ansible run succeeded
         log "Ansible compeleted successfully."
         break
