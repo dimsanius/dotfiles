@@ -39,7 +39,7 @@ bootstrap_system() {
 
     if ! command -v uv >/dev/null 2>&1 || ! command -v uvx >/dev/null 2>&1; then
         log "installing uv"
-        wget -qO- https://astral.sh/uv/install.sh | sh
+        wget -qO- https://astral.sh/uv/install.sh | UV_QUITE=1 sh
         source "$HOME/.local/bin/env"
     fi
 }
