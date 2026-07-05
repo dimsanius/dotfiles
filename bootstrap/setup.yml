@@ -20,6 +20,6 @@
     - zoxide
     - font_cache
     - role: slack
-      when: target_env == "work"
+      when: data.target_env == "work"
     # Ensure to run Timeshift as a last task
     - timeshift

@@ -89,10 +89,11 @@ write_config() {
     mkdir -p "$CHEZMOIDATA_DIR"
 
     cat > "$CHEZMOIDATA_DIR/all.yml" <<EOF
-git:
-  name: "$git_name"
-  email: "$git_email"
-target_env: "$target_env"
+data:
+  git:
+    name: "$git_name"
+    email: "$git_email"
+  target_env: "$target_env"
 EOF
 
     run "$CHEZMOI_BIN" apply

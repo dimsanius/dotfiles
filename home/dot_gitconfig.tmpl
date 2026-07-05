@@ -1,6 +1,6 @@
 [user]
-    name = {{ .git.name | quote }}
-    email = {{ .git.email | quote }}
+    name = {{ .data.git.name | quote }}
+    email = {{ .data.git.email | quote }}
 [core]
     pager = delta
 [delta]
