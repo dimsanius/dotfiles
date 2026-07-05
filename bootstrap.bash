@@ -102,6 +102,12 @@ EOF
         "$BOOTSTRAP_DIR/group_vars/all.yml"
 }
 
+final_notice() {
+    for a in `seq 20`; do echo -n _; done; echo
+    log "Re-login into your system for changes to take effect."
+    log "On next terminal launch, wait for powerlevel10k to fetch gitstatusd."
+}
+
 # ----------------------------
 # Main (declarative flow)
 # ----------------------------
@@ -112,8 +118,8 @@ main() {
     collect_user_config
     setup_chezmoi
     write_config
-    run_script 00_run_ansible.bash
-    run_script 99_notice.bash
+    run_script run_ansible.bash
+    final_notice
 }
 
 main "$@"
