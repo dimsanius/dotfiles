@@ -3,7 +3,8 @@
 log() { echo "→ $*" >&2; }
 run() { log "$*"; "$@"; }
 
-PLAYBOOK="$HOME/.local/share/chezmoi/bootstrap/setup.yml"
+BOOTSTRAP_DIR="$HOME/.local/share/chezmoi/bootstrap"
+ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 
 retries=1
 while [ "$retries" -le 3 ]; do
@@ -13,9 +14,9 @@ while [ "$retries" -le 3 ]; do
     if ANSIBLE_LOCALHOST_WARNING=False \
        ANSIBLE_INVENTORY_UNPARSED_WARNING=False \
        uvx \
-        --with "ansible==14.1.0" \
+        --with-requirements "$BOOTSTRAP_DIR/requirements.txt" \
         --from ansible-core \
-        ansible-playbook "$PLAYBOOK" \
+        ansible-playbook "$ANSIBLE_PLAYBOOK" \
         --ask-become-pass; then
         # Ansible run succeeded
         log "Ansible compeleted successfully."
