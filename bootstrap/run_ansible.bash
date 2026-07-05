@@ -21,13 +21,13 @@ for current_attempt in $(seq 1 "$max_attempts"); do
         ansible-playbook "$ANSIBLE_PLAYBOOK" \
         --ask-become-pass; then
         # Ansible run succeeded
-        log "Ansible completed successfully."
+        log "[attempt $current_attempt of $max_attempts] Ansible completed successfully"
         exit 0
     else
         # Ansible run attempt failed
-        log "Attempt $current_attempt failed."
+        log "[attempt $current_attempt of $max_attempts] Attempt $current_attempt failed."
     fi
 done
 
-log "Ansible failed after $max_attempts attempts."
+log "Ansible failed after $max_attempts attempts. Aborting."
 exit 1
