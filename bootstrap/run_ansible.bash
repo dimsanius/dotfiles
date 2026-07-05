@@ -8,6 +8,7 @@ run() { log "$*"; "$@"; }
 BOOTSTRAP_DIR="$HOME/.local/share/chezmoi/bootstrap"
 ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 
+attempt=1
 for attempt in 1 2 3; do
     log "[try $attempt of 3] Running Ansible..."
 
@@ -27,5 +28,5 @@ for attempt in 1 2 3; do
     fi
 done
 
-log "Ansible failed after 3 attempts."
+log "Ansible failed after $attempt attempts."
 exit 1
