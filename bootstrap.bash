@@ -119,7 +119,7 @@ final_notice() {
 
 main() {
     bootstrap_system
-    abort_if_chezmoi_present
+    # abort_if_chezmoi_present
     collect_user_config
     setup_chezmoi
     write_config
