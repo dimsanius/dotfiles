@@ -5,6 +5,13 @@ set -euo pipefail
 log() { echo "→ $*" >&2; }
 run() { log "$*"; "$@"; }
 
+die() {
+    local status="${1:-1}"
+
+    # If sourced, return; otherwise exit.
+    return "$status" 2>/dev/null || exit "$status"
+}
+
 BOOTSTRAP_DIR="$HOME/.local/share/chezmoi/bootstrap"
 ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 
@@ -22,7 +29,7 @@ for current_attempt in $(seq 1 "$max_attempts"); do
         --ask-become-pass; then
         # Ansible run succeeded
         log "[attempt $current_attempt of $max_attempts] Ansible completed successfully"
-        exit 0
+        die 0
     else
         # Ansible run attempt failed
         log "[attempt $current_attempt of $max_attempts] Attempt $current_attempt failed."
@@ -30,4 +37,4 @@ for current_attempt in $(seq 1 "$max_attempts"); do
 done
 
 log "All $max_attempts Ansible run attempts failed. Aborting."
-exit 1
+die 1
