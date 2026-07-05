@@ -86,24 +86,23 @@ install_chezmoi() {
 
 
 write_config() {
-    uvx --from jinja2-cli jinja2 \
+    run uvx --from jinja2-cli jinja2 \
         "$CHEZMOI_DIR/templates/git_user.yml.j2" \
         -D git_name="$git_name" \
         -D git_email="$git_email" \
         -o "$CHEZMOIDATA_DIR/git_user.yml"
     
-    uvx --from jinja2-cli jinja2 \
+    run uvx --from jinja2-cli jinja2 \
         "$CHEZMOI_DIR/templates/target_env.yml.j2" \
         -D target_env="$target_env" \
         -o "$CHEZMOIDATA_DIR/target_env.yml"
 
-    ln -sf \
+    run ln -sf \
         "$CHEZMOIDATA_DIR/target_env.yml" \
         "$BOOTSTRAP_DIR/group_vars/all.yml"
 }
 
 apply_chezmoi() {
-    log "applying chezmoi"
     run "$CHEZMOI_BIN" apply
 }
 
