@@ -6,6 +6,18 @@
   connection: local
   gather_facts: true
 
+  pre_tasks:
+    - name: Validate required variables
+      assert:
+        that:
+          - data is defined
+          - data.target_env is defined
+          - data.target_env in ['work', 'personal']
+          - data.git is defined
+          - data.git.name is defined
+          - data.git.email is defined
+        fail_msg: "Required variables are missing or invalid"
+
   roles:
     - packages
     - gnome_extensions
