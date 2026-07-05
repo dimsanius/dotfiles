@@ -79,7 +79,7 @@ collect_user_config() {
     done
 }
 
-setup_chezmoi() {
+install_chezmoi() {
     log "installing chezmoi"
     wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$TARGET_REPO"
 }
@@ -119,9 +119,8 @@ final_notice() {
 
 main() {
     bootstrap_system
-    # abort_if_chezmoi_present
     collect_user_config
-    setup_chezmoi
+    install_chezmoi
     write_config
     apply_chezmoi
     run_script run_ansible.bash
