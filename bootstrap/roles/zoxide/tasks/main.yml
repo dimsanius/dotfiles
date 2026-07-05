@@ -2,7 +2,7 @@
 ---
 # tasks file for roles/zoxide
 - name: Install
-  ansible.builtin.shell: |
+  ansible.builtin.shell: >
     set -o pipefail
     curl -fsSL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
     | sh
