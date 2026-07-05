@@ -1,5 +1,3 @@
-#!/bin/bash
-
 export ZEPHYR_BASE=$HOME/dev/hav-aegis-tools/zephyrproject/zephyr
 
 # Select either Zephyr SDK Toolchain or ARM Toolchain below
