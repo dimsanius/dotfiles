@@ -4,6 +4,24 @@
 
 This repo contains environment (e.g. dotfiles, packages, fonts etc.) set for my liking.
 
+## Install via SSH (recommended)
+
+:warning: Ensure to add an SSH key. :warning:
+
+Following command will install all the deps and environments (will prompt for `sudo` password twice):
+
+```bash
+wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.bash | bash
+```
+
+## Install via HTTPS
+
+Following command will install all the deps and environments (will prompt for `sudo` password twice):
+
+```bash
+wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.bash | BOOTSTRAP_HTTPS=1 bash
+```
+
 ## Description
 
 - Platform support: `amd64 (x64)`
@@ -27,28 +45,7 @@ These details will be templated as following to `chezmoi`:
 Afterwards, target setup environment will be symlinked from `chezmoi` to `ansible`:
 - From `home/.chezmoidata/target_env.yml` to `bootstrap/group_vars/all.yml`
 
-
-
-
-## Install via SSH (recommended)
-
-:warning: Ensure to add an SSH key. :warning:
-
-Following command will install all the deps and environments (will prompt for `sudo` password twice):
-
-```bash
-wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.bash | bash
-```
-
-## Install via HTTPS
-
-Following command will install all the deps and environments (will prompt for `sudo` password twice):
-
-```bash
-wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.bash | BOOTSTRAP_HTTPS=1 bash
-```
-
-## Adding/removing/updating files
+## Adding/removing/updating dotfiles
 
 My preffered way is based on [official chezmoi documentation](https://www.chezmoi.io/user-guide/frequently-asked-questions/usage/):
 
