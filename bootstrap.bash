@@ -89,16 +89,20 @@ write_config() {
     mkdir -p "$CHEZMOIDATA_DIR"
 
     uvx --from jinja2-cli jinja2 \
-        "$CHEZMOI_DIR/env.yml.j2" \
+        "$CHEZMOI_DIR/templates/git_user.yml.j2" \
         -D git_name="$git_name" \
         -D git_email="$git_email" \
+        -o "$CHEZMOIDATA_DIR/git_user.yml"
+    
+    uvx --from jinja2-cli jinja2 \
+        "$CHEZMOI_DIR/templates/target_env.yml.j2" \
         -D target_env="$target_env" \
-        -o "$CHEZMOIDATA_DIR/all.yml"
+        -o "$CHEZMOIDATA_DIR/target_env.yml"
 
     run "$CHEZMOI_BIN" apply
 
     ln -sf \
-        "$CHEZMOIDATA_DIR/all.yml" \
+        "$CHEZMOIDATA_DIR/target_env.yml" \
         "$BOOTSTRAP_DIR/group_vars/all.yml"
 }
 
