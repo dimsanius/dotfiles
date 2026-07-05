@@ -88,13 +88,12 @@ setup_chezmoi() {
 write_config() {
     mkdir -p "$CHEZMOIDATA_DIR"
 
-    cat > "$CHEZMOIDATA_DIR/all.yml" <<EOF
-data:
-  git:
-    name: "$git_name"
-    email: "$git_email"
-  target_env: "$target_env"
-EOF
+    uvx --from jinja2-cli jinja2 \
+        "$CHEZMOI_DIR/env.yml.j2" \
+        -D git_name="$git_name" \
+        -D git_email="$git_email" \
+        -D target_env="$target_env" \
+        -o "$CHEZMOIDATA_DIR/all.yml"
 
     run "$CHEZMOI_BIN" apply
 
