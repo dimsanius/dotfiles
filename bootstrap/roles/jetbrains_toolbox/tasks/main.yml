@@ -1,36 +1,22 @@
 # SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/jetbrains_toolbox
-- name: Check if installed
-  ansible.builtin.stat:
-    path: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox"
-  register: jetbrains_toolbox_bin
-
 - name: Create install directory
   ansible.builtin.file:
     path: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/"
     state: directory
     mode: "0775"
-  when: not jetbrains_toolbox_bin.stat.exists
 
-- name: Download
-  ansible.builtin.get_url:
-    url: https://download.jetbrains.com/toolbox/{{ jetbrains_toolbox_archive }}
-    dest: /tmp/{{ jetbrains_toolbox_archive }}
-    mode: "0644"
-  when: not jetbrains_toolbox_bin.stat.exists
-
-- name: Extract
+- name: Install toolbox
   ansible.builtin.unarchive:
-    src: /tmp/{{ jetbrains_toolbox_archive }}
-    dest: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/"
+    src: "https://download.jetbrains.com/toolbox/{{ jetbrains_toolbox_archive }}"
+    dest: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/"
     remote_src: true
     extra_opts:
       - --strip-components=2
-  when: not jetbrains_toolbox_bin.stat.exists
+    creates: "{{ ansible_env.HOME }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox"
 
-- name: Run installer
+- name: Run
   ansible.builtin.command: "{{ ansible_facts['env']['HOME'] }}/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox"
   async: 3600
   poll: 0
-  when: not jetbrains_toolbox_bin.stat.exists
