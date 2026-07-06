@@ -11,6 +11,8 @@ package-update() {
     echo
     run uv self update || return
     echo
+    run chezmoi upgrade || return
+    echo
     run omz update || return
 
 }
