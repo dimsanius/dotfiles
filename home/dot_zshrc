@@ -24,8 +24,6 @@ plugins=(
     zsh-syntax-highlighting 
     zsh-autosuggestions
     colored-man-pages
-    sudo
-    web-search
     auto-notify
     you-should-use
     fzf-tab
