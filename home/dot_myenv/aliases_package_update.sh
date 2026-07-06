@@ -1,11 +1,12 @@
 package-update() {
     run() {
         echo "======> $*"
-        "$@"
+        "$@" || return
     }
 
     apt_package_update() {
         run sudo nala update
+        echo
         run sudo nala upgrade
     }
 
