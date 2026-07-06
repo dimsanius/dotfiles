@@ -3,30 +3,14 @@ package-update() {
         echo "======> $*"
         "$@" || return
     }
-
-    apt_package_update() {
-        run sudo nala update
-        echo
-        run sudo nala upgrade
-    }
-
-    snap_packages_update() {
-        run sudo snap refresh
-    }
-
-    uv_update() {
-        run uv self update
-    }
-
-    omz_update() {
-        run omz update
-    }
-
-    apt_package_update
+    run sudo nala update || return
     echo
-    snap_packages_update
+    run sudo nala upgrade || return
     echo
-    uv_update
+    run sudo snap refresh || return
     echo
-    omz_update
+    run uv self update || return
+    echo
+    run omz update || return
+
 }
