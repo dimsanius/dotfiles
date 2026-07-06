@@ -1,30 +1,26 @@
-_say() {
-    echo "======> $1"
-}
+package-update() {
+    run() {
+        echo "======> $*"
+        "$@"
+    }
 
-apt_package_update() {
-    _say "apt package update"
-    sudo nala update
-    sudo nala upgrade
-}
+    apt_package_update() {
+        run sudo nala update
+        run sudo nala upgrade
+    }
 
-snap_packages_update() {
-    _say "snap package update"
-    sudo snap refresh
-}
+    snap_packages_update() {
+        run sudo snap refresh
+    }
 
-uv_update() {
-    _say "uv update"
-    uv self update
-}
+    uv_update() {
+        run uv self update
+    }
 
-omz_update() {
-    _say "OMZ update"
-    omz update
-}
+    omz_update() {
+        run omz update
+    }
 
-
-do_update() {
     apt_package_update
     echo
     snap_packages_update
@@ -33,5 +29,3 @@ do_update() {
     echo
     omz_update
 }
-
-alias package-update=do_update
