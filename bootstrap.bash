@@ -109,13 +109,20 @@ final_notice() {
 # ----------------------------
 
 main() {
+    old_shell="$(getent passwd "$USER" | cut -d: -f7)"
+
     bootstrap_system
     collect_user_config
     install_chezmoi
     write_config
     apply_chezmoi
     run_script run_ansible.bash
-    final_notice
+
+    new_shell="$(getent passwd "$USER" | cut -d: -f7)"
+
+    if [[ "$old_shell" != "$new_shell" ]]; then
+        final_notice
+    fi
 }
 
 main "$@"
