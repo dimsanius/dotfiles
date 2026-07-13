@@ -64,4 +64,6 @@ Remember to commit and push changes to Git afterwards.
 
 ## TODO
 
-None
+- [ ] Add Ansible lint check
+- [ ] Add Git Name check (optional)
+- [ ] Add Git Email check
