@@ -28,5 +28,8 @@ jobs:
       - name: Run shellcheck
         run: shellcheck bootstrap.bash
 
+      - name: Run shfmt
+        run: shfmt -l -d -i 4 bootstrap.bash
+
       - name: Run j2lint
         run: uvx --with-requirements=bootstrap/requirements_dev.txt j2lint templates
