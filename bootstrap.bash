@@ -49,7 +49,15 @@ collect_user_config() {
     log "Input user data below:"
 
     read -p "  Git name: " git_name < /dev/tty
-    read -p "  Git email: " git_email < /dev/tty
+    while true; do
+        read -p "  Git email: " git_email < /dev/tty
+
+        if [[ "$git_email" =~ ^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$ ]]; then
+            break
+        fi
+
+        log "Please enter a valid email address."
+    done
 
     while true; do
         echo "  Select target environment:"
