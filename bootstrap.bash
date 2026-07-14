@@ -90,14 +90,19 @@ collect_user_config() {
         1)
             target_env="personal"
             log "Personal environment selected."
+            echo
             break
             ;;
         2)
             target_env="work"
             log "Work environment selected."
+            echo
             break
             ;;
-        *) log "Wrong selection. Try again." ;;
+        *)
+            log "Wrong selection. Try again."
+            echo
+            ;;
         esac
     done
 }
