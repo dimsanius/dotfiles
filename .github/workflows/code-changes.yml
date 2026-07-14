@@ -27,4 +27,4 @@ jobs:
 
       - name: Run djlint
         working-directory: templates
-        run: uvx --with-requirements=requirements_dev.txt djlint *.j2
+        run: uvx --with-requirements=../bootstrap/requirements_dev.txt djlint *.j2
