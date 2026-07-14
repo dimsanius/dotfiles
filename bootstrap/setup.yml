@@ -13,7 +13,7 @@
           - data is defined
           - data.target_env is defined
           - data.target_env in ['work', 'personal']
-        quiet: true
+       quiet: true
         fail_msg: >
           Required variables are missing or invalid.
           See the failed assertion for details.
