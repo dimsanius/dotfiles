@@ -21,9 +21,9 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Install shfmt
+      - name: Install shfmt and shellcheck
         run: |
-          sudo apt-get install -y shfmt
+          sudo apt-get install -y shfmt shellcheck
 
       - name: Run ansible-lint
         working-directory: bootstrap
