@@ -10,7 +10,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "$ROOT_DIR"
 
-log "Installing/checking dependencies"
+log "Checking dependencies"
 
 if ! command -v uv >/dev/null 2>&1; then
     echo "Error: uv is required but not installed." >&2
