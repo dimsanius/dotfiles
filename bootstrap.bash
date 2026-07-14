@@ -137,7 +137,7 @@ apply_chezmoi() {
 }
 
 final_notice() {
-    for a in $(seq 20); do echo -n _; done
+    for _ in $(seq 20); do echo -n _; done
     echo
     log "Re-login into your system for changes to take effect."
     log "On next terminal launch, wait for powerlevel10k to fetch gitstatusd."
