@@ -74,9 +74,9 @@ collect_user_config() {
     done
 
     while true; do
-        echo "  Select target environment:"
-        echo "    1) Personal"
-        echo "    2) Work"
+        echo "  Select target environment to setup:"
+        echo "    1) Personal - for personal projects and open-source work"
+        echo "    2) Work     - for company or professional repositories"
         echo
 
         read -r -n 1 -p "  Selection [1-2]: " answer </dev/tty
