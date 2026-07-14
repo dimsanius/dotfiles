@@ -21,9 +21,17 @@ jobs:
         with:
           enable-cache: true
 
+      - name: Install shellcheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+
       - name: Run ansible-lint
         working-directory: bootstrap
         run: uvx --with-requirements=requirements_dev.txt ansible-lint setup.yml
+      
+      - name: Run shellcheck
+        run: shellcheck bootstrap.bash
 
       - name: Run j2lint
         run: uvx --with-requirements=bootstrap/requirements_dev.txt j2lint templates
