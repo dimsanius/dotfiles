@@ -35,11 +35,11 @@ log "Running ansible-lint"
 
 cd "$ROOT_DIR"
 log "Running shellcheck"
-shellcheck bootstrap.bash
+shellcheck bootstrap.bash bootstrap/run_ansible.bash
 
 cd "$ROOT_DIR"
 log "Running shfmt"
-shfmt -l -d -i 4 bootstrap.bash
+shfmt -l -d -i 4 bootstrap.bash bootstrap/run_ansible.bash
 
 log "Running j2lint"
 uvx --with-requirements=bootstrap/requirements_dev.txt j2lint templates
