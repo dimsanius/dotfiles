@@ -29,7 +29,7 @@ run() {
 }
 
 run_script() {
-    source "$BOOTSTRAP_DIR/$1"
+    "$BOOTSTRAP_DIR/$1"
 }
 
 # ----------------------------
