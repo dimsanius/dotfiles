@@ -21,11 +21,6 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Install shellcheck
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y shellcheck
-
       - name: Run ansible-lint
         working-directory: bootstrap
         run: uvx --with-requirements=requirements_dev.txt ansible-lint setup.yml
