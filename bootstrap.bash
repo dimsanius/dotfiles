@@ -52,7 +52,7 @@ collect_user_config() {
     log "Setting up global Git commit author identity. Input user data below:"
 
     while true; do
-        read -p "  Git commit author name: " git_name </dev/tty
+        read -r -p "  Git commit author name: " git_name </dev/tty
 
         if [[ -n "${git_name//[[:space:]]/}" ]]; then
             log "Git commit author name accepted: ${git_name}"
@@ -65,7 +65,7 @@ collect_user_config() {
     done
 
     while true; do
-        read -p "  Git commit author email: " git_email </dev/tty
+        read -r -p "  Git commit author email: " git_email </dev/tty
 
         if [[ "$git_email" =~ ^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$ ]]; then
             log "Git commit author email accepted: ${git_email}"
