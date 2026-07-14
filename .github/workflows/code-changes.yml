@@ -25,6 +25,5 @@ jobs:
         working-directory: bootstrap
         run: uvx --with-requirements=requirements_dev.txt ansible-lint setup.yml
 
-      - name: Run djlint
-        working-directory: templates
-        run: uvx --with-requirements=../bootstrap/requirements_dev.txt djlint *.j2
+      - name: Run j2lint
+        run: uvx --with-requirements=/bootstrap/requirements_dev.txt j2lint templates
