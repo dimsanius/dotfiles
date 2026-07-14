@@ -51,7 +51,7 @@ Afterwards, target setup environment will be symlinked from `chezmoi` to `ansibl
 
 My preffered way is based on [official chezmoi documentation](https://www.chezmoi.io/user-guide/frequently-asked-questions/usage/):
 
-> 2. Use `chezmoi cd` and edit the files in the source directory directly. Run `chezmoi diff` to see what changes would be made, and `chezmoi apply` to make the changes.
+> Use `chezmoi cd` and edit the files in the source directory directly. Run `chezmoi diff` to see what changes would be made, and `chezmoi apply` to make the changes.
 
 Remember to commit and push changes to Git afterwards.
 
@@ -66,6 +66,3 @@ bootstrap/run_ansible.bash
 Remember to commit and push changes to Git afterwards.
 
 ## TODO
-
-- [ ] Add Git Name check (optional)
-- [ ] Add Git Email check
