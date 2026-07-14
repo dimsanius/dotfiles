@@ -23,7 +23,10 @@ TARGET_REPO="$REPO_SSH"
 # ----------------------------
 
 log() { echo "→ $*" >&2; }
-run() { log "$*"; "$@"; }
+run() {
+    log "$*"
+    "$@"
+}
 
 run_script() {
     source "$BOOTSTRAP_DIR/$1"
@@ -46,22 +49,24 @@ bootstrap_system() {
 
 collect_user_config() {
     echo
-    log "Input user data below:"
+    log "Setting up global Git commit author identity. Input user data below:"
 
     while true; do
-        read -p "  Git name: " git_name < /dev/tty
+        read -p "  Git commit author name: " git_name </dev/tty
 
         if [[ -n "${git_name//[[:space:]]/}" ]]; then
+            log "Git commit author name accepted: ${git_name}"
             break
         fi
 
-        log "Git name cannot be empty."
+        log "Git commit author name cannot be empty."
     done
 
     while true; do
-        read -p "  Git email: " git_email < /dev/tty
+        read -p "  Git commit author email: " git_email </dev/tty
 
         if [[ "$git_email" =~ ^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$ ]]; then
+            log "Git commit author email accepted: ${git_email}"
             break
         fi
 
@@ -74,25 +79,32 @@ collect_user_config() {
         echo "    2) Work"
         echo
 
-        read -r -n 1 -p "  Selection [1-2]: " answer < /dev/tty
+        read -r -n 1 -p "  Selection [1-2]: " answer </dev/tty
         echo
 
         case "$answer" in
-            1) target_env="personal"; break ;;
-            2) target_env="work"; break ;;
-            *) log "Wrong selection. Try again." ;;
+        1)
+            target_env="personal"
+            log "Personal environment selected."
+            break
+            ;;
+        2)
+            target_env="work"
+            log "Work environment selected."
+            break
+            ;;
+        *) log "Wrong selection. Try again." ;;
         esac
     done
 }
 
 install_chezmoi() {
-    if ! command -v chezmoi >/dev/null 2>&1;then
+    if ! command -v chezmoi >/dev/null 2>&1; then
         cd "$HOME"
         log "installing chezmoi"
         wget -qO- https://get.chezmoi.io/lb | sh -s -- init "$TARGET_REPO"
     fi
 }
-
 
 write_config() {
     run uvx --from jinja2-cli jinja2 \
@@ -100,7 +112,7 @@ write_config() {
         -D git_name="$git_name" \
         -D git_email="$git_email" \
         -o "$CHEZMOIDATA_DIR/git_user.yml"
-    
+
     run uvx --from jinja2-cli jinja2 \
         "$CHEZMOI_DIR/templates/target_env.yml.j2" \
         -D target_env="$target_env" \
@@ -116,7 +128,8 @@ apply_chezmoi() {
 }
 
 final_notice() {
-    for a in `seq 20`; do echo -n _; done; echo
+    for a in $(seq 20); do echo -n _; done
+    echo
     log "Re-login into your system for changes to take effect."
     log "On next terminal launch, wait for powerlevel10k to fetch gitstatusd."
 }
