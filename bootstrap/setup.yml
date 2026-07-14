@@ -8,7 +8,7 @@
 
   pre_tasks:
     - name: Validate required variables
-      ansible.builtin.assert:
+      assert:
         that:
           - data is defined
           - data.target_env is defined
