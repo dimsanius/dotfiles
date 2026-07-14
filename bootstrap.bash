@@ -48,7 +48,16 @@ collect_user_config() {
     echo
     log "Input user data below:"
 
-    read -p "  Git name: " git_name < /dev/tty
+    while true; do
+        read -p "  Git name: " git_name < /dev/tty
+
+        if [[ -n "${git_name//[[:space:]]/}" ]]; then
+            break
+        fi
+
+        log "Git name cannot be empty."
+    done
+
     while true; do
         read -p "  Git email: " git_email < /dev/tty
 
