@@ -143,12 +143,16 @@ final_notice() {
     log "On next terminal launch, wait for powerlevel10k to fetch gitstatusd."
 }
 
+get_user_shell() {
+    getent passwd "$USER" | cut -d: -f7
+}
+
 # ----------------------------
 # Main (declarative flow)
 # ----------------------------
 
 main() {
-    old_shell="$(getent passwd "$USER" | cut -d: -f7)"
+    old_shell="$(get_user_shell)"
 
     bootstrap_system
     collect_user_config
@@ -157,7 +161,7 @@ main() {
     apply_chezmoi
     run_script run_ansible.bash
 
-    new_shell="$(getent passwd "$USER" | cut -d: -f7)"
+    new_shell="$(get_user_shell)"
 
     if [[ "$old_shell" != "$new_shell" ]]; then
         final_notice
