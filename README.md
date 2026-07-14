@@ -33,16 +33,18 @@ In a nutshell:
 - Dot-files are managed via [chezmoi](https://www.chezmoi.io/)
 - Environment is set-up via [ansible](https://docs.ansible.com/ansible/latest/index.html)
 
-During the first-install, you will be prompted to specify some details: 
+During the first-install, you will be prompted to specify some details:
 
 - Git details, such as user name and user email
 - Target setup environment
 
 These details will be templated as following to `chezmoi`:
+
 - Git details: from `template/git_user.yml.j2` to `home/.chezmoidata/git_user.yml`.
 - Target setup environment: from `template/target_env.yml.j2` to `home/.chezmoidata/target_env.yml`.
 
 Afterwards, target setup environment will be symlinked from `chezmoi` to `ansible`:
+
 - From `home/.chezmoidata/target_env.yml` to `bootstrap/group_vars/all.yml`
 
 ## Dotfiles - add/remove/update via `chezmoi`
@@ -56,6 +58,7 @@ Remember to commit and push changes to Git afterwards.
 ## Environment - add/remove/update via `ansible`
 
 After making changes to `bootstrap` configuration, run `ansible` from `chezmoi` root (to navigate to `chezmoi` root use either `chezmoi cd` or `cd ~/.local/share/chezmoi`):
+
 ```bash
 bootstrap/run_ansible.bash
 ```
@@ -64,6 +67,5 @@ Remember to commit and push changes to Git afterwards.
 
 ## TODO
 
-- [ ] Add Ansible lint check
 - [ ] Add Git Name check (optional)
 - [ ] Add Git Email check
