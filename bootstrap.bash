@@ -56,10 +56,12 @@ collect_user_config() {
 
         if [[ -n "${git_name//[[:space:]]/}" ]]; then
             log "Git commit author name accepted: ${git_name}"
+            echo
             break
         fi
 
         log "Git commit author name cannot be empty."
+        echo
     done
 
     while true; do
@@ -67,10 +69,12 @@ collect_user_config() {
 
         if [[ "$git_email" =~ ^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$ ]]; then
             log "Git commit author email accepted: ${git_email}"
+            echo
             break
         fi
 
         log "Please enter a valid email address."
+        echo
     done
 
     while true; do
