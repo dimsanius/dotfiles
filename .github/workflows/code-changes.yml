@@ -1,0 +1,25 @@
+name: Code changes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          enable-cache: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run ansible-lint
+        working-directory: bootstrap
+        run: uvx --with-requirements=requirements_dev.txt ansible-lint setup.yml
