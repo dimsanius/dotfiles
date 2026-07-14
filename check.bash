@@ -30,7 +30,7 @@ fi
 log "Running ansible-lint"
 (
     cd bootstrap
-    uvx --with-requirements=requirements_dev.txt ansible-lint setup.yml
+    uvx --with-requirements=requirements_dev.txt ansible-lint -q setup.yml
 )
 
 cd "$ROOT_DIR"
