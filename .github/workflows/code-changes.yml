@@ -26,4 +26,4 @@ jobs:
         run: uvx --with-requirements=requirements_dev.txt ansible-lint setup.yml
 
       - name: Run j2lint
-        run: uvx --with-requirements=/bootstrap/requirements_dev.txt j2lint templates
+        run: uvx --with-requirements=bootstrap/requirements_dev.txt j2lint templates
