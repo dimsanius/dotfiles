@@ -21,7 +21,20 @@ esac
 export ZSH=$HOME/.oh-my-zsh
 
 # TODO: Export to pre-plugin init
-ZOXIDE_CMD_OVERRIDE=cd
+export FZF_BASE=/usr/bin/fzf
+# fzf styling
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+ --color=fg:-1,bg:-1,hl:#ffcb6b
+ --color=fg+:,bg+:#5f5f5f,hl+:#6ffd00
+ --color=info:#c3e88d,prompt:#6ffd00,pointer:#6ffd00
+ --color=marker:#c3e88d,spinner:#c3e88d,header:#c3e88d'
+
+# Use fdfind for fzf
+export FZF_DEFAULT_COMMAND="fdfind -u --exclude .git --exclude .venv --exclude .env --exclude '*.pyc'"
+export DISABLE_FZF_AUTO_COMPLETION="true"
+export DISABLE_FZF_KEY_BINDINGS="true"
+
+export ZOXIDE_CMD_OVERRIDE=cd
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -46,6 +59,7 @@ plugins=(
     tailscale
     zoxide
     uv
+    fzf
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
