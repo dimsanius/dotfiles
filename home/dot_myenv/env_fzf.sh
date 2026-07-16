@@ -1,13 +1,3 @@
-# fzf styling
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
- --color=fg:-1,bg:-1,hl:#ffcb6b
- --color=fg+:,bg+:#5f5f5f,hl+:#6ffd00
- --color=info:#c3e88d,prompt:#6ffd00,pointer:#6ffd00
- --color=marker:#c3e88d,spinner:#c3e88d,header:#c3e88d'
-
-# Use fdfind for fzf
-export FZF_DEFAULT_COMMAND="fdfind -u --exclude .git --exclude .venv --exclude .env --exclude '*.pyc'"
-
 # ---- system ----
 
 # Preview 'systemctl' unit status
