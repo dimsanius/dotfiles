@@ -70,3 +70,4 @@ Remember to commit and push changes to Git afterwards.
 - [ ] Implement zoxide version check
 - [ ] Extract items away from .zshrc
 - [ ] Identify the best way to init all plugins
+- [ ] Rework fzf env
