@@ -1,3 +1,10 @@
+# fzf styling
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+ --color=fg:-1,bg:-1,hl:#ffcb6b
+ --color=fg+:,bg+:#5f5f5f,hl+:#6ffd00
+ --color=info:#c3e88d,prompt:#6ffd00,pointer:#6ffd00
+ --color=marker:#c3e88d,spinner:#c3e88d,header:#c3e88d'
+
 # ---- system ----
 
 # Preview 'systemctl' unit status
@@ -28,15 +35,19 @@ zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help $word | batcat -plma
 
 # Preview for 'git show'
 zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
-	'case "$group" in
-	"commit tag") git show --color=always $word ;;
-	*) git show --color=always $word | delta ;;
-	esac'
+    'case "$group" in
+    "commit tag") git show --color=always $word ;;
+    *) git show --color=always $word | delta ;;
+    esac'
 
 # Preview for 'git checkout'
 zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
-	'case "$group" in
-	"modified file") git diff $word | delta ;;
-	"recent commit object name") git show --color=always $word | delta ;;
-	*) git log --color=always $word ;;
-	esac'
+    'case "$group" in
+    "modified file") git diff $word | delta ;;
+    "recent commit object name") git show --color=always $word | delta ;;
+    *) git log --color=always $word ;;
+    esac'
+
+
+# --- fzf-tab styling ---
+zstyle ':fzf-tab:*' fzf-flags $FZF_DEFAULT_OPTS
