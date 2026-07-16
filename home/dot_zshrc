@@ -58,7 +58,6 @@ plugins=(
     autoupdate
     chezmoi
     tailscale
-    
     uv
     fzf-tab
 )
