@@ -7,6 +7,12 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }\
 
 # ---- system ----
 
+# Make non-dir commands use folder->file grouping
+zstyle ':completion:*' list-dirs-first true
+zstyle ':completion:*:descriptions' format '%d'
+zstyle ':fzf-tab:*' prefix ''
+zstyle ':fzf-tab:*' show-group none
+
 # Preview 'systemctl' unit status
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 
