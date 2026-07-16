@@ -45,6 +45,7 @@ plugins=(
     chezmoi
     tailscale
     zoxide
+    uv
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
