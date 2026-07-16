@@ -1,8 +1,8 @@
 # fzf styling
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }\
---color=fg:-1,bg:-1,hl:#ffcb6b \
---color=fg+:,bg+:#5f5f5f,hl+:#6ffd00 \
---color=info:#c3e88d,prompt:#6ffd00,pointer:#6ffd00 \
+--color=fg:-1,bg:-1,hl:#c3e88d \
+--color=fg+:,bg+:#575757,hl+:#c3e88d \
+--color=info:#c3e88d,prompt:#c3e88d,pointer:#c3e88d \
 --color=marker:#c3e88d,spinner:#c3e88d,header:#c3e88d"
 
 # ---- system ----
