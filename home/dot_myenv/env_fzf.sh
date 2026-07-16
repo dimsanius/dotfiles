@@ -1,9 +1,9 @@
 # fzf styling
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
- --color=fg:-1,bg:-1,hl:#ffcb6b
- --color=fg+:,bg+:#5f5f5f,hl+:#6ffd00
- --color=info:#c3e88d,prompt:#6ffd00,pointer:#6ffd00
- --color=marker:#c3e88d,spinner:#c3e88d,header:#c3e88d'
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }\
+--color=fg:-1,bg:-1,hl:#ffcb6b \
+--color=fg+:,bg+:#5f5f5f,hl+:#6ffd00 \
+--color=info:#c3e88d,prompt:#6ffd00,pointer:#6ffd00 \
+--color=marker:#c3e88d,spinner:#c3e88d,header:#c3e88d"
 
 # ---- system ----
 
@@ -50,4 +50,4 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 
 
 # --- fzf-tab styling ---
-zstyle ':fzf-tab:*' fzf-flags $FZF_DEFAULT_OPTS
+zstyle ':fzf-tab:*' fzf-flags ${(z)FZF_DEFAULT_OPTS}
