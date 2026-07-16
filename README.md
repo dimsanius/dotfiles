@@ -66,3 +66,5 @@ bootstrap/run_ansible.bash
 Remember to commit and push changes to Git afterwards.
 
 ## TODO
+
+- [ ] Implement zoxide version check
