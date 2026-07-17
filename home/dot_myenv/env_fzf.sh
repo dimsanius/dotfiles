@@ -33,26 +33,14 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # Disable sort in some cases for git
 zstyle ':completion:*:git-(checkout|log|diff|show|reset|rebase):*' sort false
 
-# Preview 'git log'
-zstyle ':fzf-tab:complete:git-log:*' fzf-preview 'git log --color=always $word'
-
 # Preview 'git help'
 zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help $word | batcat -plman --color=always'
 
-# Preview for 'git show'
-zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
-    'case "$group" in
-    "commit tag") git show --color=always $word ;;
-    *) git show --color=always $word | delta ;;
-    esac'
+# Preview for 'git show', 'git checkout' and 'git log'
+zstyle ':fzf-tab:complete:git-(log|show|checkout):*' fzf-preview 'git show --color=always $word | delta'
 
-# Preview for 'git checkout'
-zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
-    'case "$group" in
-    "modified file") git diff $word | delta ;;
-    "recent commit object name") git show --color=always $word | delta ;;
-    *) git log --color=always $word ;;
-    esac'
+# Preview for 'git diff'
+zstyle ':fzf-tab:complete:git-diff:*' fzf-preview 'git diff --color=always $word | delta'
 
 
 # --- fzf-tab styling ---
