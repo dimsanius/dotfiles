@@ -9,9 +9,9 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }\
 
 # Make non-dir commands use folder->file grouping
 zstyle ':completion:*' list-dirs-first true
-zstyle ':completion:*:descriptions' format '%d'
-zstyle ':fzf-tab:*' prefix ''
+zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':fzf-tab:*' show-group none
+zstyle ':fzf-tab:*' prefix ''
 
 # Preview 'systemctl' unit status
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status "$word" | fold -s -w ${FZF_PREVIEW_COLUMNS:-80}'
@@ -45,4 +45,10 @@ zstyle ':fzf-tab:complete:git-diff:*' fzf-preview 'git diff --color=always $word
 
 
 # --- fzf-tab styling ---
-zstyle ':fzf-tab:*' fzf-flags ${(z)FZF_DEFAULT_OPTS}
+
+# To make fzf-tab follow FZF_DEFAULT_OPTS.
+# NOTE: This may lead to unexpected behavior since some flags break this plugin. See Aloxaf/fzf-tab#455.
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
