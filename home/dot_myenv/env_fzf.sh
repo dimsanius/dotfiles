@@ -34,7 +34,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:git-(checkout|log|diff|show|reset|rebase):*' sort false
 
 # Preview 'git help'
-zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help $word | batcat -plman --color=always'
+zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help $word | fmt -w ${FZF_PREVIEW_COLUMNS:-80} | batcat -plman --color=always'
 
 # Preview for 'git show', 'git checkout' and 'git log'
 zstyle ':fzf-tab:complete:git-(log|show|checkout):*' fzf-preview 'git show --color=always $word | delta'
