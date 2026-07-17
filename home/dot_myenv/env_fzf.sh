@@ -14,10 +14,10 @@ zstyle ':fzf-tab:*' prefix ''
 zstyle ':fzf-tab:*' show-group none
 
 # Preview 'systemctl' unit status
-zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status "$word" | fold -s -w ${FZF_PREVIEW_COLUMNS:-80}'
 
 # Show environment variable contents
-zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ${(P)word}'
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ${(P)word} | fold -s -w ${FZF_PREVIEW_COLUMNS:-80}'
 
 # Preview file/folder contents
 zstyle ':fzf-tab:complete:(cd|rm|cp|batcat|cat|vim):*' fzf-preview 'if [[ -d $realpath ]]; then exa -1 --color=always --icons --group-directories-first $realpath; else batcat --color=always --plain $realpath; fi'
