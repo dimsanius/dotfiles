@@ -12,6 +12,9 @@ source_if_exists "$HOME/.myenv/exports.zsh"
 source_if_exists "$HOME/.myenv/aliases.zsh"
 source_if_exists "$HOME/.myenv/functions.zsh"
 source_if_exists "$HOME/.myenv/completion.zsh"
+{{ if eq .data.target_env "work" }}
+source_if_exists "$HOME/.myenv/work.zsh"
+{{ end }}
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
