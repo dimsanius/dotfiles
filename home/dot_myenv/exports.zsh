@@ -4,9 +4,6 @@ case ":$PATH:" in
     *) export PATH="$HOME/.local/bin:$PATH" ;;
 esac
 
-# --- Oh My Zsh ---
-export ZSH="$HOME/.oh-my-zsh"
-
 # --- fzf ---
 export FZF_BASE="/usr/bin/fzf"
 export FZF_DEFAULT_COMMAND="fdfind -u --exclude .git --exclude .venv --exclude .env --exclude '*.pyc'"
