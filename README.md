@@ -67,5 +67,3 @@ Remember to commit and push changes to Git afterwards.
 
 ## TODO
 
-- [ ] Extract items away from .zshrc
-- [ ] Identify the best way to init all plugins
