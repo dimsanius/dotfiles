@@ -9,13 +9,6 @@
     state: directory
     mode: "0755"
 
-- name: Install repository key
-  become: true
-  ansible.builtin.get_url:
-    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    dest: /etc/apt/keyrings/brave-browser-archive-keyring.gpg
-    mode: "0644"
-
 - name: Add repository
   become: true
   ansible.builtin.deb822_repository:
@@ -26,7 +19,7 @@
     suites: stable
     components: main
     architectures: amd64
-    signed_by: /etc/apt/keyrings/brave-browser-archive-keyring.gpg
+    signed_by: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 
 - name: Install
   become: true
