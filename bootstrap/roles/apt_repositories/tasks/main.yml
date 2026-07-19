@@ -13,11 +13,17 @@
     architectures: "{{ item.architectures | default('amd64') }}"
     signed_by: "{{ item.signed_by }}"
   loop: "{{ apt_repositories }}"
+  register: repo_result
+
+- name: Update APT cache
+  become: true
+  ansible.builtin.apt:
+    update_cache: true
+  when: repo_result.changed
 
 - name: Install packages
   become: true
   ansible.builtin.apt:
     name: "{{ item.package }}"
     state: present
-    update_cache: true
   loop: "{{ apt_repositories }}"
