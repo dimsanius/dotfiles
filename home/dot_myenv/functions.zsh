@@ -1,10 +1,10 @@
 package-update() {
-    run() {
+    _run() {
         echo "======> $*"
         "$@" || return
     }
 
-    upgrade_zoxide() {
+    _upgrade_zoxide() {
         local current latest
 
         current=$(zoxide --version | awk '{print $2}')
@@ -21,22 +21,22 @@ package-update() {
         fi
     }
 
-    run sudo nala update || return
+    _run sudo nala update || return
     echo
-    run sudo nala upgrade || return
+    _run sudo nala upgrade || return
     echo
-    run sudo snap refresh || return
+    _run sudo snap refresh || return
     echo
-    run uv self update || return
+    _run uv self update || return
     echo
-    run chezmoi upgrade || return
+    _run chezmoi upgrade || return
     echo
-    run omz update || return
+    _run omz update || return
     echo
-    run upgrade_oh_my_zsh_custom || return
+    _run upgrade_oh_my_zsh_custom || return
     echo
-    run upgrade_zoxide || return
+    _run _upgrade_zoxide || return
     echo
 
-    unset -f upgrade_zoxide run
+    unset -f _upgrade_zoxide _run
 }
