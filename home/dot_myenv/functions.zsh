@@ -1,6 +1,6 @@
 package-update() {
     _run() {
-        echo "======> $*"
+        print -P "%F{cyan}======> $*%f"
         "$@" || return
     }
 
