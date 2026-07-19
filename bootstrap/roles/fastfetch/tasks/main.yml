@@ -9,7 +9,7 @@
     name: fastfetch
     types: deb
     uris: https://ppa.launchpadcontent.net/zhangsongcui3371/fastfetch/ubuntu
-    suites: "{{ ansible_facts['distribution_release'] }}"
+    suites: noble
     components: main
     architectures: amd64
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEB65EE19D802F3EB1A13CFE47E2E5CB4D4865F21
