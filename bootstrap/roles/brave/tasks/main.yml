@@ -12,8 +12,8 @@
 - name: Add repository
   become: true
   ansible.builtin.deb822_repository:
-    name: brave-browser
     state: present
+    name: brave-browser
     types: deb
     uris: https://brave-browser-apt-release.s3.brave.com/
     suites: stable

@@ -1,26 +1,24 @@
 # SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/tailscale
+
 - name: Ensure keyrings directory exists
   become: true
   ansible.builtin.file:
-    path: /usr/share/keyrings
+    path: /etc/apt/keyrings
     state: directory
     mode: "0755"
 
-- name: Download key
-  become: true
-  ansible.builtin.get_url:
-    url: https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
-    dest: /usr/share/keyrings/tailscale-archive-keyring.gpg
-    mode: "0644"
-
 - name: Add repository
   become: true
-  ansible.builtin.get_url:
-    url: https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list
-    dest: /etc/apt/sources.list.d/tailscale.list
-    mode: "0644"
+  ansible.builtin.deb822_repository:
+    state: present
+    name: tailscale
+    types: deb
+    uris: https://pkgs.tailscale.com/stable/ubuntu
+    suites: noble
+    components: main
+    signed_by: https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
 
 - name: Install
   become: true

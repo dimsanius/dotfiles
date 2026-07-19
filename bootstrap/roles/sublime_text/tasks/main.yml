@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/sublime_text
+
 - name: Ensure keyrings directory exists
   become: true
   ansible.builtin.file:
@@ -11,8 +12,8 @@
 - name: Add repository
   become: true
   ansible.builtin.deb822_repository:
-    name: sublime-text
     state: present
+    name: sublime-text
     types: deb
     uris: https://download.sublimetext.com/
     suites: apt/stable/

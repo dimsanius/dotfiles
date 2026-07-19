@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT-0
 ---
 # tasks file for roles/vs_code
+
 - name: Ensure keyrings directory exists
   become: true
   ansible.builtin.file:
@@ -11,8 +12,8 @@
 - name: Add repository
   become: true
   ansible.builtin.deb822_repository:
-    name: vscode
     state: present
+    name: vscode
     types: deb
     uris: https://packages.microsoft.com/repos/vscode
     suites: stable
