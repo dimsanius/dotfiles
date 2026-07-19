@@ -18,4 +18,3 @@
     name: fastfetch
     state: present
     update_cache: true
-    
