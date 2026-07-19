@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/apt_repositories
+- name: Add APT repositories
+  become: true
+  ansible.builtin.deb822_repository:
+    state: present
+    name: "{{ item.name }}"
+    types: "{{ item.types | default('deb') }}"
+    uris: "{{ item.uris }}"
+    suites: "{{ item.suites }}"
+    components: "{{ item.components | default(omit) }}"
+    architectures: "{{ item.architectures | default('amd64') }}"
+    signed_by: "{{ item.signed_by }}"
+  loop: "{{ apt_repositories }}"
+
+- name: Install packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ item.package }}"
+    state: present
+    update_cache: true
+  loop: "{{ apt_repositories }}"

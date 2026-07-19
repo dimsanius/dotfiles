@@ -32,11 +32,7 @@
     - omz
     - omz_addons
     - vim
-    - fastfetch
-    - brave
-    - vs_code
-    - sublime_text
-    - tailscale
+    - apt_repositories
     - zoxide
     - font_cache
     - role: slack
