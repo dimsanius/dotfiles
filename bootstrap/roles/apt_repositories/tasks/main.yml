@@ -6,11 +6,11 @@
   ansible.builtin.deb822_repository:
     state: present
     name: "{{ item.name }}"
-    types: "{{ item.types | default('deb') }}"
+    types: deb
     uris: "{{ item.uris }}"
     suites: "{{ item.suites }}"
     components: "{{ item.components | default(omit) }}"
-    architectures: "{{ item.architectures | default('amd64') }}"
+    architectures: amd64
     signed_by: "{{ item.signed_by }}"
   loop: "{{ apt_repositories_repos }}"
   register: apt_repositories_repo_result
