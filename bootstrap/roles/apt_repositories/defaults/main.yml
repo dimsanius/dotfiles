@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: MIT-0
 ---
 # defaults file for roles/apt_repositories
-apt_repositories:
+apt_repositories_repos:
   - name: brave-browser
     uris: https://brave-browser-apt-release.s3.brave.com/
     suites: stable
