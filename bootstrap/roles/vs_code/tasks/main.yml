@@ -2,13 +2,6 @@
 ---
 # tasks file for roles/vs_code
 
-- name: Ensure keyrings directory exists
-  become: true
-  ansible.builtin.file:
-    path: /etc/apt/keyrings
-    state: directory
-    mode: "0755"
-
 - name: Add repository
   become: true
   ansible.builtin.deb822_repository:

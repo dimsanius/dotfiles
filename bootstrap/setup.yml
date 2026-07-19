@@ -18,6 +18,13 @@
           Required variables are missing or invalid.
           See the failed assertion for details.
 
+    - name: Ensure APT keyrings directory exists
+      become: true
+      ansible.builtin.file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: "0755"
+
   roles:
     - packages
     - gnome_extensions
