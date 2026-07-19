@@ -18,6 +18,7 @@
     uris: https://pkgs.tailscale.com/stable/ubuntu
     suites: noble
     components: main
+    architectures: amd64
     signed_by: https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
 
 - name: Install
