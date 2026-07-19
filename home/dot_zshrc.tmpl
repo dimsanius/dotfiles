@@ -1,4 +1,4 @@
-source_if_exists() {
+_source_if_exists() {
     [[ -r "$1" ]] && source "$1" || print -u2 -P "Missing: $1"
 }
 
@@ -6,28 +6,28 @@ source_if_exists() {
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 # Source: https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#how-do-i-configure-instant-prompt
-source_if_exists "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+_source_if_exists "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
 # Oh-My-ZSH pre-init customisations
-source_if_exists "$HOME/.myenv/exports.zsh"
-source_if_exists "$HOME/.myenv/omz.zsh"
+_source_if_exists "$HOME/.myenv/exports.zsh"
+_source_if_exists "$HOME/.myenv/omz.zsh"
 
 # Oh-My-ZSH init
-source_if_exists "$ZSH/oh-my-zsh.sh"
+_source_if_exists "$ZSH/oh-my-zsh.sh"
 
 # Oh-My-ZSH post-init customisations
-source_if_exists "$HOME/.myenv/functions.zsh"
-source_if_exists "$HOME/.myenv/aliases.zsh"
-source_if_exists "$HOME/.myenv/completion.zsh"
+_source_if_exists "$HOME/.myenv/functions.zsh"
+_source_if_exists "$HOME/.myenv/aliases.zsh"
+_source_if_exists "$HOME/.myenv/completion.zsh"
 {{- if eq .data.target_env "work" }}
-source_if_exists "$HOME/.myenv/work/exports.zsh"
-source_if_exists "$HOME/.myenv/work/functions.zsh"
-source_if_exists "$HOME/.myenv/work/aliases.zsh"
+_source_if_exists "$HOME/.myenv/work/exports.zsh"
+_source_if_exists "$HOME/.myenv/work/functions.zsh"
+_source_if_exists "$HOME/.myenv/work/aliases.zsh"
 {{- end }}
 
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
 # Sourcing p10k theme
-source_if_exists "$HOME/.p10k.zsh"
+_source_if_exists "$HOME/.p10k.zsh"
 
 # Unset custom function
-unset -f source_if_exists
+unset -f _source_if_exists
