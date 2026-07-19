@@ -13,13 +13,13 @@
     architectures: amd64
     signed_by: "{{ item.signed_by }}"
   loop: "{{ apt_repositories_repos }}"
-  register: apt_repositories_repo_result
 
 - name: Update APT cache
   become: true
   ansible.builtin.apt:
+    # Explicitly updating cache.
+    # This avoids running cache updates for each APT repository
     update_cache: true
-  when: apt_repositories_repo_result.changed
 
 - name: Install packages
   become: true
