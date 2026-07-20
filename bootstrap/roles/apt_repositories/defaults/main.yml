@@ -56,4 +56,3 @@ apt_repositories_repos:
     components: contrib
     signed_by: https://www.virtualbox.org/download/oracle_vbox_2016.asc
     package: virtualbox-7.2
-
