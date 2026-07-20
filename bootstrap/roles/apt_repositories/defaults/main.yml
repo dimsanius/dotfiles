@@ -50,3 +50,10 @@ apt_repositories_repos:
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfda854f61c4d0d9572bb95e5245d5502fad7a805
     package: kicad
 
+  - name: virtualbox
+    uris: https://download.virtualbox.org/virtualbox/debian
+    suites: noble
+    components: contrib
+    signed_by: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    package: virtualbox-7.2
+
