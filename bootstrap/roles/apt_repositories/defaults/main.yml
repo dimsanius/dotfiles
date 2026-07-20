@@ -41,7 +41,7 @@ apt_repositories_repos:
     suites: stable
     components: main
     signed_by: https://dl.google.com/linux/linux_signing_key.pub
-    package: google-chrome
+    package: google-chrome-stable
 
   - name: kicad
     uris: https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu/
