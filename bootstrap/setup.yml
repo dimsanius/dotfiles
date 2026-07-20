@@ -1,6 +1,5 @@
 ---
-# - Run current script: ansible-playbook ./setup.yml --ask-become-pass
-# - For dev: install ansible-lint: pip install ansible-lint
+# - Run current script: ./run_ansible.bash
 - name: Machine setup
   hosts: localhost
   connection: local
