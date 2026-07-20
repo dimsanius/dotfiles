@@ -47,6 +47,6 @@ apt_repositories_repos:
     uris: https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu/
     suites: noble
     components: main
-    signed_by: https://keyserver.ubuntu.com/pks/lookup?fingerprint=on&op=index&search=0xFDA854F61C4D0D9572BB95E5245D5502FAD7A805
+    signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfda854f61c4d0d9572bb95e5245d5502fad7a805
     package: kicad
 
