@@ -35,3 +35,18 @@ apt_repositories_repos:
     components: main
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEB65EE19D802F3EB1A13CFE47E2E5CB4D4865F21
     package: fastfetch
+
+  - name: google-chrome
+    uris: https://dl.google.com/linux/chrome-stable/deb/
+    suites: stable
+    components: main
+    signed_by: https://dl.google.com/linux/linux_signing_key.pub
+    package: google-chrome
+
+  - name: kicad
+    uris: https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu/
+    suites: noble
+    components: main
+    signed_by: https://keyserver.ubuntu.com/pks/lookup?fingerprint=on&op=index&search=0xFDA854F61C4D0D9572BB95E5245D5502FAD7A805
+    package: kicad
+
