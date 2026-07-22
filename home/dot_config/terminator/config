@@ -1,5 +1,7 @@
 [global_config]
-  inactive_color_offset = 1.0
+  broadcast_default = off
+  inactive_color_offset = 0.75
+  inactive_bg_color_offset = 0.90
   suppress_multiple_term_dialog = True
   case_sensitive = False
 [keybindings]
@@ -8,10 +10,16 @@
     background_color = "#263238"
     font = MesloLGS NF 13
     foreground_color = "#b0bec5"
-    show_titlebar = False
     scrollbar_position = hidden
     palette = "#263238:#ff5370:#c3e88d:#ffcb6b:#82aaff:#c792ea:#89ddff:#c0c5ce:#65737e:#e53935:#91b859:#ffb62c:#6182b8:#7c4dff:#39adb5:#eff1f5"
     use_system_font = False
+    title_hide_sizetext = True
+    title_transmit_bg_color = "#77767b"
+    title_receive_fg_color = "#000000"
+    title_receive_bg_color = "#99c1f1"
+    title_inactive_bg_color = "#5e5c64"
+    title_use_system_font = False
+    title_font = MesloLGS NF 9
 [layouts]
   [[default]]
     [[[child1]]]
