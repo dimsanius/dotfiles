@@ -33,7 +33,7 @@ package-update() {
     echo
     _run omz update || return
     echo
-    _run upgrade_oh_my_zsh_custom || return
+    _run upgrade_oh_my_zsh_custom
     echo
     _run _upgrade_zoxide || return
     echo
