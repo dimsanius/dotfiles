@@ -31,7 +31,7 @@ package-update() {
     echo
     _run chezmoi upgrade || return
     echo
-    _run omz update || return
+    _run omz update
     echo
     _run upgrade_oh_my_zsh_custom
     echo
