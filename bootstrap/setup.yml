@@ -25,6 +25,7 @@
         mode: "0755"
 
   roles:
+    - apt_disable_periodic
     - packages
     - gnome_extensions
     - jetbrains_toolbox
