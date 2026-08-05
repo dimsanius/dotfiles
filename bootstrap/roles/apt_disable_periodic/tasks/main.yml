@@ -2,6 +2,7 @@
 ---
 # tasks file for roles/apt_disable_periodic
 - name: Configure APT periodic updates
+  become: true
   ansible.builtin.template:
     src: 10periodic.j2
     dest: /etc/apt/apt.conf.d/10periodic
