@@ -1,8 +1,9 @@
 [global_config]
+  handle_size = 2
   broadcast_default = off
   inactive_color_offset = 0.75
   inactive_bg_color_offset = 0.9
-  suppress_multiple_term_dialog = True
+  ask_before_closing = never
   case_sensitive = False
 [keybindings]
 [profiles]
