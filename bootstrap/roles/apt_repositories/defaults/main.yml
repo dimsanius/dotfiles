@@ -56,3 +56,10 @@ apt_repositories_repos:
     components: contrib
     signed_by: https://www.virtualbox.org/download/oracle_vbox_2016.asc
     package: virtualbox-7.2
+
+  - name: terminator
+    uris: https://ppa.launchpadcontent.net/mattrose/terminator/ubuntu/
+    suites: noble
+    components: main
+    signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x64DD261C8598A6BAE2A20BD3BD2FE0A01E3164DB
+    package: terminator
