@@ -22,3 +22,4 @@ export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
 export GNUARMEMB_TOOLCHAIN_PATH="$HOME/dev/hav-aegis-tools/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi"
 export UID=$(id -u)
 export GID=$(id -g)
+ln -sf "$XAUTHORITY" ~/.Xauthority
