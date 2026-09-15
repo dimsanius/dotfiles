@@ -1,7 +1,7 @@
 package-update() {
     _run() {
         print -P "%F{cyan}======> $*%f"
-        "$@" || return
+        "$@"
     }
 
     _upgrade_zoxide() {
@@ -21,21 +21,21 @@ package-update() {
         fi
     }
 
-    _run sudo nala update || return
+    _run sudo nala update
     echo
-    _run sudo nala upgrade || return
+    _run sudo nala upgrade
     echo
-    _run sudo snap refresh || return
+    _run sudo snap refresh
     echo
-    _run uv self update || return
+    _run uv self update
     echo
-    _run chezmoi upgrade || return
+    _run chezmoi upgrade
     echo
     _run omz update
     echo
     _run upgrade_oh_my_zsh_custom
     echo
-    _run _upgrade_zoxide || return
+    _run _upgrade_zoxide
     echo
 
     unset -f _upgrade_zoxide _run
