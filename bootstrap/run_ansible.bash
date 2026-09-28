@@ -21,7 +21,8 @@ ansible_env=(
 )
 
 # Ubuntu 26.04 requires sudo.ws as the become executable
-# Upon merging following, this extra ansible_env bevomes redundant:
+# Upon merging following and including it within
+# ansible release, this extra ansible_env becomes redundant:
 # https://github.com/ansible/ansible/pull/86964
 if [[ -f /etc/os-release ]]; then
     . /etc/os-release
