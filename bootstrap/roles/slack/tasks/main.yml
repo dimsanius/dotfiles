@@ -7,6 +7,7 @@
     deb: https://downloads.slack-edge.com/desktop-releases/linux/x64/4.50.143/slack-desktop-4.50.143-amd64.deb
 
 - name: Update Slack desktop entry to use -u flag
+  become: true
   ansible.builtin.lineinfile:
     path: /usr/share/applications/slack.desktop
     regexp: '^Exec=/usr/bin/slack'
