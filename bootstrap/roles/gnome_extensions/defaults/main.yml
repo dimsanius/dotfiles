@@ -3,7 +3,7 @@
 # defaults file for roles/gnome_extensions
 gnome_extensions_to_install:
   - caffeine@patapon.info
-  - openweather-extension@penguin-teal.github.io
+  - weatherpanel@attentivecoder
   - tophat@fflewddur.github.io
   - autoselectheadset@josephlbarnett.github.com
   - blur-my-shell@aunetx
