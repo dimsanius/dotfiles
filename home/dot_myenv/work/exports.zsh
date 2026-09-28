@@ -1,9 +1,3 @@
-# Python
-case ":$PATH:" in
-    *":/opt/python/3.13.14/bin:"*) ;;
-    *) export PATH="/opt/python/3.13.14/bin:$PATH" ;;
-esac
-
 # Zephyr
 export ZEPHYR_BASE="$HOME/dev/hav-aegis-tools/zephyrproject/zephyr"
 
