@@ -14,11 +14,28 @@ ANSIBLE_PLAYBOOK="$BOOTSTRAP_DIR/setup.yml"
 max_attempts=3
 success=0
 
+# Configure Ansible environment
+ansible_env=(
+    ANSIBLE_LOCALHOST_WARNING=False
+    ANSIBLE_INVENTORY_UNPARSED_WARNING=False
+)
+
+# Ubuntu 26.04 requires sudo.ws as the become executable
+# Upon merging following, this extra ansible_env bevomes redundant:
+# https://github.com/ansible/ansible/pull/86964
+if [[ -f /etc/os-release ]]; then
+    . /etc/os-release
+
+    if [[ "$ID" == "ubuntu" && "$VERSION_ID" == "26.04" ]]; then
+        ansible_env+=(ANSIBLE_BECOME_EXE=sudo.ws)
+        log "Ubuntu 26.04 detected, using sudo.ws for Ansible become"
+    fi
+fi
+
 for current_attempt in $(seq 1 "$max_attempts"); do
     log "[attempt $current_attempt of $max_attempts] Running Ansible..."
 
-    if ANSIBLE_LOCALHOST_WARNING=False \
-        ANSIBLE_INVENTORY_UNPARSED_WARNING=False \
+    if env "${ansible_env[@]}" \
         uvx \
         --with-requirements "$BOOTSTRAP_DIR/requirements.txt" \
         --from ansible-core \
