@@ -24,9 +24,9 @@ wget -qO- https://raw.githubusercontent.com/dimsanius/dotfiles/main/bootstrap.ba
 
 ## Description
 
-- Platform support: `amd64 (x64)`
-- Target OS: `Ubuntu 24.04 LTS`
-- Target package manager: `apt`
+- Supported platform: `amd64 (x64)`
+- Supported OS: `Ubuntu 24.04 LTS`, `Ubuntu 26.04 LTS`
+- Supported package manager: `apt`
 
 In a nutshell:
 
