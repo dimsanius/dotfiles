@@ -63,6 +63,6 @@ apt_repositories_repos:
     uris: https://ppa.launchpadcontent.net/mattrose/terminator/ubuntu/
     suites: "{{ ansible_facts.distribution_release }}"
     components: main
-    # Retrieve key from: https://launchpad.net/~gnome-terminator/+archive/ubuntu/ppa
-    signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBA16C9803BD7508AD91EDDB3E1065547E5D4CFD1
+    # Retrieve key from: https://launchpad.net/~mattrose/+archive/ubuntu/terminator
+    signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x64DD261C8598A6BAE2A20BD3BD2FE0A01E3164DB
     package: terminator
