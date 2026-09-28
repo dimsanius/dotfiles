@@ -33,7 +33,7 @@ apt_repositories_repos:
     uris: https://ppa.launchpadcontent.net/zhangsongcui3371/fastfetch/ubuntu
     suites: "{{ ansible_facts.distribution_release }}"
     components: main
-    signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEB65EE19D802F3EB1A13CFE47E2E5CB4D4865F21
+    signed_by: "https://ppa.launchpadcontent.net/zhangsongcui3371/fastfetch/ubuntu/dists/{{ ansible_facts.distribution_release }}/Release.gpg"
     package: fastfetch
 
   - name: google-chrome
@@ -47,7 +47,7 @@ apt_repositories_repos:
     uris: https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu/
     suites: "{{ ansible_facts.distribution_release }}"
     components: main
-    signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfda854f61c4d0d9572bb95e5245d5502fad7a805
+    signed_by: "https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu/dists/{{ ansible_facts.distribution_release }}/Release.gpg"
     package: kicad
 
   - name: virtualbox
@@ -61,5 +61,5 @@ apt_repositories_repos:
     uris: https://ppa.launchpadcontent.net/mattrose/terminator/ubuntu/
     suites: "{{ ansible_facts.distribution_release }}"
     components: main
-    signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x64DD261C8598A6BAE2A20BD3BD2FE0A01E3164DB
+    signed_by: "https://ppa.launchpadcontent.net/mattrose/terminator/ubuntu/dists/{{ ansible_facts.distribution_release }}/Release.gpg"
     package: terminator
