@@ -18,9 +18,9 @@ apt_repositories_repos:
 
   - name: tailscale
     uris: https://pkgs.tailscale.com/stable/ubuntu
-    suites: {{ ansible_facts.distribution_release }}
+    suites: "{{ ansible_facts.distribution_release }}"
     components: main
-    signed_by: https://pkgs.tailscale.com/stable/ubuntu/{{ ansible_facts.distribution_release }}.noarmor.gpg
+    signed_by: "https://pkgs.tailscale.com/stable/ubuntu/{{ ansible_facts.distribution_release }}.noarmor.gpg"
     package: tailscale
 
   - name: sublime-text
@@ -31,7 +31,7 @@ apt_repositories_repos:
 
   - name: fastfetch
     uris: https://ppa.launchpadcontent.net/zhangsongcui3371/fastfetch/ubuntu
-    suites: {{ ansible_facts.distribution_release }}
+    suites: "{{ ansible_facts.distribution_release }}"
     components: main
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEB65EE19D802F3EB1A13CFE47E2E5CB4D4865F21
     package: fastfetch
@@ -45,21 +45,21 @@ apt_repositories_repos:
 
   - name: kicad
     uris: https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu/
-    suites: {{ ansible_facts.distribution_release }}
+    suites: "{{ ansible_facts.distribution_release }}"
     components: main
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfda854f61c4d0d9572bb95e5245d5502fad7a805
     package: kicad
 
   - name: virtualbox
     uris: https://download.virtualbox.org/virtualbox/debian
-    suites: {{ ansible_facts.distribution_release }}
+    suites: "{{ ansible_facts.distribution_release }}"
     components: contrib
     signed_by: https://www.virtualbox.org/download/oracle_vbox_2016.asc
     package: virtualbox-7.2
 
   - name: terminator
     uris: https://ppa.launchpadcontent.net/mattrose/terminator/ubuntu/
-    suites: {{ ansible_facts.distribution_release }}
+    suites: "{{ ansible_facts.distribution_release }}"
     components: main
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x64DD261C8598A6BAE2A20BD3BD2FE0A01E3164DB
     package: terminator
