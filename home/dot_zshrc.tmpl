@@ -21,8 +21,6 @@ _source_if_exists "$HOME/.myenv/aliases.zsh"
 _source_if_exists "$HOME/.myenv/completion.zsh"
 {{- if eq .data.target_env "work" }}
 _source_if_exists "$HOME/.myenv/work/exports.zsh"
-_source_if_exists "$HOME/.myenv/work/functions.zsh"
-_source_if_exists "$HOME/.myenv/work/aliases.zsh"
 {{- end }}
 
 # To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
