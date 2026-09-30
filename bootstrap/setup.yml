@@ -33,6 +33,7 @@
     - vim
     - apt_repositories
     - zoxide
+    - uv
     - font_cache
     # Ensure to run Timeshift as a last task
     - timeshift

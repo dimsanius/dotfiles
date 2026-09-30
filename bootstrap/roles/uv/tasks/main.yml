@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: MIT-0
+---
+# tasks file for roles/uv
+- name: Install
+  ansible.builtin.shell: >
+    sh -c "$(curl -LsSf https://astral.sh/uv/install.sh)"
+  args:
+    executable: /bin/bash
+    creates:
+      - "{{ ansible_facts['env']['HOME'] }}/.local/bin/uv"
+      - "{{ ansible_facts['env']['HOME'] }}/.local/bin/uvx"
