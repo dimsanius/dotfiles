@@ -21,11 +21,11 @@ package-update() {
         fi
     }
 
-    _run sudo update-manager
+    _run update-manager --debug
     echo
     _run uv self update
     echo
-    _run chezmoi upgrade
+    _run chezmoi --verbose upgrade
     echo
     _run upgrade_oh_my_zsh_custom
     echo
