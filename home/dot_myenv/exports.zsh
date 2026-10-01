@@ -1,7 +1,7 @@
 # --- PATH ---
 case ":$PATH:" in
-    *":$HOME/.local/bin:"*) ;;
-    *) export PATH="$HOME/.local/bin:$PATH" ;;
+*":$HOME/.local/bin:"*) ;;
+*) export PATH="$HOME/.local/bin:$PATH" ;;
 esac
 
 # --- fzf ---
@@ -21,3 +21,6 @@ export ZOXIDE_CMD_OVERRIDE=cd
 # --- OMZ autoupdate ---
 export ZSH_CUSTOM_AUTOUPDATE_QUIET=1
 export ZSH_CUSTOM_AUTOUPDATE_NUM_WORKERS=8
+
+# --- OMZ auto-notify ----
+export AUTO_NOTIFY_THRESHOLD=300
