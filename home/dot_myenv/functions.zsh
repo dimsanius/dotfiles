@@ -10,7 +10,7 @@ package-update() {
         current=$(zoxide --version | awk '{print $2}')
         latest=$(
             curl -fsSL https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest |
-            jq -r '.tag_name | ltrimstr("v")'
+                jq -r '.tag_name | ltrimstr("v")'
         )
 
         if [[ "$(printf '%s\n%s\n' "$current" "$latest" | sort -V | tail -1)" != "$current" ]]; then
@@ -21,11 +21,7 @@ package-update() {
         fi
     }
 
-    _run sudo nala update
-    echo
-    _run sudo nala upgrade
-    echo
-    _run sudo snap refresh
+    _run sudo update-manager
     echo
     _run uv self update
     echo
