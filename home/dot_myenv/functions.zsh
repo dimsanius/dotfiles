@@ -21,7 +21,7 @@ package-update() {
         fi
     }
 
-    _run update-manager --debug
+    _run update-manager
     echo
     _run uv self update
     echo
