@@ -9,6 +9,8 @@ export FZF_BASE="/usr/bin/fzf"
 export FZF_DEFAULT_COMMAND="fdfind -u --exclude .git --exclude .venv --exclude .env --exclude '*.pyc'"
 export DISABLE_FZF_AUTO_COMPLETION=true
 export DISABLE_FZF_KEY_BINDINGS=true
+
+# For customisation preview: https://vitormv.github.io/fzf-themes/
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }\
 --prompt='❯' \
 --pointer='❯' \
