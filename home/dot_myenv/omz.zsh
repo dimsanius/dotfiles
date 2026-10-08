@@ -1,3 +1,5 @@
+# Disable automatic updates
+zstyle ':omz:update' mode disabled
 
 # Init home
 ZSH="$HOME/.oh-my-zsh"
