@@ -41,6 +41,7 @@ for current_attempt in $(seq 1 "$max_attempts"); do
         --with-requirements "$BOOTSTRAP_DIR/requirements.txt" \
         --from ansible-core \
         ansible-playbook "$ANSIBLE_PLAYBOOK" \
+        -e "docker_user=$(whoami)" \
         --ask-become-pass; then
         # Ansible run succeeded
         log "[attempt $current_attempt of $max_attempts] Ansible completed successfully"
