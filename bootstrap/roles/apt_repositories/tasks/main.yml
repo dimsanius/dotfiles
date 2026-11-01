@@ -29,3 +29,16 @@
   loop: "{{ apt_repositories_repos }}"
   loop_control:
     label: "{{ item.name }}"
+
+- name: Create docker group
+  become: true
+  ansible.builtin.group:
+    name: docker
+    state: present
+
+- name: Add current use to docker group
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: true
