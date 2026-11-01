@@ -24,6 +24,8 @@
 - name: Install packages
   become: true
   ansible.builtin.apt:
-    name: "{{ item.package }}"
+    name: "{{ item.packages }}"
     state: present
   loop: "{{ apt_repositories_repos }}"
+  loop_control:
+    label: "{{ item.name }}"

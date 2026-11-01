@@ -7,27 +7,27 @@ apt_repositories_repos:
     suites: stable
     components: main
     signed_by: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    package: brave-browser
+    packages: brave-browser
 
   - name: vscode
     uris: https://packages.microsoft.com/repos/vscode
     suites: stable
     components: main
     signed_by: https://packages.microsoft.com/keys/microsoft.asc
-    package: code
+    packages: code
 
   - name: tailscale
     uris: https://pkgs.tailscale.com/stable/ubuntu
     suites: "{{ ansible_facts.distribution_release }}"
     components: main
     signed_by: "https://pkgs.tailscale.com/stable/ubuntu/{{ ansible_facts.distribution_release }}.noarmor.gpg"
-    package: tailscale
+    packages: tailscale
 
   - name: sublime-text
     uris: https://download.sublimetext.com/
     suites: apt/stable/
     signed_by: https://download.sublimetext.com/sublimehq-pub.gpg
-    package: sublime-text
+    packages: sublime-text
 
   - name: fastfetch
     uris: https://ppa.launchpadcontent.net/zhangsongcui3371/fastfetch/ubuntu
@@ -35,14 +35,14 @@ apt_repositories_repos:
     components: main
     # Retrieve key from: https://launchpad.net/~zhangsongcui3371/+archive/ubuntu/fastfetch
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xEB65EE19D802F3EB1A13CFE47E2E5CB4D4865F21
-    package: fastfetch
+    packages: fastfetch
 
   - name: google-chrome
     uris: https://dl.google.com/linux/chrome-stable/deb/
     suites: stable
     components: main
     signed_by: https://dl.google.com/linux/linux_signing_key.pub
-    package: google-chrome-stable
+    packages: google-chrome-stable
 
   - name: kicad
     uris: https://ppa.launchpadcontent.net/kicad/kicad-10.0-releases/ubuntu/
@@ -50,14 +50,14 @@ apt_repositories_repos:
     components: main
     # Retrieve key from: https://launchpad.net/~kicad/+archive/ubuntu/kicad-10.0-releases
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xfda854f61c4d0d9572bb95e5245d5502fad7a805
-    package: kicad
+    packages: kicad
 
   - name: virtualbox
     uris: https://download.virtualbox.org/virtualbox/debian
     suites: "{{ ansible_facts.distribution_release }}"
     components: contrib
     signed_by: https://www.virtualbox.org/download/oracle_vbox_2016.asc
-    package: virtualbox-7.2
+    packages: virtualbox-7.2
 
   - name: terminator
     uris: https://ppa.launchpadcontent.net/mattrose/terminator/ubuntu/
@@ -65,4 +65,17 @@ apt_repositories_repos:
     components: main
     # Retrieve key from: https://launchpad.net/~mattrose/+archive/ubuntu/terminator
     signed_by: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x64DD261C8598A6BAE2A20BD3BD2FE0A01E3164DB
-    package: terminator
+    packages: terminator
+  
+  - name: docker
+    uris: https://download.docker.com/linux/ubuntu
+    suites: "{{ ansible_facts.distribution_release }}"
+    components: stable
+    signed_by: https://download.docker.com/linux/ubuntu/gpg
+    packages:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+
